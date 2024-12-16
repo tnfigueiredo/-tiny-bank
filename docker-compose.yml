@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+
+  appdocs:
+    image: squidfunk/mkdocs-material:latest
+    container_name: mkdocs_appdocs
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${PWD}:/docs
+    command: serve -a 0.0.0.0:8000
+
+  testdocs:
+    image: httpd:latest
+    container_name: testdocs
+    ports:
+      - "8081:80"
+    volumes:
+      - ./e2e:/usr/local/apache2/htdocs
