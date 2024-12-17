@@ -22,3 +22,12 @@ This context represents the idea of the application as a whole.
 
 ![System Context](./assets/system-context.svg)
 
+## Core ideas
+
+ * All the information that a user needs to see in its on-line channels is represented in the on-line model. It is the resul of all the
+    operations triggered against the banking database.
+ * All the historical information that needs to be represented in the user's actions, is represented through events. This allow 
+   us to keep track of the historical steps executed by a user.
+   * Features like account balance can take advantage from on-line position
+   * Transactions history can take advantage of events repository.
+
