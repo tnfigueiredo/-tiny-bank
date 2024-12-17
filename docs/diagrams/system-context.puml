@@ -1,0 +1,19 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Context.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Tiny Bank 2.0
+
+Person(customer, "Banking Customer", "A customer of the bank, with personal bank accounts.")
+System(banking_system, "Internet Banking System", "Allows customers to interact with their bank accounts and verify transactions operations.")
+
+System(account_operations, "Banking On-line Data", "Saves all user on-line data for banking operations, backoffice support, and reports.")
+System(account_events, "Events Repository", "Stores all the events related to users actions in the banking system.")
+
+Rel(customer, banking_system, "Uses")
+Rel_Neighbor(banking_system, account_operations, "Saves data", "TCP")
+Rel(banking_system, account_events, "Store Events", "Message")
+@enduml
