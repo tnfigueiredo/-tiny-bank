@@ -54,6 +54,7 @@ dependencies {
 	testImplementation("org.junit.vintage:junit-vintage-engine:5.10.1")
 	testImplementation("io.cucumber:cucumber-spring:7.14.0")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	testImplementation("io.kotest:kotest-runner-junit5:5.8.0")
 }
 
 graalvmNative {
