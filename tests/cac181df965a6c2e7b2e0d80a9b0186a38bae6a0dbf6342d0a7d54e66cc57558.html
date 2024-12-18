@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Create an account successfully</title>
+    <title>Deactivate an account for a non existing national ID</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -124,8 +124,8 @@
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
             > <a href="06c7fc9bac884671d8983aabd214fa4c20d1e69b5232f54148bf4185e71bfc09.html">User</a>
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
-            > <a href="5affee527dead203536d6f0e7e114a55d28d8f52d414a21fb6bd3827f19e97e5.html">Create User</a>
-        > Create an account successfully
+            > <a href="e6085112a7d93f3afb0a311085445e2c9bf4776e7a2ea7109d2da5207bf192e3.html">Deactivate User</a>
+        > Deactivate an account for a non existing national ID
         </span>
         </div>
         <div class="rightbg"></div>
@@ -164,7 +164,7 @@
                                 <div>
                                     <h3 class="discreet-story-header">
                                         <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
-                                        <span class="story-header-title">Create User </span>
+                                        <span class="story-header-title">Deactivate User </span>
                                     </h3>
 
                                 </div>
@@ -198,7 +198,7 @@
                             <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-hourglass-top pending-icon fa-2x' title='PENDING'></i></a></span>
                             <span class="test-case-title">
                                 <span class="pending-color">
-                                    Create an account successfully
+                                    Deactivate an account for a non existing national ID
                                         <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -249,7 +249,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Given a client with name "Jhon", surname "Doe", document type "National ID", document "abcdefg", country "PT"
+                                                Given the client identification for document type "National ID", document "12343532", country "PT"
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -257,7 +257,7 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">IGNORED</span></td>
-                    <td width="100"><span class="top-level-step">030ms</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
                 </tr>
                 <tr class="test-IGNORED">
 
@@ -271,7 +271,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                And there is no client with this document type and document identification
+                                                When the account deactivation is requested
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -279,7 +279,7 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">IGNORED</span></td>
-                    <td width="100"><span class="top-level-step">001ms</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
                 </tr>
                 <tr class="test-IGNORED">
 
@@ -293,7 +293,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                When the account creation is requested
+                                                And the client identification have no record in Tiny Bank
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -315,7 +315,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Then the client's register and account are created successfully
+                                                Then the client's account deactivation is denied
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -328,7 +328,7 @@
             <tr class="test-PENDING">
                     <td colspan="2"></td>
                 <td width="130"><span class="top-level-step"><em>PENDING</em></span></td>
-                <td width="100"><span class="top-level-step"><em>0.05s</em></span></td>
+                <td width="100"><span class="top-level-step"><em>0.01s</em></span></td>
             </tr>
 
         </table>

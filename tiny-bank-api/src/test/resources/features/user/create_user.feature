@@ -10,14 +10,23 @@ Feature: Create User
 
       @pending
       Scenario: Create an account successfully
-        Given a new client with name "Jhon", surname "Doe", document type "National ID", document "abcdefg", country "PT"
+        Given a client with name "Jhon", surname "Doe", document type "National ID", document "abcdefg", country "PT"
         And there is no client with this document type and document identification
         When the account creation is requested
         Then the client's register and account are created successfully
 
       @pending
       Scenario: Create an account with duplicated national ID
-        Given a new client with name "Jhon", surname "Doe", document type "National ID", document "abcdefg", country "PT"
+        Given a client with name "Jhon", surname "Doe", document type "National ID", document "abcdefg", country "PT"
         And there is a client with the document type "National ID", document "abcdefg", country "PT"
         When the account creation is requested
         Then the client's register and account are denied
+
+  Rule: When the person is a client with already existing national document registered in Tiny Bank, the client's account can be reactivated
+
+    @pending
+    Scenario: Reactivate an account successfully
+      Given a client with name "Jhonny", surname "Doe", document type "National ID", document "123465", country "PT"
+      And there is a client with the document type "National ID", document "123465", country "PT"
+      When the account activation is requested
+      Then the client's account is activated
