@@ -67,3 +67,11 @@ markdown_extensions:
 
 nav:
   - index.md
+  - ADRs:
+      - adrs/ADR00-project-decisions-documentation.md
+      - adrs/ADR01-use-docker-to-present-project-documentation.md
+      - adrs/ADR02-use-MkDocs-to-present-markdown-content.md
+      - adrs/ADR03-use-BDD-for-test-approach.md
+      - adrs/ADR04-use-C4-Model-for-diagrams.md
+      - adrs/ADR05-use-map-structure-to-store-data.md
+      - adrs/ADR06-no-login-implementation.md

@@ -17,9 +17,10 @@ implementation. As a starting point to guide the reasoning presented here was th
     (Feel free to cut down as much as you need to fit the solution into the time you have available)
 
 Based on this statement I decided to take some time to write some scratches for the requirements and to register 
-design decisions. I'll try to follow a BDD and Agile Modeling approach for that. The idea is to keep documentation as 
-simple as possible, and also describe the requirements trying to follow a testing approach that can allow me to validate 
-the requirements for the proposed features.
+design decisions. Decisions will be recorded using the Architectural Decision Records approach. This make it easier to 
+understand all the assumptions taken during the project development. I'll try to follow a BDD and Agile Modeling 
+approach for that. The idea is to keep documentation as simple as possible, and also describe the requirements trying 
+to follow a testing approach that can allow me to validate the requirements for the proposed features.
 
 To allow me to bring more visibility to the approach and reasoning applied, I'll try to follow a "baby steps" commit 
 approach. This will make it possible to have an idea of the whole process related to the progress of the activity.
@@ -43,10 +44,6 @@ running application itself. Those are the services running in this docker-compos
  - tiny-bank-api: it is the RESTful API service related to the project requirements. This project is accessible through an 
 OpenAPI HTML interface.
 
-This decision was taken to allow navigating the project documentation and implementation having as the starting point
-the project running environment itself. This can provide a more interactive environment, and also allow an approach in 
-which documentation and source code belong to a unified deliverable environment.
-
 ## How to run it
 
 to run the project locally, it is necessary to have installed only [Docker](https://docs.docker.com/engine/install/) and 
@@ -58,8 +55,7 @@ browser:
  - testdocs: http://localhost:8081
  - tiny-bank-api: http://localhost:8080/tiny-bank/api/swagger-ui/index.html
 
-If it is necessary to modify, build, and run the Kotlin project locally 
-it is necessary to [install Java 17](https://openjdk.org/projects/jdk/17/) and an IDE of your choice.
+If it is necessary to modify, build, and run the Kotlin project locally it is necessary to [install Java 17](https://openjdk.org/projects/jdk/17/) and an IDE of your choice.
 
 
 ## Reference Documentation
@@ -70,3 +66,4 @@ For further reference, please consider the following sections:
  * [MkDocs.org](https://www.mkdocs.org/)
  * [Agile Modeling](https://agilemodeling.com/)
  * [Living Documentation](https://serenity-bdd.github.io/docs/reporting/living_documentation)
+ * [Architectural Decision Records](https://adr.github.io/).
