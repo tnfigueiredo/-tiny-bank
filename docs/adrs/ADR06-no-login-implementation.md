@@ -7,3 +7,5 @@ as necessary, it was evaluated if login structure will be implemented in the app
 
 ## Decision Outcome
 
+There will be no login implementation. This will reduce complexity for the application implementation. No 
+other options were taken in consideration.
