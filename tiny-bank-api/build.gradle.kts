@@ -143,7 +143,3 @@ tasks.register("saveTestResults") {
 		}
 	}
 }
-
-tasks.named("aggregate") {
-	finalizedBy("saveTestResults")
-}
