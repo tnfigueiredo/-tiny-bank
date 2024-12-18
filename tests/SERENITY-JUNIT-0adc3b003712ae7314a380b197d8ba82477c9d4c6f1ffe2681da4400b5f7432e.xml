@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Create User" skipped="2" tests="2" time="0.05" timestamp="2024-12-18 12:19:55"><testcase name="Create an account successfully"><skipped/></testcase><testcase name="Create an account with duplicated national ID"><skipped/></testcase></testsuite>

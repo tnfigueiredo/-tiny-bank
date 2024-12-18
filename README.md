@@ -56,7 +56,7 @@ browser:
 
  - appdocs. http://localhost:8000
  - testdocs: http://localhost:8081
- - 
+ - tiny-bank-api: http://localhost:8080/tiny-bank/api/swagger-ui/index.html
 
 If it is necessary to modify, build, and run the Kotlin project locally 
 it is necessary to [install Java 17](https://openjdk.org/projects/jdk/17/) and an IDE of your choice.

@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: "Tiny Bank API"
+
+server:
+  port: 8080
+  servlet:
+    context-path: /tiny-bank/api

@@ -17,4 +17,9 @@ services:
     ports:
       - "8081:80"
     volumes:
-      - ./e2e:/usr/local/apache2/htdocs
+      - ./tests:/usr/local/apache2/htdocs
+
+  tiny-bank-api:
+    build: ./tiny-bank-api
+    ports:
+      - 8080:8080
