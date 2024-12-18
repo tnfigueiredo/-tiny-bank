@@ -4,7 +4,7 @@ Feature: Create User
 
   **As a** person that wants to become a Tiny Bank client
   **I want to** provide my registration information
-  **So that I can** create an account
+  **So that I can** have an active bank account
 
   Rule: When the person never had registered in the Tiny bank as a client it is needed all the registration information.This person must have a unique document from a specific type and country, otherwise it is considered someone already registered.
 
