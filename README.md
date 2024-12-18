@@ -40,7 +40,7 @@ running application itself. Those are the services running in this docker-compos
 
  - appdocs: it is a MkDocs service based on a Docker image that generate html documentation based on markdown files.
  - testdocs: it is a httpd image that makes available HTML documentation generated through the project's build test result.
- - appservice: it is the RESTful API service related to the project requirements. This project is accessible through an 
+ - tiny-bank-api: it is the RESTful API service related to the project requirements. This project is accessible through an 
 OpenAPI HTML interface.
 
 This decision was taken to allow navigating the project documentation and implementation having as the starting point
