@@ -1,9 +1,12 @@
 package com.tnfigueiredo.tinybank.model
 
+import com.tnfigueiredo.tinybank.model.ActivationStatus.ACTIVE
+import com.tnfigueiredo.tinybank.model.ActivationStatus.DEACTIVATED
 import java.util.UUID
 
-data class EntityError(
-    val message: String?
+data class RestResponse(
+    val message: String? = null,
+    val data: Any? = null
 )
 
 data class User(
@@ -12,13 +15,24 @@ data class User(
     val surname: String,
     val docType: DocType,
     val document: String,
-    val docCountry: String
+    val docCountry: String,
+    val status: ActivationStatus = ACTIVE
 ) {
     fun isUserDocument(docType: DocType, document: String, docCountry: String): Boolean =
         this.docType == docType && this.document == document && this.docCountry == docCountry
+
+    fun isUserActive(): Boolean = this.status == ACTIVE
+
+    fun deactivateUser(): User = this.copy(status = DEACTIVATED)
+
+    fun activateUser(): User = this.copy(status = ACTIVE)
 }
 
 enum class DocType{
     NATIONAL_ID,
     PASSPORT
+}
+
+enum class ActivationStatus{
+    ACTIVE, DEACTIVATED
 }

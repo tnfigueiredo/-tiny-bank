@@ -11,7 +11,7 @@ interface UserRepository{
 
     fun saveOrUpdate(user: User): Result<User?>
 
-    fun deleteAll():Unit
+    fun deleteAll()
 
 }
 
@@ -24,7 +24,7 @@ class UserRepositoryImpl:UserRepository {
     override fun saveOrUpdate(user: User): Result<User?> = kotlin.runCatching {
         when{
             user.id == null -> {
-                findUserByDocumentInfo(user.docType, user.document, user.docCountry)?.let { throw DataDuplicatedException("Duplicated user document.") }
+                findUserByDocumentInfo(user.docType, user.document, user.docCountry)?.let { throw DataDuplicatedException("Duplicated user document: $user.") }
                 val userToBeSaved = user.copy(id = UUID.randomUUID())
                 userRepo[userToBeSaved.id!!] = userToBeSaved
                 userToBeSaved
@@ -33,7 +33,7 @@ class UserRepositoryImpl:UserRepository {
             else -> {
                 userRepo[user.id]?.let { userToBeUpdated ->
                     findUserByDocumentInfo(user.docType, user.document, user.docCountry)
-                        ?.let { userWithDocument -> if(userWithDocument != userToBeUpdated) throw DataDuplicatedException("Duplicated user document.")}
+                        ?.let { userWithDocument -> if(userWithDocument != userToBeUpdated) throw DataDuplicatedException("Duplicated user document: $user.")}
                     val userToBeSaved = userToBeUpdated.copy(name = user.name, surname = user.surname, docType = user.docType, docCountry = user.docCountry)
                     userRepo[user.id] = userToBeSaved
                     userToBeSaved

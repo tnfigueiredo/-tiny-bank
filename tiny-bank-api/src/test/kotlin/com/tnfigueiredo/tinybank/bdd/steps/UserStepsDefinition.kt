@@ -1,6 +1,7 @@
-package com.tnfigueiredo.tinybank.bdd.user
+package com.tnfigueiredo.tinybank.bdd.steps
 
 import com.tnfigueiredo.tinybank.model.DocType
+import com.tnfigueiredo.tinybank.model.RestResponse
 import com.tnfigueiredo.tinybank.model.User
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
@@ -12,16 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import java.util.*
 
 
 class UserStepsDefinition {
 
     private companion object{
         lateinit var userToSubmit: User
-        lateinit var result: ResponseEntity<User>
-        const val BASE_SERVICE_PATH = "/v1.0/users"
-        val A_RANDOM_ID: UUID = UUID.fromString("eae467d9-deb2-49b3-aaf5-f1e146e567e1")
+        lateinit var result: ResponseEntity<RestResponse>
+        const val BASE_SERVICE_PATH = "/users"
     }
 
     @Autowired
@@ -47,14 +46,17 @@ class UserStepsDefinition {
         //TODO Implement
     }
 
-    @Given("there is a client with the document type {string}, document {string}, country {string}")
-    fun there_is_a_client_with_the_document_type_document_country(string: String?, string2: String?, string3: String?) {
-        //TODO Implement
+    @And("there is a client with the document type {string}, document {string}, country {string}")
+    fun there_is_a_client_with_the_document_type_document_country(doctype: String, document: String, country: String) {
+        val existingUser = User(name = "ANOTHER_NAME", surname = "ANOTHER_SURNAME", docType = DocType.valueOf(doctype), document = document, docCountry = country)
+        val existingUserResult = restTemplate.postForEntity(BASE_SERVICE_PATH, existingUser, RestResponse::class.java)
+        existingUserResult.statusCode shouldBeEqual HttpStatus.OK
+        existingUserResult.body?.data.shouldNotBeNull()
     }
 
-    @When("the account creation is requested")
+    @When("the register creation is requested")
     fun the_account_creation_is_requested() {
-        result = restTemplate.postForEntity(BASE_SERVICE_PATH, userToSubmit, User::class.java)
+        result = restTemplate.postForEntity(BASE_SERVICE_PATH, userToSubmit, RestResponse::class.java)
     }
 
     @When("the account activation is requested")
@@ -72,16 +74,16 @@ class UserStepsDefinition {
         //TODO Implement
     }
 
-    @Then("the client's register and account are created successfully")
+    @Then("the client's register is created successfully")
     fun the_client_s_register_and_account_are_created_successfully() {
-        result.shouldNotBeNull()
         result.statusCode shouldBeEqual HttpStatus.OK
-        result.body.shouldNotBeNull()
+
     }
 
-    @Then("the client's register and account are denied")
+    @Then("the client's register is denied due to duplicated documentation information")
     fun the_client_s_register_and_account_are_denied() {
-        //TODO Implement
+        result.statusCode shouldBeEqual HttpStatus.BAD_REQUEST
+        result.body?.message?.shouldBeEqual("Duplicated user document: $userToSubmit.")
     }
 
     @Then("the client's account is activated")
@@ -89,7 +91,7 @@ class UserStepsDefinition {
         //TODO Implement
     }
 
-    @Then("the client's account is deactivated")
+    @Then("the client's register and account are reactivated")
     fun the_client_s_account_is_deactivated() {
         //TODO Implement
     }
@@ -99,9 +101,25 @@ class UserStepsDefinition {
         //TODO Implement
     }
 
-    @And("the client's account data is updated")
+    @And("the client's account is deactivated")
     fun the_client_s_account_data_is_updated() {
         //TODO Implement
+    }
+
+    @Then("the user data is updated")
+    fun the_user_data_is_updated() {
+        //TODO Implement
+    }
+
+    @Then("the client's data matches the submitted date")
+    fun the_client_s_data_matches_the_submitted_date() {
+        result.body.shouldNotBeNull()
+        (result.body!!.data as Map<*, *>)["name"]?.shouldBeEqual(userToSubmit.name)
+        (result.body!!.data as Map<*, *>)["surname"]?.shouldBeEqual(userToSubmit.surname)
+        (result.body!!.data as Map<*, *>)["docType"]?.shouldBeEqual(userToSubmit.docType.name)
+        (result.body!!.data as Map<*, *>)["document"]?.shouldBeEqual(userToSubmit.document)
+        (result.body!!.data as Map<*, *>)["docCountry"]?.shouldBeEqual(userToSubmit.docCountry)
+        (result.body!!.data as Map<*, *>)["status"]?.shouldBeEqual(userToSubmit.status.name)
     }
 
 }

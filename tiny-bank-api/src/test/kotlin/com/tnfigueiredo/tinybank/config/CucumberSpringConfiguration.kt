@@ -9,7 +9,6 @@ import org.springframework.test.context.ActiveProfiles
     properties = [
         "spring.main.allow-bean-definition-overriding=true"
     ],
-    classes = [TestConfiguration::class],
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 @CucumberContextConfiguration

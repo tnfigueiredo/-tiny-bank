@@ -11,14 +11,14 @@ Feature: Deactivate User
 
     @pending
     Scenario: Deactivate an account for a national ID
-      Given the client identification for document type "National ID", document "abcdefg", country "PT"
-      And there is a client with the document type "National ID", document "abcdefg", country "PT"
+      Given the client identification for document type "NATIONAL_ID", document "34khj543k", country "PT"
+      And there is a client with the document type "NATIONAL_ID", document "34khj543k", country "PT"
       When the account deactivation is requested
       Then the client's account is deactivated
 
     @pending
     Scenario: Deactivate an account for a non existing national ID
-      Given the client identification for document type "National ID", document "12343532", country "PT"
+      Given the client identification for document type "NATIONAL_ID", document "12343532", country "PT"
       When the account deactivation is requested
       And the client identification have no record in Tiny Bank
       Then the client's account deactivation is denied

@@ -8,24 +8,24 @@ Feature: Create User
 
   Rule: When the person never had registered in the Tiny bank as a client it is needed all the registration information.This person must have a unique document from a specific type and country, otherwise it is considered someone already registered.
 
-
-      Scenario: Create an account successfully
+      Scenario: Register an user successfully
         Given a client with name "Jhon", surname "Doe", document type "NATIONAL_ID", document "abcdefg", country "PT"
-        When the account creation is requested
-        Then the client's register and account are created successfully
+        When the register creation is requested
+        Then the client's register is created successfully
+        And the client's data matches the submitted date
 
-      @pending
-      Scenario: Fail to create an account with duplicated national ID
-        Given a client with name "Jhon", surname "Doe", document type "NATIONAL_ID", document "abcdefg", country "PT"
-        And there is a client with the document type "National ID", document "abcdefg", country "PT"
-        When the account creation is requested
-        Then the client's register and account are denied
+      Scenario: Fail to register an user with duplicated national ID
+        Given a client with name "Jhon", surname "Doe", document type "NATIONAL_ID", document "34123413", country "PT"
+        And there is a client with the document type "NATIONAL_ID", document "34123413", country "PT"
+        When the register creation is requested
+        Then the client's register is denied due to duplicated documentation information
 
   Rule: When the person is a client with already existing national document registered in Tiny Bank, the client's account can be reactivated
 
     @pending
-    Scenario: Reactivate an account successfully
+    Scenario: Reactivate an account when a deactivated user tries a new register
       Given a client with name "Jhonny", surname "Doe", document type "NATIONAL_ID", document "123465", country "PT"
-      And there is a client with the document type "National ID", document "123465", country "PT"
+      And there is a client with the document type "NATIONAL_ID", document "123465", country "PT"
       When the account activation is requested
-      Then the client's account is activated
+      Then the client's register and account are reactivated
+      And the user data is updated
