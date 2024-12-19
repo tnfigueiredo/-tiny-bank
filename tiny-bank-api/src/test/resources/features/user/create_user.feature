@@ -8,16 +8,15 @@ Feature: Create User
 
   Rule: When the person never had registered in the Tiny bank as a client it is needed all the registration information.This person must have a unique document from a specific type and country, otherwise it is considered someone already registered.
 
-      @pending
+
       Scenario: Create an account successfully
-        Given a client with name "Jhon", surname "Doe", document type "National ID", document "abcdefg", country "PT"
-        And there is no client with this document type and document identification
+        Given a client with name "Jhon", surname "Doe", document type "NATIONAL_ID", document "abcdefg", country "PT"
         When the account creation is requested
         Then the client's register and account are created successfully
 
       @pending
-      Scenario: Create an account with duplicated national ID
-        Given a client with name "Jhon", surname "Doe", document type "National ID", document "abcdefg", country "PT"
+      Scenario: Fail to create an account with duplicated national ID
+        Given a client with name "Jhon", surname "Doe", document type "NATIONAL_ID", document "abcdefg", country "PT"
         And there is a client with the document type "National ID", document "abcdefg", country "PT"
         When the account creation is requested
         Then the client's register and account are denied
@@ -26,7 +25,7 @@ Feature: Create User
 
     @pending
     Scenario: Reactivate an account successfully
-      Given a client with name "Jhonny", surname "Doe", document type "National ID", document "123465", country "PT"
+      Given a client with name "Jhonny", surname "Doe", document type "NATIONAL_ID", document "123465", country "PT"
       And there is a client with the document type "National ID", document "123465", country "PT"
       When the account activation is requested
       Then the client's account is activated

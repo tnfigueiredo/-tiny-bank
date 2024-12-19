@@ -1,6 +1,7 @@
 package com.tnfigueiredo.tinybank.services
 
 import com.tnfigueiredo.tinybank.exceptions.BusinessRuleValidationException
+import com.tnfigueiredo.tinybank.exceptions.DataDuplicatedException
 import com.tnfigueiredo.tinybank.exceptions.DataNotFoundException
 import com.tnfigueiredo.tinybank.model.DocType.PASSPORT
 import com.tnfigueiredo.tinybank.model.User
@@ -8,15 +9,14 @@ import com.tnfigueiredo.tinybank.repositories.UserRepository
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.types.shouldBeInstanceOf
 import org.junit.jupiter.api.Test
-import org.mockito.ArgumentMatchers.any
 import org.mockito.Mockito.`when`
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.bean.override.mockito.MockitoBean
-import java.util.*
+import java.util.UUID
 
 @SpringBootTest
-internal class UserServiceTest {
+internal class UserServiceImplTest {
 
     private companion object{
         val aUser = User(UUID.randomUUID(), "A_NAME", "A_SURNAME", PASSPORT, "A_PASSPORT", "A_COUNTRY")
@@ -26,7 +26,7 @@ internal class UserServiceTest {
     lateinit var userRepository: UserRepository
 
     @Autowired
-    lateinit var userService: UserService
+    lateinit var userService: UserServiceImpl
 
     @Test
     fun `when repository create a user successfully`() {
@@ -40,6 +40,13 @@ internal class UserServiceTest {
         `when`(userRepository.saveOrUpdate(aUser)).thenReturn(Result.failure(DataNotFoundException("Data not found")))
         val result = userService.createOrUpdateUser(aUser).exceptionOrNull()!!
         result.shouldBeInstanceOf<DataNotFoundException>()
+    }
+
+    @Test
+    fun `when the repository fails due to data duplication`() {
+        `when`(userRepository.saveOrUpdate(aUser)).thenReturn(Result.failure(DataDuplicatedException("Data duplicated")))
+        val result = userService.createOrUpdateUser(aUser).exceptionOrNull()!!
+        result.shouldBeInstanceOf<DataDuplicatedException>()
     }
 
     @Test

@@ -154,7 +154,7 @@
             $("#requirements-tabs").tabs();
             $("#test-tabs").tabs();
 
-            var requirementsTree = [{"text":"User","type":"capability","href":"06c7fc9bac884671d8983aabd214fa4c20d1e69b5232f54148bf4185e71bfc09.html","nodes":[{"text":"Create User","type":"feature","href":"5affee527dead203536d6f0e7e114a55d28d8f52d414a21fb6bd3827f19e97e5.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-hourglass-top pending-icon \u0027 title\u003d\u0027PENDING\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e3 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e3 test cases\u003c/span\u003e"]},{"text":"Deactivate User","type":"feature","href":"e6085112a7d93f3afb0a311085445e2c9bf4776e7a2ea7109d2da5207bf192e3.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-hourglass-top pending-icon \u0027 title\u003d\u0027PENDING\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e2 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e2 test cases\u003c/span\u003e"]}],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-hourglass-top pending-icon \u0027 title\u003d\u0027PENDING\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e2 features\u003c/span\u003e "]}];
+            var requirementsTree = [];
 
             $('#tree').treeview({
                 data: requirementsTree,
@@ -203,7 +203,7 @@
 
 
 
-                    > <span class="truncate-40">User</span>
+                    > <span class="truncate-40">Users epic</span>
 
             </span>
         </div>
@@ -228,7 +228,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 18-12-2024 03:23</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated </span>
     <br style="clear:left"/>
 </div>
 
@@ -245,14 +245,19 @@
 
                                     <div class="col-sm-12">
                                         <span>
-                                            <h2><i class="bi bi-book"></i> Capability: User</h2>
+                                            <h2><i class="bi bi-book"></i> Capability: Users epic</h2>
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                             <div class="requirementNarrativeTitle">
-                                
+                                The user stories related to this epic are:</p>
+<ul>
+<li>create user</li>
+<li>deactivate user</li>
+</ul>
+<p>All the possible scenarios are covered in the features descriptions and business use cases.
                             </div>
 
                     </div>
@@ -282,9 +287,6 @@
                                                 <h3>Feature Coverage By Scenario</h3>
 
                                                 <!-- REQUIREMENTS PIE CHART -->
-                                                    <div class="chart-container" style="position: relative; width:30vw">
-                                                        <canvas id="requirementChart" width="300" height="300"></canvas>
-                                                    </div>
 
                                             </div>
                                             <div class="col-sm-8">
@@ -302,60 +304,60 @@
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>5</td>
+                    <td>0</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>5</td>
+                    <td>0</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Dec 18, 2024 03:23:10</td>
+                    <td></td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Dec 18, 2024 03:23:10</td>
+                    <td></td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>156ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>5ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>51ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>15ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>75ms</td>
+                    <td>0ms</td>
                 </tr>
                 </tbody>
             </table>
@@ -373,9 +375,6 @@
                                             <div class="col-sm-4">
                                                 <h3>Feature Coverage By Scenario</h3>
                                                 <!-- TEST RESULT PIE CHART -->
-                                                    <div class="chart-container" style="position: relative; width:30vw">
-                                                        <canvas id="resultChart" width="300" height="300"></canvas>
-                                                    </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
@@ -407,22 +406,22 @@
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>5</td>
+                    <td>0</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>156ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>5</td>
+                    <td>0</td>
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>5ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -433,30 +432,30 @@
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>51ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Dec 18, 2024 03:23:10</td>
+                    <td></td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>15ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Dec 18, 2024 03:23:10</td>
+                    <td></td>
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>75ms</td>
+                    <td>0ms</td>
                 </tr>
                 </tbody>
             </table>
@@ -465,96 +464,7 @@
 
                                                 <h3><i class="bi bi-gear"></i> Automated Tests</h3>
 
-                                                    <table class="scenario-result-table table" id="scenario-results">
-                                                        <thead>
-                                                        <tr>
-                                                            <th>feature</th>
-                                                            <th class="test-name-column">Scenario</th>
-                                                            <th>Context</th>
-                                                            <th>Steps</th>
-                                                            <th>Started</th>
-                                                            <th>Total Duration</th>
-                                                            <th>Result</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                                <tr class="scenario-result PENDING">
-                                                                    <td>
-                                                                            <a href="5affee527dead203536d6f0e7e114a55d28d8f52d414a21fb6bd3827f19e97e5.html">Create User</a>
-                                                                    </td>
-                                                                    <td>
-                                                                                <a href="0adc3b003712ae7314a380b197d8ba82477c9d4c6f1ffe2681da4400b5f7432e.html">Create an account successfully</a>
-                                                                    </td>
-                                                                    <td><span style="display:none"></span>
-                                                                    </td>
-                                                                    <td>4</td>
-                                                                    <td>03:23:10</td>
-                                                                    <td>051ms</td>
-                                                                    <td><a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a> <span style="display:none">PENDING</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class="scenario-result PENDING">
-                                                                    <td>
-                                                                            <a href="5affee527dead203536d6f0e7e114a55d28d8f52d414a21fb6bd3827f19e97e5.html">Create User</a>
-                                                                    </td>
-                                                                    <td>
-                                                                                <a href="384cd071dedc1cb58f8251f2101b73f7ae727046de0c696cf03d546c5c724a83.html">Create an account with duplicated national ID</a>
-                                                                    </td>
-                                                                    <td><span style="display:none"></span>
-                                                                    </td>
-                                                                    <td>4</td>
-                                                                    <td>03:23:10</td>
-                                                                    <td>007ms</td>
-                                                                    <td><a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a> <span style="display:none">PENDING</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class="scenario-result PENDING">
-                                                                    <td>
-                                                                            <a href="5affee527dead203536d6f0e7e114a55d28d8f52d414a21fb6bd3827f19e97e5.html">Create User</a>
-                                                                    </td>
-                                                                    <td>
-                                                                                <a href="5db4634daae5c48f1888b897c56a908f098b74f8d7569607271e0c376a98b3d9.html">Reactivate an account successfully</a>
-                                                                    </td>
-                                                                    <td><span style="display:none"></span>
-                                                                    </td>
-                                                                    <td>4</td>
-                                                                    <td>03:23:10</td>
-                                                                    <td>007ms</td>
-                                                                    <td><a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a> <span style="display:none">PENDING</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class="scenario-result PENDING">
-                                                                    <td>
-                                                                            <a href="e6085112a7d93f3afb0a311085445e2c9bf4776e7a2ea7109d2da5207bf192e3.html">Deactivate User</a>
-                                                                    </td>
-                                                                    <td>
-                                                                                <a href="1510412a8917d339fb3b12a58a500fa9ab52f549de0943267aa769d00b0b8a0f.html">Deactivate an account for a national ID</a>
-                                                                    </td>
-                                                                    <td><span style="display:none"></span>
-                                                                    </td>
-                                                                    <td>4</td>
-                                                                    <td>03:23:10</td>
-                                                                    <td>005ms</td>
-                                                                    <td><a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a> <span style="display:none">PENDING</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class="scenario-result PENDING">
-                                                                    <td>
-                                                                            <a href="e6085112a7d93f3afb0a311085445e2c9bf4776e7a2ea7109d2da5207bf192e3.html">Deactivate User</a>
-                                                                    </td>
-                                                                    <td>
-                                                                                <a href="cac181df965a6c2e7b2e0d80a9b0186a38bae6a0dbf6342d0a7d54e66cc57558.html">Deactivate an account for a non existing national ID</a>
-                                                                    </td>
-                                                                    <td><span style="display:none"></span>
-                                                                    </td>
-                                                                    <td>4</td>
-                                                                    <td>03:23:10</td>
-                                                                    <td>005ms</td>
-                                                                    <td><a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a> <span style="display:none">PENDING</span>
-                                                                    </td>
-                                                                </tr>
-                                                        </tbody>
-                                                    </table>
+                                                    No automated tests were executed
 
                                             </div>
                                         </div>
@@ -608,7 +518,7 @@
             datasets: [{
                 label: 'Test Results',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 5}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -703,7 +613,7 @@
             datasets: [{
                 label: 'Feature Coverage',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 5}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -799,7 +709,7 @@
             datasets: [
                 {
                     label: 'Automated',
-                    data: [0,5,0,0,0,0,0,0],
+                    data: [0,0,0,0,0,0,0,0],
                     backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                     borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                     borderWidth: 1
@@ -882,7 +792,7 @@
             datasets: [{
                 label: 'Number of tests per duration',
                 fill: false,
-                data: ['5','0','0','0','0','0','0','0'],
+                data: ['0','0','0','0','0','0','0','0'],
                 backgroundColor: 'rgba(83, 146, 255,0.5)',
                 borderColor: 'rgba(83, 146, 255, 1)',
             }]

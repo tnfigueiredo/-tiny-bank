@@ -154,7 +154,7 @@
             $("#requirements-tabs").tabs();
             $("#test-tabs").tabs();
 
-            var requirementsTree = [{"text":"Create User","type":"feature","href":"5affee527dead203536d6f0e7e114a55d28d8f52d414a21fb6bd3827f19e97e5.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-hourglass-top pending-icon \u0027 title\u003d\u0027PENDING\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e3 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e3 test cases\u003c/span\u003e"]}];
+            var requirementsTree = [];
 
             $('#tree').treeview({
                 data: requirementsTree,
@@ -201,7 +201,7 @@
             <span class="breadcrumbs">
             <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
 
-                > <a href="06c7fc9bac884671d8983aabd214fa4c20d1e69b5232f54148bf4185e71bfc09.html">User</a>
+                > <a href="06c7fc9bac884671d8983aabd214fa4c20d1e69b5232f54148bf4185e71bfc09.html">Users epic</a>
 
 
                     > <span class="truncate-40">Create user</span>
@@ -229,7 +229,7 @@
             <a href="#"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 18-12-2024 03:23</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated </span>
     <br style="clear:left"/>
 </div>
 
@@ -286,261 +286,83 @@
                                                 <h3>Feature Coverage By Scenario</h3>
 
                                                 <!-- REQUIREMENTS PIE CHART -->
-                                                    <div class="chart-container" style="position: relative; width:30vw">
-                                                        <canvas id="requirementChart" width="300" height="300"></canvas>
-                                                    </div>
 
                                             </div>
                                             <div class="col-sm-8">
-                                                <!--- TOC --->
-                                                <div id="toc">
-                                                    <h3>Overview</h3>
-                                                    <table class="table" id="toc-table">
-                                                                <tr>
-                                                                    <td class="rule-toc-entry" colspan="2">
-                                                                        <a href="#74f72021-731e-4def-86f2-3738c0439df2"
-                                                                           title="View scenario details for this rule">
-                                                                            Rule: When the person never had registered in the Tiny bank as a client it is needed all the registration information.This person must have a unique document from a specific type and country, otherwise it is considered someone already registered.
-                                                                    </td>
-                                                                </tr>
-                                                                    <tr>
-                                                                        <td style="width:95%;" class="toc-title">
-                                                                            <span class="scenario-toc-entry">
-                                                                                    <a href="#8393129f8bd9e8c4d396b563c6be4e8346bdd5fc814d78d1718c9dc428ca81c8"
-                                                                                       title="View scenario details">
-                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Create an account successfully
-                                                                                    </a>
-                                                                                </span>
-                                                                        </td>
-                                                                        <td>
+                                                <h3>Requirements Overview</h3>
 
-                                                                        </td>
-                                                                        <td style="width:5%;">
-                                                                            <table>
-                                                                                <tr>
-                                                                                    <td class="icons-bar">
-                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
-                                                                                           href="0adc3b003712ae7314a380b197d8ba82477c9d4c6f1ffe2681da4400b5f7432e.html"
-                                                                                           title="View test results">
-                                                                                            <a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a>
-                                                                                            </a>
+                                                <div id="tree"></div>
 
-
-                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
-                                                                                               href="0adc3b003712ae7314a380b197d8ba82477c9d4c6f1ffe2681da4400b5f7432e.html"
-                                                                                               title="View test results">
-                                                                                                <i class="bi bi-eyeglasses"></i>
-                                                                                            </a>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </table>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td style="width:95%;" class="toc-title">
-                                                                            <span class="scenario-toc-entry">
-                                                                                    <a href="#44c0706fb6bf0aab9062f14fdb5257fa0bb0bf063650f8195e431b2406602a8b"
-                                                                                       title="View scenario details">
-                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Create an account with duplicated national ID
-                                                                                    </a>
-                                                                                </span>
-                                                                        </td>
-                                                                        <td>
-
-                                                                        </td>
-                                                                        <td style="width:5%;">
-                                                                            <table>
-                                                                                <tr>
-                                                                                    <td class="icons-bar">
-                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
-                                                                                           href="384cd071dedc1cb58f8251f2101b73f7ae727046de0c696cf03d546c5c724a83.html"
-                                                                                           title="View test results">
-                                                                                            <a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a>
-                                                                                            </a>
-
-
-                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
-                                                                                               href="384cd071dedc1cb58f8251f2101b73f7ae727046de0c696cf03d546c5c724a83.html"
-                                                                                               title="View test results">
-                                                                                                <i class="bi bi-eyeglasses"></i>
-                                                                                            </a>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </table>
-                                                                        </td>
-                                                                    </tr>
-                                                                <tr>
-                                                                    <td class="rule-toc-entry" colspan="2">
-                                                                        <a href="#10545835-af06-4f36-b94a-6dac20c093f2"
-                                                                           title="View scenario details for this rule">
-                                                                            Rule: When the person is a client with already existing national document registered in Tiny Bank, the client's account can be reactivated
-                                                                    </td>
-                                                                </tr>
-                                                                    <tr>
-                                                                        <td style="width:95%;" class="toc-title">
-                                                                            <span class="scenario-toc-entry">
-                                                                                    <a href="#21f727c2cd7f3703ea0e7930f5f8ef2467d9dcbfb23fd33eda6be89c414db9e1"
-                                                                                       title="View scenario details">
-                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Reactivate an account successfully
-                                                                                    </a>
-                                                                                </span>
-                                                                        </td>
-                                                                        <td>
-
-                                                                        </td>
-                                                                        <td style="width:5%;">
-                                                                            <table>
-                                                                                <tr>
-                                                                                    <td class="icons-bar">
-                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
-                                                                                           href="5db4634daae5c48f1888b897c56a908f098b74f8d7569607271e0c376a98b3d9.html"
-                                                                                           title="View test results">
-                                                                                            <a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a>
-                                                                                            </a>
-
-
-                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
-                                                                                               href="5db4634daae5c48f1888b897c56a908f098b74f8d7569607271e0c376a98b3d9.html"
-                                                                                               title="View test results">
-                                                                                                <i class="bi bi-eyeglasses"></i>
-                                                                                            </a>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </table>
-                                                                        </td>
-                                                                    </tr>
-                                                    </table>
-                                                </div>
-                                                <!--- END OF TOC --->
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <h3>Scenarios</h3>
-
-                                                    <a name="74f72021-731e-4def-86f2-3738c0439df2"></a>
-                                                        <div class="rule-title">
-                                                            Rule: When the person never had registered in the Tiny bank as a client it is needed all the registration information.This person must have a unique document from a specific type and country, otherwise it is considered someone already registered.</div>
-                                                    <p class="rule-tags inline-tag">
-                                                    </p>
-
-
-                                                        <div class="scenario-docs card" id="8393129f8bd9e8c4d396b563c6be4e8346bdd5fc814d78d1718c9dc428ca81c8">
-                                                            <div class="scenario-docs card-header pending"
-                                                                 style="min-height:1.5em;">
-                                                                <div>
-                                                                        <span class="scenario-heading">
-                                                                            <a href="0adc3b003712ae7314a380b197d8ba82477c9d4c6f1ffe2681da4400b5f7432e.html"
-                                                                               title="View test results">Scenario: Create an account successfully</a>
-                                                                        </span>
-
-                                                                        <span class="example-tags inline-tag">
-                                                                                <span class="badge tag-badge"
-                                                                                      style="background:default;">
-                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
-                                                                                    <a class="tagLink"
-                                                                                       style="background:default;"
-                                                                                       href="c1efd72af3de939c6fc6fff62bf64f0eba02df69114d16fe66c9c9c24bb37833.html">pending (tag)</a>
-                                                                                </span>
-                                                                        </span>
-
-                                                                    <span class="scenario-result-icon">
-                                                                    
-
-                                                                            <a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a>
-                                                                        </span>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="scenario-docs card-body">
-                                                                    <p>Given a client with name &quot;Jhon&quot;, surname &quot;Doe&quot;, document type &quot;National ID&quot;, document &quot;abcdefg&quot;, country &quot;PT&quot;</p>
-                                                                    <p>And there is no client with this document type and document identification</p>
-                                                                    <p>When the account creation is requested</p>
-                                                                    <p>Then the client's register and account are created successfully</p>
-                                                                <div class="examples">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="scenario-docs card" id="44c0706fb6bf0aab9062f14fdb5257fa0bb0bf063650f8195e431b2406602a8b">
-                                                            <div class="scenario-docs card-header pending"
-                                                                 style="min-height:1.5em;">
-                                                                <div>
-                                                                        <span class="scenario-heading">
-                                                                            <a href="384cd071dedc1cb58f8251f2101b73f7ae727046de0c696cf03d546c5c724a83.html"
-                                                                               title="View test results">Scenario: Create an account with duplicated national ID</a>
-                                                                        </span>
-
-                                                                        <span class="example-tags inline-tag">
-                                                                                <span class="badge tag-badge"
-                                                                                      style="background:default;">
-                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
-                                                                                    <a class="tagLink"
-                                                                                       style="background:default;"
-                                                                                       href="c1efd72af3de939c6fc6fff62bf64f0eba02df69114d16fe66c9c9c24bb37833.html">pending (tag)</a>
-                                                                                </span>
-                                                                        </span>
-
-                                                                    <span class="scenario-result-icon">
-                                                                    
-
-                                                                            <a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a>
-                                                                        </span>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="scenario-docs card-body">
-                                                                    <p>Given a client with name &quot;Jhon&quot;, surname &quot;Doe&quot;, document type &quot;National ID&quot;, document &quot;abcdefg&quot;, country &quot;PT&quot;</p>
-                                                                    <p>And there is a client with the document type &quot;National ID&quot;, document &quot;abcdefg&quot;, country &quot;PT&quot;</p>
-                                                                    <p>When the account creation is requested</p>
-                                                                    <p>Then the client's register and account are denied</p>
-                                                                <div class="examples">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    <a name="10545835-af06-4f36-b94a-6dac20c093f2"></a>
-                                                        <div class="rule-title">
-                                                            Rule: When the person is a client with already existing national document registered in Tiny Bank, the client's account can be reactivated</div>
-                                                    <p class="rule-tags inline-tag">
-                                                    </p>
-
-
-                                                        <div class="scenario-docs card" id="21f727c2cd7f3703ea0e7930f5f8ef2467d9dcbfb23fd33eda6be89c414db9e1">
-                                                            <div class="scenario-docs card-header pending"
-                                                                 style="min-height:1.5em;">
-                                                                <div>
-                                                                        <span class="scenario-heading">
-                                                                            <a href="5db4634daae5c48f1888b897c56a908f098b74f8d7569607271e0c376a98b3d9.html"
-                                                                               title="View test results">Scenario: Reactivate an account successfully</a>
-                                                                        </span>
-
-                                                                        <span class="example-tags inline-tag">
-                                                                                <span class="badge tag-badge"
-                                                                                      style="background:default;">
-                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
-                                                                                    <a class="tagLink"
-                                                                                       style="background:default;"
-                                                                                       href="c1efd72af3de939c6fc6fff62bf64f0eba02df69114d16fe66c9c9c24bb37833.html">pending (tag)</a>
-                                                                                </span>
-                                                                        </span>
-
-                                                                    <span class="scenario-result-icon">
-                                                                    
-
-                                                                            <a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a>
-                                                                        </span>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="scenario-docs card-body">
-                                                                    <p>Given a client with name &quot;Jhonny&quot;, surname &quot;Doe&quot;, document type &quot;National ID&quot;, document &quot;123465&quot;, country &quot;PT&quot;</p>
-                                                                    <p>And there is a client with the document type &quot;National ID&quot;, document &quot;123465&quot;, country &quot;PT&quot;</p>
-                                                                    <p>When the account activation is requested</p>
-                                                                    <p>Then the client's account is activated</p>
-                                                                <div class="examples">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                <!-- STATS -->
+    <div>
+        <h3><i class="bi bi-speedometer2"></i> Key Statistics</h3>
+        <div>
+            <table class="table table-striped table-hover">
+                <tbody>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-card-checklist"></i> Number of Scenarios
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-caret-right"></i> Total Number of Test Cases
+                    </td>
+                    <td>0</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-flag-fill"></i> Tests Started
+                    </td>
+                    <td></td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stop-circle"></i> Tests
+                        Finished
+                    </td>
+                    <td></td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Total
+                        Duration
+                    </td>
+                    <td>0ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-trophy"></i> Fastest Test
+                    </td>
+                    <td>0ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-skip-start"></i> Slowest
+                        Test
+                    </td>
+                    <td>0ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Average
+                        Execution Time
+                    </td>
+                    <td>0ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch-fill"></i> Total
+                        Execution Time
+                    </td>
+                    <td>0ms</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+                                                <!-- END STATS -->
                                             </div>
                                         </div>
                                     </div>
@@ -552,9 +374,6 @@
                                             <div class="col-sm-4">
                                                 <h3>Feature Coverage By Scenario</h3>
                                                 <!-- TEST RESULT PIE CHART -->
-                                                    <div class="chart-container" style="position: relative; width:30vw">
-                                                        <canvas id="resultChart" width="300" height="300"></canvas>
-                                                    </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
@@ -586,22 +405,22 @@
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>3</td>
+                    <td>0</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>108ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>3</td>
+                    <td>0</td>
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>7ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -612,30 +431,30 @@
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>51ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Dec 18, 2024 03:23:10</td>
+                    <td></td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>21ms</td>
+                    <td>0ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Dec 18, 2024 03:23:10</td>
+                    <td></td>
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>65ms</td>
+                    <td>0ms</td>
                 </tr>
                 </tbody>
             </table>
@@ -644,66 +463,7 @@
 
                                                 <h3><i class="bi bi-gear"></i> Automated Tests</h3>
 
-                                                    <table class="scenario-result-table table" id="scenario-results">
-                                                        <thead>
-                                                        <tr>
-                                                            <th>feature</th>
-                                                            <th class="test-name-column">Scenario</th>
-                                                            <th>Context</th>
-                                                            <th>Steps</th>
-                                                            <th>Started</th>
-                                                            <th>Total Duration</th>
-                                                            <th>Result</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                                <tr class="scenario-result PENDING">
-                                                                    <td>
-                                                                            <a href="5affee527dead203536d6f0e7e114a55d28d8f52d414a21fb6bd3827f19e97e5.html">Create User</a>
-                                                                    </td>
-                                                                    <td>
-                                                                                <a href="0adc3b003712ae7314a380b197d8ba82477c9d4c6f1ffe2681da4400b5f7432e.html">Create an account successfully</a>
-                                                                    </td>
-                                                                    <td><span style="display:none"></span>
-                                                                    </td>
-                                                                    <td>4</td>
-                                                                    <td>03:23:10</td>
-                                                                    <td>051ms</td>
-                                                                    <td><a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a> <span style="display:none">PENDING</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class="scenario-result PENDING">
-                                                                    <td>
-                                                                            <a href="5affee527dead203536d6f0e7e114a55d28d8f52d414a21fb6bd3827f19e97e5.html">Create User</a>
-                                                                    </td>
-                                                                    <td>
-                                                                                <a href="384cd071dedc1cb58f8251f2101b73f7ae727046de0c696cf03d546c5c724a83.html">Create an account with duplicated national ID</a>
-                                                                    </td>
-                                                                    <td><span style="display:none"></span>
-                                                                    </td>
-                                                                    <td>4</td>
-                                                                    <td>03:23:10</td>
-                                                                    <td>007ms</td>
-                                                                    <td><a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a> <span style="display:none">PENDING</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class="scenario-result PENDING">
-                                                                    <td>
-                                                                            <a href="5affee527dead203536d6f0e7e114a55d28d8f52d414a21fb6bd3827f19e97e5.html">Create User</a>
-                                                                    </td>
-                                                                    <td>
-                                                                                <a href="5db4634daae5c48f1888b897c56a908f098b74f8d7569607271e0c376a98b3d9.html">Reactivate an account successfully</a>
-                                                                    </td>
-                                                                    <td><span style="display:none"></span>
-                                                                    </td>
-                                                                    <td>4</td>
-                                                                    <td>03:23:10</td>
-                                                                    <td>007ms</td>
-                                                                    <td><a href='##beforetable'><i class='bi bi-hourglass-top pending-icon ' title='PENDING'></i></a> <span style="display:none">PENDING</span>
-                                                                    </td>
-                                                                </tr>
-                                                        </tbody>
-                                                    </table>
+                                                    No automated tests were executed
 
                                             </div>
                                         </div>
@@ -757,7 +517,7 @@
             datasets: [{
                 label: 'Test Results',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 3}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -852,7 +612,7 @@
             datasets: [{
                 label: 'Feature Coverage',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 3}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -948,7 +708,7 @@
             datasets: [
                 {
                     label: 'Automated',
-                    data: [0,3,0,0,0,0,0,0],
+                    data: [0,0,0,0,0,0,0,0],
                     backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                     borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                     borderWidth: 1
@@ -1031,7 +791,7 @@
             datasets: [{
                 label: 'Number of tests per duration',
                 fill: false,
-                data: ['3','0','0','0','0','0','0','0'],
+                data: ['0','0','0','0','0','0','0','0'],
                 backgroundColor: 'rgba(83, 146, 255,0.5)',
                 borderColor: 'rgba(83, 146, 255, 1)',
             }]

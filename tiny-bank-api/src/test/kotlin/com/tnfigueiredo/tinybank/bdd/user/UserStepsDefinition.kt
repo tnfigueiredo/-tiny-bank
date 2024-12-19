@@ -1,35 +1,49 @@
 package com.tnfigueiredo.tinybank.bdd.user
 
+import com.tnfigueiredo.tinybank.model.DocType
+import com.tnfigueiredo.tinybank.model.User
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
+import io.kotest.matchers.equals.shouldBeEqual
+import io.kotest.matchers.nulls.shouldNotBeNull
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.web.client.TestRestTemplate
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import java.util.*
 
 
 class UserStepsDefinition {
 
+    private companion object{
+        lateinit var userToSubmit: User
+        lateinit var result: ResponseEntity<User>
+        const val BASE_SERVICE_PATH = "/v1.0/users"
+        val A_RANDOM_ID: UUID = UUID.fromString("eae467d9-deb2-49b3-aaf5-f1e146e567e1")
+    }
+
+    @Autowired
+    lateinit var restTemplate: TestRestTemplate
+
     @Given("a client with name {string}, surname {string}, document type {string}, document {string}, country {string}")
     fun a_new_client_with_name_surname_document_type_document_country(
-        name: String?,
-        surname: String?,
-        doctype: String?,
-        document: String?,
-        country: String?
+        name: String,
+        surname: String,
+        doctype: String,
+        document: String,
+        country: String
     ) {
-        //TODO Implement
+        userToSubmit = User(null, name, surname, DocType.valueOf(doctype), document, country)
     }
 
     @Given("the client identification for document type {string}, document {string}, country {string}")
     fun the_client_identification_for_document_type_document_country(
-        doctype: String?,
-        document: String?,
-        country: String?
+        doctype: String,
+        document: String,
+        country: String
     ) {
-        //TODO Implement
-    }
-
-    @And("there is no client with this document type and document identification")
-    fun there_is_no_client_with_this_document_type_and_document_identification() {
         //TODO Implement
     }
 
@@ -40,7 +54,7 @@ class UserStepsDefinition {
 
     @When("the account creation is requested")
     fun the_account_creation_is_requested() {
-        //TODO Implement
+        result = restTemplate.postForEntity(BASE_SERVICE_PATH, userToSubmit, User::class.java)
     }
 
     @When("the account activation is requested")
@@ -60,7 +74,9 @@ class UserStepsDefinition {
 
     @Then("the client's register and account are created successfully")
     fun the_client_s_register_and_account_are_created_successfully() {
-        //TODO Implement
+        result.shouldNotBeNull()
+        result.statusCode shouldBeEqual HttpStatus.OK
+        result.body.shouldNotBeNull()
     }
 
     @Then("the client's register and account are denied")
