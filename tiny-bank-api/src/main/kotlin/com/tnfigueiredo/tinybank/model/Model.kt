@@ -1,5 +1,6 @@
 package com.tnfigueiredo.tinybank.model
 
+import com.tnfigueiredo.tinybank.exceptions.NoConsistentDataException
 import com.tnfigueiredo.tinybank.model.ActivationStatus.ACTIVE
 import com.tnfigueiredo.tinybank.model.ActivationStatus.DEACTIVATED
 import java.util.UUID
@@ -26,6 +27,18 @@ data class User(
     fun deactivateUser(): User = this.copy(status = DEACTIVATED)
 
     fun activateUser(): User = this.copy(status = ACTIVE)
+}
+
+data class Account(
+    val id: String? = null,
+    val agency: Short? = null,
+    val year: Short? = null,
+    val userId: UUID,
+    val balance: Double = "0.0".toDouble(),
+    val status: ActivationStatus = ACTIVE
+){
+    fun generateIdentification(lastNumber: Short):String =
+        "${this.year}${String.format("%04d", this.agency)}${String.format("%04d", lastNumber)}"
 }
 
 enum class DocType{
