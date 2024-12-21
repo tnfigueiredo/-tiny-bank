@@ -7,6 +7,7 @@ import com.tnfigueiredo.tinybank.model.DocType.PASSPORT
 import com.tnfigueiredo.tinybank.model.User
 import com.tnfigueiredo.tinybank.repositories.UserRepository
 import io.kotest.matchers.equals.shouldBeEqual
+import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.types.shouldBeInstanceOf
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.`when`
@@ -53,5 +54,18 @@ internal class UserServiceImplTest {
     fun `when there are mandatory fields missing`() {
         val result = userService.createOrUpdateUser(aUser.copy(name = "")).exceptionOrNull()!!
         result.shouldBeInstanceOf<BusinessRuleValidationException>()
+    }
+
+    @Test
+    fun `when finding a user having document information`() {
+        userRepository.saveOrUpdate(aUser)
+        val result = userService.findUserByDocument(aUser.docType, aUser.document, aUser.docCountry)
+        result.getOrNull()?.shouldBeEqual(aUser)
+    }
+
+    @Test
+    fun `when there is no user for document information`() {
+        val result = userService.findUserByDocument(aUser.docType, aUser.document, aUser.docCountry)
+        result.getOrNull().shouldBeNull()
     }
 }

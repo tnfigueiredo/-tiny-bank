@@ -2,7 +2,7 @@
 FROM gradle:8.11.1-jdk17-alpine AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN ./gradlew build --no-daemon
+RUN ./gradlew clean build --no-daemon
 
 # Creating image
 FROM openjdk:17-alpine3.14 AS runtime

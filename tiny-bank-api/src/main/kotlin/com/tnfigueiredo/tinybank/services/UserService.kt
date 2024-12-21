@@ -1,12 +1,15 @@
 package com.tnfigueiredo.tinybank.services
 
 import com.tnfigueiredo.tinybank.exceptions.BusinessRuleValidationException
+import com.tnfigueiredo.tinybank.model.DocType
 import com.tnfigueiredo.tinybank.model.User
 import com.tnfigueiredo.tinybank.repositories.UserRepository
 
 interface UserService{
 
     fun createOrUpdateUser(user: User): Result<User>
+
+    fun findUserByDocument(docType: DocType, document: String, docCountry: String): Result<User?>
 
 }
 
@@ -21,5 +24,8 @@ class UserServiceImpl(private val userRepository: UserRepository) : UserService 
         result.getOrNull()!!
     }
 
+    override fun findUserByDocument(docType: DocType, document: String, docCountry: String): Result<User?> = kotlin.runCatching {
+        userRepository.findUserByDocumentInfo(docType, document, docCountry)
+    }
 
 }

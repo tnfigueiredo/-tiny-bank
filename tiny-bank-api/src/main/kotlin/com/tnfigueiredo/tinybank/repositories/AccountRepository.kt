@@ -14,6 +14,8 @@ interface AccountRepository {
 
     fun findLatestAccount(agencyAccountPrefix: String):String?
 
+    fun deleteAll()
+
 }
 
 class AccountRepositoryImpl : AccountRepository {
@@ -39,4 +41,6 @@ class AccountRepositoryImpl : AccountRepository {
     }
 
     override fun findLatestAccount(agencyAccountPrefix: String):String? = accountRepo.keys.filter { it.startsWith(agencyAccountPrefix) }.maxOrNull()
+
+    override fun deleteAll() = accountRepo.clear()
 }

@@ -121,6 +121,10 @@
         <span class="breadcrumbs">
             <a href="index.html" class="breadcrumbs">Home</a>
 
+ <!-- inflection.of(breadcrumb.displayName).asATitle()-->
+            > <a href="018031896a905329a7cc63298e000b33774e329bdc81db0cd7fb6f09a872cecb.html">Account Epic</a>
+ <!-- inflection.of(breadcrumb.displayName).asATitle()-->
+            > <a href="d2d6ecae506a39d3f7cc30c2e432c03c3da4d5c14d7b8a92f008562bf1eebc30.html">Create User Bank Account</a>
         > Create an account successfully
         </span>
         </div>
@@ -145,7 +149,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 19-12-2024 20:00</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 23-12-2024 23:35</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -159,9 +163,10 @@
                         <td>
                                 <div>
                                     <h3 class="discreet-story-header">
-                                        <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
-                                        <span class="story-header-title">Create User Bank Account</span>
+                                        <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
+                                        <span class="story-header-title">Create User Bank Account </span>
                                     </h3>
+
                                 </div>
 
                         </td>
@@ -238,7 +243,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Given a client with name "Jhon", surname "Doe", document type "NATIONAL_ID", document "abcdefg", country "PT"
+                                                Given a client for account creation with document identification: document type "NATIONAL_ID", document "abcdefgaga", country "PT"
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -260,7 +265,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                When the account creation is requested
+                                                And the client requesting the account creation has its register active
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -268,7 +273,7 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">603ms</span></td>
+                    <td width="100"><span class="top-level-step">749ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -282,7 +287,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Then the client's register is created successfully
+                                                And the backoffice operation is from the agency "0001"
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -291,6 +296,84 @@
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
                     <td width="100"><span class="top-level-step">001ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="3"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                When the account creation is requested
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">038ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="4"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                Then the client's account is created successfully
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+
+    <script>
+        function copyContent(id) {
+            console.log("copy content of " + id)
+            const content = document.getElementById(id).innerText
+            navigator.clipboard.writeText(content);
+        }
+    </script>
+
+                <a name="report-data-4f3edbf9-3f66-4f9f-bb07-841de5a83b0c"></a>
+                <span>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                            data-target="#reportData-EVIDENCE-5-0">
+                        User Account Creations Response
+                    </button>
+                </span>
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="reportData-EVIDENCE-5-0" tabindex="-1" role="dialog"
+                         aria-labelledby="restModalLabel" aria-hidden="true">
+                        <div class="card">
+                            <h4 class="card-header" id="restModalLabel">
+                                User Account Creations Response
+                            <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-5-0')">
+                                <i class="bi bi-clipboard"></i>&nbsp;Copy
+                            </a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <pre id="reportDataContent-EVIDENCE-5-0">&lt;200 OK OK,RestResponse(message=User Account created successfully, data={id=202400010000, agency=1, year=2024, userId=b52a0bee-9445-4ed9-b20d-6928930abd32, balance=0.0, status=ACTIVE}),[content-type:&quot;application/json&quot;, date:&quot;Mon, 23 Dec 2024 23:35:47 GMT&quot;, transfer-encoding:&quot;chunked&quot;]&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+                                            </span>
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">006ms</span></td>
                 </tr>
             <tr class="test-SUCCESS">
                     <td colspan="2"></td>

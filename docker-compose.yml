@@ -20,6 +20,10 @@ services:
       - ./tests:/usr/local/apache2/htdocs
 
   tiny-bank-api:
-    build: ./tiny-bank-api
+    build:
+      context: ./tiny-bank-api
+      args:
+        - DOCKER_BUILDKIT=1
+      dockerfile: Dockerfile
     ports:
       - 8080:8080

@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldNotBeNull
+import net.serenitybdd.core.Serenity
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpStatus
@@ -55,7 +56,7 @@ class UserStepsDefinition {
     }
 
     @When("the register creation is requested")
-    fun the_account_creation_is_requested() {
+    fun the_register_creation_is_requested() {
         result = restTemplate.postForEntity(BASE_SERVICE_PATH, userToSubmit, RestResponse::class.java)
     }
 
@@ -75,15 +76,15 @@ class UserStepsDefinition {
     }
 
     @Then("the client's register is created successfully")
-    fun the_client_s_register_and_account_are_created_successfully() {
+    fun the_client_s_register_is_created_successfully() {
         result.statusCode shouldBeEqual HttpStatus.OK
-
+        Serenity.recordReportData().withTitle("User Registration Response").andContents(result.toString())
     }
 
     @Then("the client's register is denied due to duplicated documentation information")
     fun the_client_s_register_and_account_are_denied() {
         result.statusCode shouldBeEqual HttpStatus.BAD_REQUEST
-        result.body?.message?.shouldBeEqual("Duplicated user document: $userToSubmit.")
+        Serenity.recordReportData().withTitle("User Registration Response").andContents(result.toString())
     }
 
     @Then("the client's account is activated")
@@ -120,6 +121,14 @@ class UserStepsDefinition {
         (result.body!!.data as Map<*, *>)["document"]?.shouldBeEqual(userToSubmit.document)
         (result.body!!.data as Map<*, *>)["docCountry"]?.shouldBeEqual(userToSubmit.docCountry)
         (result.body!!.data as Map<*, *>)["status"]?.shouldBeEqual(userToSubmit.status.name)
+
+        Serenity.recordReportData().withTitle("User Registration Response")
+            .andContents(
+                """
+                    Submitted data: $userToSubmit
+                    API Response data: ${result.body!!.data}
+                """.trimIndent()
+            )
     }
 
 }

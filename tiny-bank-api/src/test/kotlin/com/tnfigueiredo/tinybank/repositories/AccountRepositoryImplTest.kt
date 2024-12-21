@@ -7,6 +7,7 @@ import com.tnfigueiredo.tinybank.model.ActivationStatus.ACTIVE
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.types.shouldBeInstanceOf
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.util.*
 
@@ -20,6 +21,11 @@ internal class AccountRepositoryImplTest {
     }
 
     private val underTest: AccountRepository = AccountRepositoryImpl()
+
+    @BeforeEach
+    fun setUp(){
+        underTest.deleteAll()
+    }
 
     @Test
     fun `when account has null id`() {

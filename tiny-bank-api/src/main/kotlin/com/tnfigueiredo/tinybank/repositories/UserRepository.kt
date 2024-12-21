@@ -11,6 +11,8 @@ interface UserRepository{
 
     fun saveOrUpdate(user: User): Result<User?>
 
+    fun findUserByDocumentInfo(docType: DocType, document: String, docCountry: String): User?
+
     fun deleteAll()
 
 }
@@ -42,7 +44,7 @@ class UserRepositoryImpl:UserRepository {
         }
     }
 
-    fun findUserByDocumentInfo(docType: DocType, document: String, docCountry: String): User? =
+    override fun findUserByDocumentInfo(docType: DocType, document: String, docCountry: String): User? =
         userRepo.values.firstOrNull{ user -> user.isUserDocument(docType, document, docCountry) }
 
     override fun deleteAll():Unit = userRepo.clear()

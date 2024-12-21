@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Deactivate an account for a non existing national ID</title>
+    <title>Fails to create an account to user with invalid document information</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -122,10 +122,10 @@
             <a href="index.html" class="breadcrumbs">Home</a>
 
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
-            > <a href="06c7fc9bac884671d8983aabd214fa4c20d1e69b5232f54148bf4185e71bfc09.html">Users Epic</a>
+            > <a href="018031896a905329a7cc63298e000b33774e329bdc81db0cd7fb6f09a872cecb.html">Account Epic</a>
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
-            > <a href="e6085112a7d93f3afb0a311085445e2c9bf4776e7a2ea7109d2da5207bf192e3.html">Deactivate User</a>
-        > Deactivate an account for a non existing national ID
+            > <a href="d2d6ecae506a39d3f7cc30c2e432c03c3da4d5c14d7b8a92f008562bf1eebc30.html">Create User Bank Account</a>
+        > Fails to create an account to user with invalid document information
         </span>
         </div>
         <div class="rightbg"></div>
@@ -164,7 +164,7 @@
                                 <div>
                                     <h3 class="discreet-story-header">
                                         <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
-                                        <span class="story-header-title">Deactivate User </span>
+                                        <span class="story-header-title">Create User Bank Account </span>
                                     </h3>
 
                                 </div>
@@ -172,12 +172,6 @@
                         </td>
                         <td valign="top">
                             <p class="tag">
-                                    <span class="badge example-tag tag-badge" style="background:default;">
-                                    <i class="bi bi-tag-fill"></i>&nbsp;
-                                        <a class="tagLink" style="background:default;"
-                                           href="c1efd72af3de939c6fc6fff62bf64f0eba02df69114d16fe66c9c9c24bb37833.html">Pending
-                                        </a>
-                                </span>
                                     <span class="badge example-tag tag-badge" style="background:default;">
                                     <i class="bi bi-tag-fill"></i>&nbsp;
                                         <a class="tagLink" style="background:default;"
@@ -195,10 +189,10 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-hourglass-top pending-icon fa-2x' title='PENDING'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
                             <span class="test-case-title">
-                                <span class="pending-color">
-                                    Deactivate an account for a non existing national ID
+                                <span class="success-color">
+                                    Fails to create an account to user with invalid document information
                                         <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -237,98 +231,188 @@
                 <td colspan="5"></td>
             </tr>
 
-                <tr class="test-IGNORED">
+                <tr class="test-SUCCESS">
 
                     <td width="50" class="step-icon">
                         <a name="0"></a>
                             <span style="margin-left: 20px;"
-                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-slash-circle ignored-icon ' title='IGNORED'></i></a>
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                 </span>
                     </td>
 
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Given the client identification for document type "NATIONAL_ID", document "12343532", country "PT"
+                                                Given a client for account creation with document identification: document type "NATIONAL_ID", document "03485203948", country "PT"
                                         </span>
                             <span class="evidence">
                                 </span>
                         </div>
                     </td>
 
-                    <td width="130"><span class="top-level-step">IGNORED</span></td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
                     <td width="100"><span class="top-level-step">001ms</span></td>
                 </tr>
-                <tr class="test-IGNORED">
+                <tr class="test-SUCCESS">
 
                     <td width="50" class="step-icon">
                         <a name="1"></a>
                             <span style="margin-left: 20px;"
-                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-slash-circle ignored-icon ' title='IGNORED'></i></a>
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                 </span>
                     </td>
 
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                When the account deactivation is requested
+                                                And the document for the client requesting the account creation is invalid
                                         </span>
                             <span class="evidence">
                                 </span>
                         </div>
                     </td>
 
-                    <td width="130"><span class="top-level-step">IGNORED</span></td>
-                    <td width="100"><span class="top-level-step"></span></td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">009ms</span></td>
                 </tr>
-                <tr class="test-IGNORED">
+                <tr class="test-SUCCESS">
 
                     <td width="50" class="step-icon">
                         <a name="2"></a>
                             <span style="margin-left: 20px;"
-                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-slash-circle ignored-icon ' title='IGNORED'></i></a>
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                 </span>
                     </td>
 
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                And the client identification have no record in Tiny Bank
+                                                And the backoffice operation is from the agency "0001"
                                         </span>
                             <span class="evidence">
                                 </span>
                         </div>
                     </td>
 
-                    <td width="130"><span class="top-level-step">IGNORED</span></td>
-                    <td width="100"><span class="top-level-step"></span></td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">002ms</span></td>
                 </tr>
-                <tr class="test-IGNORED">
+                <tr class="test-SUCCESS">
 
                     <td width="50" class="step-icon">
                         <a name="3"></a>
                             <span style="margin-left: 20px;"
-                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-slash-circle ignored-icon ' title='IGNORED'></i></a>
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                 </span>
                     </td>
 
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Then the client's account deactivation is denied
+                                                When there is no user with the document information
                                         </span>
                             <span class="evidence">
+                                        <span class="piece-of-evidence">
+
+    <script>
+        function copyContent(id) {
+            console.log("copy content of " + id)
+            const content = document.getElementById(id).innerText
+            navigator.clipboard.writeText(content);
+        }
+    </script>
+
+                <a name="report-data-3a3d37a9-c8c8-4492-b844-e9e30635052a"></a>
+                <span>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                            data-target="#reportData-EVIDENCE-4-0">
+                        User Account Creations Document in Request
+                    </button>
+                </span>
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="reportData-EVIDENCE-4-0" tabindex="-1" role="dialog"
+                         aria-labelledby="restModalLabel" aria-hidden="true">
+                        <div class="card">
+                            <h4 class="card-header" id="restModalLabel">
+                                User Account Creations Document in Request
+                            <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-4-0')">
+                                <i class="bi bi-clipboard"></i>&nbsp;Copy
+                            </a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <pre id="reportDataContent-EVIDENCE-4-0">/users/docType/PASSPORT/document/A_DOCUMENT/country/A_DOC_COUNTRY</pre>
+                        </div>
+                    </div>
+                </div>
+                                            </span>
                                 </span>
                         </div>
                     </td>
 
-                    <td width="130"><span class="top-level-step">IGNORED</span></td>
-                    <td width="100"><span class="top-level-step"></span></td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">001ms</span></td>
                 </tr>
-            <tr class="test-PENDING">
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="4"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                Then the client's account is not created
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+
+    <script>
+        function copyContent(id) {
+            console.log("copy content of " + id)
+            const content = document.getElementById(id).innerText
+            navigator.clipboard.writeText(content);
+        }
+    </script>
+
+                <a name="report-data-0a11c14a-a8d5-4637-bc52-c395a5d5d7f5"></a>
+                <span>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                            data-target="#reportData-EVIDENCE-5-0">
+                        User Bank Account Creations Response
+                    </button>
+                </span>
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="reportData-EVIDENCE-5-0" tabindex="-1" role="dialog"
+                         aria-labelledby="restModalLabel" aria-hidden="true">
+                        <div class="card">
+                            <h4 class="card-header" id="restModalLabel">
+                                User Bank Account Creations Response
+                            <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-5-0')">
+                                <i class="bi bi-clipboard"></i>&nbsp;Copy
+                            </a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <pre id="reportDataContent-EVIDENCE-5-0">&lt;404 NOT_FOUND Not Found,RestResponse(message=User Not Found for documents., data=null),[content-type:&quot;application/json&quot;, date:&quot;Mon, 23 Dec 2024 23:35:47 GMT&quot;, transfer-encoding:&quot;chunked&quot;]&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+                                            </span>
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">001ms</span></td>
+                </tr>
+            <tr class="test-SUCCESS">
                     <td colspan="2"></td>
-                <td width="130"><span class="top-level-step"><em>PENDING</em></span></td>
-                <td width="100"><span class="top-level-step"><em>0.01s</em></span></td>
+                <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
+                <td width="100"><span class="top-level-step"><em>0s</em></span></td>
             </tr>
 
         </table>

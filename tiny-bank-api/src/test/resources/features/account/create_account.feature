@@ -11,11 +11,13 @@ Feature: Create User Bank Account
     Scenario: Create an account successfully
       Given a client for account creation with document identification: document type "NATIONAL_ID", document "abcdefgaga", country "PT"
       And the client requesting the account creation has its register active
+      And the backoffice operation is from the agency "0001"
       When the account creation is requested
       Then the client's account is created successfully
 
     Scenario: Fails to create an account to user with invalid document information
       Given a client for account creation with document identification: document type "NATIONAL_ID", document "03485203948", country "PT"
       And the document for the client requesting the account creation is invalid
-      When the account creation is requested
-      Then the client's account creation is denied
+      And the backoffice operation is from the agency "0001"
+      When there is no user with the document information
+      Then the client's account is not created

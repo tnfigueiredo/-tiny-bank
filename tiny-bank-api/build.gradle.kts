@@ -122,6 +122,8 @@ tasks.register("saveTestResults") {
 	val testsDir = File(project.rootDir, "../tests")
 	val serenityReportsDir = file("target/site/serenity")
 
+	mustRunAfter("test")
+
 	doLast {
 		// Delete all files in the 'tests' directory
 		if (testsDir.exists()) {

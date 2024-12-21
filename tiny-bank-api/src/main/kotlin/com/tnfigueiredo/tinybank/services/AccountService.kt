@@ -1,10 +1,8 @@
 package com.tnfigueiredo.tinybank.services
 
-import com.sun.jdi.ShortType
 import com.tnfigueiredo.tinybank.model.Account
 import com.tnfigueiredo.tinybank.repositories.AccountRepository
-import java.time.LocalDate
-import java.util.UUID
+import java.util.*
 
 interface AccountService{
 
