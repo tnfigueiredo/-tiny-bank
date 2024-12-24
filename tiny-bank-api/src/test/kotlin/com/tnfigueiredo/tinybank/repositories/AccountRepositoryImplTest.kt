@@ -49,7 +49,7 @@ internal class AccountRepositoryImplTest {
 
         result.getOrNull()?.id?.shouldBeEqual(account.id!!)
         result.getOrNull()?.userId?.shouldBeEqual(account.userId)
-        result.getOrNull()?.balance?.shouldBeEqual("0.0".toDouble())
+        result.getOrNull()?.balance?.shouldBeEqual(0.0)
         result.getOrNull()?.status?.shouldBeEqual(ACTIVE)
     }
 
@@ -73,19 +73,23 @@ internal class AccountRepositoryImplTest {
     }
 
     @Test
+    fun `when getting an account by id that exists`() {
+        val account = Account(id = A_ACCOUNT_ID, userId = A_RANDOM_ID, balance = 100.0)
+        underTest.saveAccount(account)
+        val result = underTest.getAccountById(A_ACCOUNT_ID)
+
+        result.getOrNull()?.id?.shouldBeEqual(account.id!!)
+        result.getOrNull()?.userId?.shouldBeEqual(account.userId)
+        result.getOrNull()?.balance?.shouldBeEqual(account.balance)
+        result.getOrNull()?.status?.shouldBeEqual(account.status)
+    }
+
+    @Test
     fun `deactivate an existing account successfully`() {
         val account = Account(id = A_ACCOUNT_ID, userId = A_RANDOM_ID)
         underTest.saveAccount(account)
         val result = underTest.deactivateAccount(A_ACCOUNT_ID)
         result.getOrNull()?.isAccountActive()?.shouldBeFalse()
-    }
-
-    @Test
-    fun `when deactivating a non active account`() {
-        val account = Account(id = A_ACCOUNT_ID, userId = A_RANDOM_ID)
-        underTest.saveAccount(account)
-        underTest.deactivateAccount(A_ACCOUNT_ID)
-        underTest.deactivateAccount(A_ACCOUNT_ID).exceptionOrNull().shouldBeInstanceOf<NoConsistentDataException>()
     }
 
     @Test

@@ -1,9 +1,8 @@
 package com.tnfigueiredo.tinybank.model
 
-import com.tnfigueiredo.tinybank.exceptions.NoConsistentDataException
 import com.tnfigueiredo.tinybank.model.ActivationStatus.ACTIVE
 import com.tnfigueiredo.tinybank.model.ActivationStatus.DEACTIVATED
-import java.util.UUID
+import java.util.*
 
 data class RestResponse(
     val message: String? = null,
@@ -34,12 +33,12 @@ data class Account(
     val agency: Short? = null,
     val year: Short? = null,
     val userId: UUID,
-    val balance: Double = "0.0".toDouble(),
+    val balance: Double = 0.0,
     val status: ActivationStatus = ACTIVE
 ){
     fun isAccountActive(): Boolean = this.status == ACTIVE
 
-    fun deactivateAccount(): Account = this.copy(status = DEACTIVATED)
+    fun deactivateAccount(): Account = this.copy(status = DEACTIVATED, balance = 0.0)
 }
 
 enum class DocType{

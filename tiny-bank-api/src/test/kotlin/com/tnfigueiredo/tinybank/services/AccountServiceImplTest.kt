@@ -1,8 +1,11 @@
 package com.tnfigueiredo.tinybank.services
 
+import com.tnfigueiredo.tinybank.exceptions.BusinessRuleValidationException
 import com.tnfigueiredo.tinybank.model.Account
+import com.tnfigueiredo.tinybank.model.ActivationStatus.DEACTIVATED
 import com.tnfigueiredo.tinybank.repositories.AccountRepository
 import io.kotest.matchers.equals.shouldBeEqual
+import io.kotest.matchers.types.shouldBeInstanceOf
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 import org.springframework.beans.factory.annotation.Autowired
@@ -33,7 +36,7 @@ internal class AccountServiceImplTest {
             id = "${AN_YEAR}${AN_AGENCY_AS_STRING}0000",
             agency = AN_AGENCY,
             userId = A_RANDOM_ID,
-            balance = "0.0".toDouble(),
+            balance = 0.0,
             year = AN_YEAR
         )
 
@@ -51,7 +54,7 @@ internal class AccountServiceImplTest {
             id = "${AN_YEAR}${AN_AGENCY_AS_STRING}0003",
             agency = AN_AGENCY,
             userId = A_RANDOM_ID,
-            balance = "0.0".toDouble(),
+            balance = 0.0,
             year = AN_YEAR
         )
 
@@ -62,4 +65,49 @@ internal class AccountServiceImplTest {
         result shouldBeEqual accountToBeSaved
     }
 
+    @Test
+    fun `when there is an active account being deactivated`() {
+        val accountToBeDeactivated = Account(
+            id = "${AN_YEAR}${AN_AGENCY_AS_STRING}0003",
+            agency = AN_AGENCY,
+            userId = A_RANDOM_ID,
+            balance = 0.0,
+            year = AN_YEAR
+        )
+
+        Mockito.`when`(accountRepository.getAccountById(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated))
+        Mockito.`when`(accountRepository.deactivateAccount(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated.deactivateAccount()))
+        val result = accountService.deactivateAccount(accountToBeDeactivated.id!!).getOrNull()!!
+
+        result shouldBeEqual accountToBeDeactivated.deactivateAccount()
+    }
+
+    @Test
+    fun `when there is a deactivated account being deactivated`() {
+        val accountToBeDeactivated = Account(
+            id = "${AN_YEAR}${AN_AGENCY_AS_STRING}0003",
+            agency = AN_AGENCY,
+            userId = A_RANDOM_ID,
+            balance = 0.0,
+            year = AN_YEAR,
+            status = DEACTIVATED
+        )
+
+        Mockito.`when`(accountRepository.getAccountById(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated))
+        accountService.deactivateAccount(accountToBeDeactivated.id!!).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
+    }
+
+    @Test
+    fun `when there is a non zero balance account being deactivated`() {
+        val accountToBeDeactivated = Account(
+            id = "${AN_YEAR}${AN_AGENCY_AS_STRING}0003",
+            agency = AN_AGENCY,
+            userId = A_RANDOM_ID,
+            balance = 100.0,
+            year = AN_YEAR
+        )
+
+        Mockito.`when`(accountRepository.getAccountById(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated))
+        accountService.deactivateAccount(accountToBeDeactivated.id!!).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
+    }
 }

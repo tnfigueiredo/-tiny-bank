@@ -4,13 +4,13 @@ import com.tnfigueiredo.tinybank.exceptions.DataDuplicatedException
 import com.tnfigueiredo.tinybank.exceptions.DataNotFoundException
 import com.tnfigueiredo.tinybank.exceptions.NoConsistentDataException
 import com.tnfigueiredo.tinybank.model.Account
-import com.tnfigueiredo.tinybank.model.ActivationStatus.ACTIVE
-import com.tnfigueiredo.tinybank.model.ActivationStatus.DEACTIVATED
 import java.util.concurrent.ConcurrentHashMap
 
 interface AccountRepository {
 
     fun saveAccount(account: Account): Result<Account>
+
+    fun getAccountById(id: String): Result<Account>
 
     fun deactivateAccount(id: String): Result<Account>
 
@@ -37,14 +37,14 @@ class AccountRepositoryImpl : AccountRepository {
         }
     }
 
+    override fun getAccountById(id: String): Result<Account> = kotlin.runCatching {
+        accountRepo[id] ?: throw DataNotFoundException("The account $id does not exist.")
+    }
+
     override fun deactivateAccount(id: String) = kotlin.runCatching {
         accountRepo[id]?.let { accountRecovered ->
-            val deactivatedAccount = if(accountRecovered.isAccountActive())
-                accountRecovered.deactivateAccount()
-            else
-                throw NoConsistentDataException("The account $id is already deactivated.")
-            accountRepo[id] = deactivatedAccount
-            deactivatedAccount
+            accountRepo[id] = accountRecovered.deactivateAccount()
+            accountRepo[id]
         } ?: throw DataNotFoundException("The account $id does not exist.")
     }
 

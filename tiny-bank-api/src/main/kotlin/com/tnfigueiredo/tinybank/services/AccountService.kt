@@ -1,5 +1,6 @@
 package com.tnfigueiredo.tinybank.services
 
+import com.tnfigueiredo.tinybank.exceptions.BusinessRuleValidationException
 import com.tnfigueiredo.tinybank.model.Account
 import com.tnfigueiredo.tinybank.repositories.AccountRepository
 import java.util.*
@@ -7,6 +8,8 @@ import java.util.*
 interface AccountService{
 
     fun createAccount(userId: UUID, agency: Short, year: Short): Result<Account>
+
+    fun deactivateAccount(accountId: String): Result<Account>
 
 }
 
@@ -19,9 +22,25 @@ class AccountServiceImpl(private val accountRepository: AccountRepository):Accou
             agency = agency,
             year = year
         )
-        val result = accountRepository.saveAccount(accountToBeSaved)
-        result.onFailure { throw it }
-        result.getOrNull()!!
+        accountRepository.saveAccount(accountToBeSaved)
+            .onFailure { throw it }
+            .getOrNull()!!
+    }
+
+    override fun deactivateAccount(accountId: String): Result<Account> = kotlin.runCatching{
+        val account = accountRepository.getAccountById(accountId)
+            .onFailure { throw it }
+            .getOrNull()!!
+
+        if(account.isAccountActive().not())
+            throw BusinessRuleValidationException("The account $accountId is already deactivated.")
+
+        if(account.balance > 0.0)
+            throw BusinessRuleValidationException("The account $accountId has a balance greater than zero.")
+
+        accountRepository.deactivateAccount(accountId)
+            .onFailure { throw it }
+            .getOrNull()!!
     }
 
     private fun getNextAgencyAccountIdentification(agencyAccountPrefix: String): String {
