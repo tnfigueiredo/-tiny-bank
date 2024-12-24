@@ -20,6 +20,7 @@ class UserStepsDefinition {
 
     private companion object{
         lateinit var userToSubmit: User
+        var userToBeDeactivated: User? = null
         lateinit var result: ResponseEntity<RestResponse>
         const val BASE_SERVICE_PATH = "/users"
     }
@@ -44,7 +45,8 @@ class UserStepsDefinition {
         document: String,
         country: String
     ) {
-        //TODO Implement
+        userToSubmit = User(null, "ANOTHER_NAME", "ANOTHER_SURNAME", DocType.valueOf(doctype), document, country)
+        restTemplate.postForEntity(BASE_SERVICE_PATH, userToSubmit, RestResponse::class.java)
     }
 
     @And("there is a client with the document type {string}, document {string}, country {string}")

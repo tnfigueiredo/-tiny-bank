@@ -11,7 +11,11 @@ interface UserRepository{
 
     fun saveOrUpdate(user: User): Result<User?>
 
+    fun findUserById(userId: UUID): Result<User>
+
     fun findUserByDocumentInfo(docType: DocType, document: String, docCountry: String): User?
+
+    fun deactivateUser(userId: UUID): Result<User>
 
     fun deleteAll()
 
@@ -44,8 +48,19 @@ class UserRepositoryImpl:UserRepository {
         }
     }
 
+    override fun findUserById(userId: UUID): Result<User> = kotlin.runCatching {
+        userRepo[userId] ?: throw DataNotFoundException("User Not Found.")
+    }
+
     override fun findUserByDocumentInfo(docType: DocType, document: String, docCountry: String): User? =
         userRepo.values.firstOrNull{ user -> user.isUserDocument(docType, document, docCountry) }
+
+    override fun deactivateUser(userId: UUID): Result<User> = kotlin.runCatching {
+        userRepo[userId]?.let { userToBeDeactivated ->
+            userRepo[userId] = userToBeDeactivated.deactivateUser()
+            userRepo[userId]!!
+        } ?: throw DataNotFoundException("User Not Found to be deactivated.")
+    }
 
     override fun deleteAll():Unit = userRepo.clear()
 

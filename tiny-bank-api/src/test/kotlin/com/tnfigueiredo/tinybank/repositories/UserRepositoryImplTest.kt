@@ -2,9 +2,11 @@ package com.tnfigueiredo.tinybank.repositories
 
 import com.tnfigueiredo.tinybank.exceptions.DataDuplicatedException
 import com.tnfigueiredo.tinybank.exceptions.DataNotFoundException
+import com.tnfigueiredo.tinybank.model.ActivationStatus.DEACTIVATED
 import com.tnfigueiredo.tinybank.model.DocType.NATIONAL_ID
 import com.tnfigueiredo.tinybank.model.DocType.PASSPORT
 import com.tnfigueiredo.tinybank.model.User
+import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -96,5 +98,37 @@ internal class UserRepositoryImplTest {
         savedUser?.document?.shouldBeEqual(A_DOCUMENT)
         savedUser?.docCountry?.shouldBeEqual(A_DOC_COUNTRY)
 
+    }
+
+    @Test
+    fun `when deactivating an existing user`() {
+        val userToBeDeactivated = underTest.saveOrUpdate(User(name = A_NAME, surname = A_SURNAME, docType = NATIONAL_ID, document = A_DOCUMENT, docCountry = A_DOC_COUNTRY)).getOrNull()
+        userToBeDeactivated.shouldNotBeNull()
+
+        val deactivatedUser = underTest.deactivateUser(userToBeDeactivated.id!!).getOrNull()
+
+        deactivatedUser?.id?.shouldBeEqual(userToBeDeactivated.id!!)
+        deactivatedUser?.name?.shouldBeEqual(userToBeDeactivated.name)
+        deactivatedUser?.surname?.shouldBeEqual(userToBeDeactivated.surname)
+        deactivatedUser?.docType?.shouldBeEqual(userToBeDeactivated.docType)
+        deactivatedUser?.document?.shouldBeEqual(userToBeDeactivated.document)
+        deactivatedUser?.docCountry?.shouldBeEqual(userToBeDeactivated.docCountry)
+        deactivatedUser?.isUserActive()?.shouldBeFalse()
+    }
+
+    @Test
+    fun `when deactivating a non existing user`() {
+        underTest.deactivateUser(A_RANDOM_ID).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
+    }
+
+    @Test
+    fun `when searching an existing user by its id`() {
+        val userToBeSearched = underTest.saveOrUpdate(User(name = A_NAME, surname = A_SURNAME, docType = NATIONAL_ID, document = A_DOCUMENT, docCountry = A_DOC_COUNTRY)).getOrNull()
+        underTest.findUserById(userToBeSearched!!.id!!).getOrNull()?.shouldBeEqual(userToBeSearched)
+    }
+
+    @Test
+    fun `when searching for a non existing user with an id`() {
+        underTest.findUserById(A_RANDOM_ID).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
     }
 }

@@ -1,7 +1,8 @@
 Feature: Deactivate User
 
   The Tiny User Bank can at any moment choose to close its account in the Tiny Bank. The user is not deleted from the bank
-  data records. It is deactivated to allow future data verification.
+  data records. It is deactivated to allow future data verification. The user deactivation and user account deactivation
+  are done in the same operation.
 
   **As a** client that has an account at Tiny Bank
   **I want to** request the account deactivation
@@ -9,7 +10,6 @@ Feature: Deactivate User
 
   Rule: When a Tiny Bank client request to deactivate its account, based on the clients national ID the deactivation is done.
 
-    @pending
     Scenario: Deactivate an account for a national ID
       Given the client identification for document type "NATIONAL_ID", document "34khj543k", country "PT"
       And there is a client with the document type "NATIONAL_ID", document "34khj543k", country "PT"

@@ -6,6 +6,7 @@ import com.tnfigueiredo.tinybank.exceptions.DataNotFoundException
 import com.tnfigueiredo.tinybank.model.DocType.PASSPORT
 import com.tnfigueiredo.tinybank.model.User
 import com.tnfigueiredo.tinybank.repositories.UserRepository
+import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -67,5 +68,27 @@ internal class UserServiceImplTest {
     fun `when there is no user for document information`() {
         val result = userService.findUserByDocument(aUser.docType, aUser.document, aUser.docCountry)
         result.getOrNull().shouldBeNull()
+    }
+
+    @Test
+    fun `when deactivating an active user`() {
+        `when`(userRepository.findUserById(aUser.id!!)).thenReturn(Result.success(aUser))
+        `when`(userRepository.deactivateUser(aUser.id!!)).thenReturn(Result.success(aUser.deactivateUser()))
+
+        val result = userService.deactivateUser(aUser.id!!).getOrNull()
+
+        result?.isUserActive()?.shouldBeFalse()
+    }
+
+    @Test
+    fun `when deactivating a non active user`() {
+        `when`(userRepository.findUserById(aUser.id!!)).thenReturn(Result.success(aUser.deactivateUser()))
+        userService.deactivateUser(aUser.id!!).exceptionOrNull().shouldBeInstanceOf<BusinessRuleValidationException>()
+    }
+
+    @Test
+    fun `when deactivating a non existing user`() {
+        `when`(userRepository.findUserById(aUser.id!!)).thenReturn(Result.failure(DataNotFoundException("Data not found")))
+        userService.deactivateUser(aUser.id!!).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
     }
 }
