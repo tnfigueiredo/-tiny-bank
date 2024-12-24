@@ -1,9 +1,9 @@
 package com.tnfigueiredo.tinybank.bdd.steps
 
-import com.tnfigueiredo.tinybank.model.Account
 import com.tnfigueiredo.tinybank.model.DocType
 import com.tnfigueiredo.tinybank.model.RestResponse
 import com.tnfigueiredo.tinybank.model.User
+import io.cucumber.java.PendingException
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
@@ -31,6 +31,7 @@ class AccountManagementStepsDefinition {
         var accountUser: User? = null
         lateinit var userInfoToSearch: User
         lateinit var accountAgency: String
+        var isFailingAccountForDocumentsTest = false
     }
 
     @Autowired
@@ -52,10 +53,13 @@ class AccountManagementStepsDefinition {
             RestResponse::class.java
         )
         accountUser = invalidDocResponse.body!!.data as User?
+        isFailingAccountForDocumentsTest = true
     }
 
-    @And("the client requesting the account creation has its register active")
-    fun the_client_requesting_the_account_creation_has_its_register_active() {
+    @And("the client requesting the account creation has its register active in the agency {string}")
+    fun the_client_requesting_the_account_creation_has_its_register_active_in_the_agency(agency: String) {
+        accountAgency = agency
+        isFailingAccountForDocumentsTest = false
         restTemplate.postForEntity(
             USERS_BASE_SERVICE_PATH,
             User(
@@ -86,14 +90,14 @@ class AccountManagementStepsDefinition {
         accountUser?.isUserActive()?.shouldBeTrue()
     }
 
-    @And("the backoffice operation is from the agency {string}")
-    fun the_backoffice_operation_is_from_the_agency(agency: String) {
-        accountAgency = agency
-    }
-
     @When("the account creation is requested")
     fun the_account_creation_is_requested() {
         result = restTemplate.postForEntity("$BASE_SERVICE_PATH/user/${accountUser?.id}/agency/$accountAgency", null, RestResponse::class.java)
+    }
+
+    @And("the client's account already exists")
+    fun the_client_s_account_already_exists() {
+        restTemplate.postForEntity("$BASE_SERVICE_PATH/user/${accountUser?.id}/agency/$accountAgency", null, RestResponse::class.java)
     }
 
     @When("there is no user with the document information")
@@ -109,9 +113,16 @@ class AccountManagementStepsDefinition {
 
     @Then("the client's account is not created")
     fun the_client_s_account_is_not_created() {
-        invalidDocResponse.statusCode shouldBeEqual HttpStatus.NOT_FOUND
-        invalidDocResponse.body!!.data.shouldBeNull()
-        Serenity.recordReportData().withTitle("User Bank Account Creations Response").andContents(invalidDocResponse.toString())
+        if (isFailingAccountForDocumentsTest) {
+            invalidDocResponse.statusCode shouldBeEqual HttpStatus.NOT_FOUND
+            invalidDocResponse.body!!.data.shouldBeNull()
+            Serenity.recordReportData().withTitle("User Bank Account Creations Response")
+                .andContents(invalidDocResponse.toString())
+        } else {
+            result.statusCode shouldBeEqual HttpStatus.BAD_REQUEST
+            Serenity.recordReportData().withTitle("User Bank Account Creations Response")
+                .andContents(result.toString())
+        }
     }
 
 }

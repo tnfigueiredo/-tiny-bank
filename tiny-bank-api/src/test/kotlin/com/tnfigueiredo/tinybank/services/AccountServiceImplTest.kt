@@ -41,6 +41,7 @@ internal class AccountServiceImplTest {
         )
 
         Mockito.`when`(accountRepository.findLatestAccount("$AN_YEAR$AN_AGENCY_AS_STRING")).thenReturn(null)
+        Mockito.`when`(accountRepository.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(null))
         Mockito.`when`(accountRepository.saveAccount(accountToBeSaved)).thenReturn(Result.success(accountToBeSaved))
         val result = accountService.createAccount(A_RANDOM_ID, AN_AGENCY, AN_YEAR).getOrNull()!!
 
@@ -59,10 +60,27 @@ internal class AccountServiceImplTest {
         )
 
         Mockito.`when`(accountRepository.findLatestAccount("$AN_YEAR$AN_AGENCY_AS_STRING")).thenReturn(A_LATEST_ACCOUNT)
+        Mockito.`when`(accountRepository.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(null))
         Mockito.`when`(accountRepository.saveAccount(accountToBeSaved)).thenReturn(Result.success(accountToBeSaved))
         val result = accountService.createAccount(A_RANDOM_ID, AN_AGENCY, AN_YEAR).getOrNull()!!
 
         result shouldBeEqual accountToBeSaved
+    }
+
+    @Test
+    fun `when use user already has an account created`() {
+        val accountToBeSaved = Account(
+            id = "${AN_YEAR}${AN_AGENCY_AS_STRING}0003",
+            agency = AN_AGENCY,
+            userId = A_RANDOM_ID,
+            balance = 0.0,
+            year = AN_YEAR
+        )
+
+        Mockito.`when`(accountRepository.findLatestAccount("$AN_YEAR$AN_AGENCY_AS_STRING")).thenReturn(A_LATEST_ACCOUNT)
+        Mockito.`when`(accountRepository.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(accountToBeSaved))
+
+        accountService.createAccount(A_RANDOM_ID, AN_AGENCY, AN_YEAR).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
     }
 
     @Test

@@ -85,6 +85,28 @@ internal class AccountRepositoryImplTest {
     }
 
     @Test
+    fun `when getting an account by id that doesn't exist`() {
+        underTest.getAccountById(A_ACCOUNT_ID).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
+    }
+
+    @Test
+    fun `when getting an account by user id for a user having account`() {
+        val account = Account(id = A_ACCOUNT_ID, userId = A_RANDOM_ID, balance = 100.0)
+        underTest.saveAccount(account)
+        val result = underTest.getAccountByUserId(A_RANDOM_ID)
+
+        result.getOrNull()?.id?.shouldBeEqual(account.id!!)
+        result.getOrNull()?.userId?.shouldBeEqual(account.userId)
+        result.getOrNull()?.balance?.shouldBeEqual(account.balance)
+        result.getOrNull()?.status?.shouldBeEqual(account.status)
+    }
+
+    @Test
+    fun `when getting an account by user id for a user having no account`() {
+        underTest.getAccountByUserId(A_RANDOM_ID).getOrNull().shouldBeNull()
+    }
+
+    @Test
     fun `deactivate an existing account successfully`() {
         val account = Account(id = A_ACCOUNT_ID, userId = A_RANDOM_ID)
         underTest.saveAccount(account)

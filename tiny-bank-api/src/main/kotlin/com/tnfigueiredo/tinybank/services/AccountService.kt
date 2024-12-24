@@ -22,6 +22,10 @@ class AccountServiceImpl(private val accountRepository: AccountRepository):Accou
             agency = agency,
             year = year
         )
+
+        if(accountRepository.getAccountByUserId(userId).getOrNull() != null)
+            throw BusinessRuleValidationException("The user already has an account.")
+
         accountRepository.saveAccount(accountToBeSaved)
             .onFailure { throw it }
             .getOrNull()!!
