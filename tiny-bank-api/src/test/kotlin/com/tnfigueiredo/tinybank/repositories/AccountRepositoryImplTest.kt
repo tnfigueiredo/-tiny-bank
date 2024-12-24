@@ -1,9 +1,11 @@
 package com.tnfigueiredo.tinybank.repositories
 
 import com.tnfigueiredo.tinybank.exceptions.DataDuplicatedException
+import com.tnfigueiredo.tinybank.exceptions.DataNotFoundException
 import com.tnfigueiredo.tinybank.exceptions.NoConsistentDataException
 import com.tnfigueiredo.tinybank.model.Account
 import com.tnfigueiredo.tinybank.model.ActivationStatus.ACTIVE
+import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -68,5 +70,26 @@ internal class AccountRepositoryImplTest {
         val account = Account(id = A_ACCOUNT_ID, userId = A_RANDOM_ID)
         underTest.saveAccount(account)
         underTest.findLatestAccount(AN_ACCOUNT_PREFIX)?.shouldBeEqual(A_ACCOUNT_ID)
+    }
+
+    @Test
+    fun `deactivate an existing account successfully`() {
+        val account = Account(id = A_ACCOUNT_ID, userId = A_RANDOM_ID)
+        underTest.saveAccount(account)
+        val result = underTest.deactivateAccount(A_ACCOUNT_ID)
+        result.getOrNull()?.isAccountActive()?.shouldBeFalse()
+    }
+
+    @Test
+    fun `when deactivating a non active account`() {
+        val account = Account(id = A_ACCOUNT_ID, userId = A_RANDOM_ID)
+        underTest.saveAccount(account)
+        underTest.deactivateAccount(A_ACCOUNT_ID)
+        underTest.deactivateAccount(A_ACCOUNT_ID).exceptionOrNull().shouldBeInstanceOf<NoConsistentDataException>()
+    }
+
+    @Test
+    fun `when deactivating a non existing account`() {
+        underTest.deactivateAccount(A_ACCOUNT_ID).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
     }
 }

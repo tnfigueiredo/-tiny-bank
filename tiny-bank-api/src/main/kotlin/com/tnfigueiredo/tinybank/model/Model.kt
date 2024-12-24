@@ -37,8 +37,9 @@ data class Account(
     val balance: Double = "0.0".toDouble(),
     val status: ActivationStatus = ACTIVE
 ){
-    fun generateIdentification(lastNumber: Short):String =
-        "${this.year}${String.format("%04d", this.agency)}${String.format("%04d", lastNumber)}"
+    fun isAccountActive(): Boolean = this.status == ACTIVE
+
+    fun deactivateAccount(): Account = this.copy(status = DEACTIVATED)
 }
 
 enum class DocType{
