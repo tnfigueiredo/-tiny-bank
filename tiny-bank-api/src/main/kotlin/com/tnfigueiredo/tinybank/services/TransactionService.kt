@@ -30,12 +30,11 @@ class TransactionServiceImpl(private val transactionRepository: TransactionRepos
             throw TransactionDeniedException("Deposit amount must be greater than 0")
         }
 
-
     private fun withdraw(transaction: Transaction): Transaction =
-        if(transaction.amount < 0) {
-            transactionRepository.saveTransaction(transaction.copy(accountBalanceCurrentValue = transaction.accountBalanceCurrentValue - transaction.amount)).getOrNull()!!
-        } else {
-            throw TransactionDeniedException("Withdraw amount must be lower than 0")
+        when{
+            transaction.accountBalanceCurrentValue + transaction.amount < 0 -> throw TransactionDeniedException("Withdraw amount makes account balance negative.")
+            transaction.amount < 0 -> transactionRepository.saveTransaction(transaction.copy(accountBalanceCurrentValue = transaction.accountBalanceCurrentValue + transaction.amount)).getOrNull()!!
+            else -> throw TransactionDeniedException("Withdraw amount must be lower than 0")
         }
 
     private fun transfer(transaction: Transaction): Transaction =

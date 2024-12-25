@@ -6,7 +6,7 @@ Feature: Create Deposit
 
   **As a** Tiny Bank client
   **I want to** deposit a value in a bank account
-  **So that I can** add value to my account balance
+  **So that I can** credit value to my account balance
 
   Rule: For doing a deposit transaction the user account must be active
 

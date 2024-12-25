@@ -17,6 +17,8 @@ interface AccountService{
 
     fun activateAccount(accountId: String): Result<Account>
 
+    fun updateAccountBalance(accountId: String, amount: Double): Result<Account>
+
 }
 
 class AccountServiceImpl(private val accountRepository: AccountRepository):AccountService{
@@ -72,6 +74,14 @@ class AccountServiceImpl(private val accountRepository: AccountRepository):Accou
             throw BusinessRuleValidationException("The account $accountId is already activated.")
 
         accountRepository.activateAccount(accountId)
+            .onFailure { throw it }
+            .getOrNull()!!
+    }
+
+    override fun updateAccountBalance(accountId: String, amount: Double): Result<Account> = kotlin.runCatching {
+        if (amount < 0.0)
+            throw BusinessRuleValidationException("The account balance must be greater than zero.")
+        accountRepository.updateAccountBalance(accountId, amount)
             .onFailure { throw it }
             .getOrNull()!!
     }

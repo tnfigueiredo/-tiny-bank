@@ -132,4 +132,17 @@ internal class AccountRepositoryImplTest {
     fun `when activating a non existing account`() {
         underTest.activateAccount(A_ACCOUNT_ID).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
     }
+
+    @Test
+    fun `when updating an existing account balance`() {
+        val account = Account(id = A_ACCOUNT_ID, userId = A_RANDOM_ID)
+        underTest.saveAccount(account)
+        val result = underTest.updateAccountBalance(A_ACCOUNT_ID, 100.0)
+        result.getOrNull()?.balance?.shouldBeEqual(100.0)
+    }
+
+    @Test
+    fun `when updating a non existing account balance`() {
+        underTest.updateAccountBalance(A_ACCOUNT_ID, 100.0).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
+    }
 }

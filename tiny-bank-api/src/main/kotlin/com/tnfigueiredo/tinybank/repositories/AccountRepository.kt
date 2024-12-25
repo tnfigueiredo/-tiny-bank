@@ -21,6 +21,8 @@ interface AccountRepository {
 
     fun findLatestAccount(agencyAccountPrefix: String):String?
 
+    fun updateAccountBalance(accountId: String, amount: Double): Result<Account>
+
     fun deleteAll()
 
 }
@@ -65,6 +67,13 @@ class AccountRepositoryImpl : AccountRepository {
     }
 
     override fun findLatestAccount(agencyAccountPrefix: String):String? = accountRepo.keys.filter { it.startsWith(agencyAccountPrefix) }.maxOrNull()
+
+    override fun updateAccountBalance(accountId: String, amount: Double): Result<Account> = kotlin.runCatching{
+        accountRepo[accountId]?.let { accountRecovered ->
+            accountRepo[accountId] = accountRecovered.copy(balance = amount)
+            accountRepo[accountId]
+        } ?: throw DataNotFoundException("The account $accountId does not exist.")
+    }
 
     override fun deleteAll() = accountRepo.clear()
 }

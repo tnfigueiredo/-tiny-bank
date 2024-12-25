@@ -29,7 +29,9 @@ class TransactionsController {
         accountService.getAccountById(transaction.originAccountId).fold(
             onSuccess = { account ->
                 if(account.isAccountActive()) {
-                    transactionService.saveTransaction(transaction).fold(
+                    accountService.updateAccountBalance(account.id!!, account.balance + transaction.amount)
+                        .onFailure { failure -> handleServiceCallFailure(failure) }
+                    transactionService.saveTransaction(transaction.copy(accountBalanceCurrentValue = account.balance)).fold(
                         onSuccess = { savedTransaction ->
                             ResponseEntity.ok(
                                 RestResponse(

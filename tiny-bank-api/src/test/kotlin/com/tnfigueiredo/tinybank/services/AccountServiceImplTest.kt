@@ -82,7 +82,7 @@ internal class AccountServiceImplTest {
         `when`(accountRepositoryMock.findLatestAccount("$AN_YEAR$AN_AGENCY_AS_STRING")).thenReturn(A_LATEST_ACCOUNT)
         `when`(accountRepositoryMock.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(accountToBeSaved))
 
-        underTest.createAccount(A_RANDOM_ID, AN_AGENCY, AN_YEAR).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
+        underTest.createAccount(A_RANDOM_ID, AN_AGENCY, AN_YEAR).exceptionOrNull().shouldBeInstanceOf<BusinessRuleValidationException>()
     }
 
     @Test
@@ -114,7 +114,7 @@ internal class AccountServiceImplTest {
         )
 
         `when`(accountRepositoryMock.getAccountById(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated))
-        underTest.deactivateAccount(accountToBeDeactivated.id!!).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
+        underTest.deactivateAccount(accountToBeDeactivated.id!!).exceptionOrNull().shouldBeInstanceOf<BusinessRuleValidationException>()
     }
 
     @Test
@@ -128,7 +128,7 @@ internal class AccountServiceImplTest {
         )
 
         `when`(accountRepositoryMock.getAccountById(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated))
-        underTest.deactivateAccount(accountToBeDeactivated.id!!).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
+        underTest.deactivateAccount(accountToBeDeactivated.id!!).exceptionOrNull().shouldBeInstanceOf<BusinessRuleValidationException>()
     }
 
     @Test
@@ -160,7 +160,7 @@ internal class AccountServiceImplTest {
         )
 
         `when`(accountRepositoryMock.getAccountById(accountToBeActivated.id!!)).thenReturn(Result.success(accountToBeActivated))
-        underTest.activateAccount(accountToBeActivated.id!!).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
+        underTest.activateAccount(accountToBeActivated.id!!).exceptionOrNull().shouldBeInstanceOf<BusinessRuleValidationException>()
     }
 
     @Test
@@ -200,6 +200,23 @@ internal class AccountServiceImplTest {
     @Test
     fun `when account id doesn't exist`() {
         `when`(accountRepositoryMock.getAccountById(A_LATEST_ACCOUNT)).thenReturn(Result.failure(DataNotFoundException("No account found")))
-        underTest.getAccountById(A_LATEST_ACCOUNT).exceptionOrNull()!!.shouldBeInstanceOf<DataNotFoundException>()
+        underTest.getAccountById(A_LATEST_ACCOUNT).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
+    }
+
+    @Test
+    fun `when updating an existing account balance`() {
+        `when`(accountRepositoryMock.updateAccountBalance(A_LATEST_ACCOUNT, 100.0))
+            .thenReturn(Result.success(Account(id = A_LATEST_ACCOUNT, agency = AN_AGENCY, userId = A_RANDOM_ID, balance = 100.0, year = AN_YEAR)))
+        val result = underTest.updateAccountBalance(A_LATEST_ACCOUNT, 100.0).getOrNull()!!
+
+        result.balance shouldBeEqual 100.0
+        result.id?.shouldBeEqual(A_LATEST_ACCOUNT)
+    }
+
+    @Test
+    fun `when updating a non existing account balance`() {
+        `when`(accountRepositoryMock.updateAccountBalance(A_LATEST_ACCOUNT, 100.0))
+            .thenReturn(Result.failure(DataNotFoundException("No account found")))
+        underTest.updateAccountBalance(A_LATEST_ACCOUNT, 100.0).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
     }
 }
