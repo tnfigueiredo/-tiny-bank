@@ -1,9 +1,6 @@
 package com.tnfigueiredo.tinybank
 
-import com.tnfigueiredo.tinybank.repositories.AccountRepository
-import com.tnfigueiredo.tinybank.repositories.AccountRepositoryImpl
-import com.tnfigueiredo.tinybank.repositories.UserRepository
-import com.tnfigueiredo.tinybank.repositories.UserRepositoryImpl
+import com.tnfigueiredo.tinybank.repositories.*
 import com.tnfigueiredo.tinybank.services.AccountService
 import com.tnfigueiredo.tinybank.services.AccountServiceImpl
 import com.tnfigueiredo.tinybank.services.UserService
@@ -19,6 +16,9 @@ class BeansConfig {
 
     @Bean
     fun accountRepository(): AccountRepository = AccountRepositoryImpl()
+
+    @Bean
+    fun transactionRepository(): TransactionRepository = TransactionRepositoryImpl()
 
     @Bean
     fun userService(userRepository: UserRepository): UserService = UserServiceImpl(userRepository)

@@ -54,6 +54,14 @@ data class Account(
     fun activateAccount(): Account = this.copy(status = ACTIVE, balance = 0.0)
 }
 
+data class Transaction(
+    val id: UUID? = null,
+    val originAccountId: String,
+    val destinationAccountId: String? = null,
+    val amount: Double,
+    val type: TransactionType
+)
+
 enum class DocType{
     NATIONAL_ID,
     PASSPORT
@@ -61,4 +69,8 @@ enum class DocType{
 
 enum class ActivationStatus{
     ACTIVE, DEACTIVATED
+}
+
+enum class TransactionType {
+    DEPOSIT, WITHDRAW, TRANSFER
 }

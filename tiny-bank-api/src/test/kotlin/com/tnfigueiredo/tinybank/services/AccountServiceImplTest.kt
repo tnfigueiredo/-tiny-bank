@@ -8,7 +8,6 @@ import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.types.shouldBeInstanceOf
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -27,10 +26,10 @@ internal class AccountServiceImplTest {
     }
 
     @MockitoBean
-    lateinit var accountRepository: AccountRepository
+    lateinit var accountRepositoryMock: AccountRepository
 
     @Autowired
-    lateinit var accountService: AccountService
+    lateinit var underTest: AccountService
 
     @Test
     fun `when there is no account for the agency in the current year`() {
@@ -42,10 +41,10 @@ internal class AccountServiceImplTest {
             year = AN_YEAR
         )
 
-        `when`(accountRepository.findLatestAccount("$AN_YEAR$AN_AGENCY_AS_STRING")).thenReturn(null)
-        `when`(accountRepository.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(null))
-        `when`(accountRepository.saveAccount(accountToBeSaved)).thenReturn(Result.success(accountToBeSaved))
-        val result = accountService.createAccount(A_RANDOM_ID, AN_AGENCY, AN_YEAR).getOrNull()!!
+        `when`(accountRepositoryMock.findLatestAccount("$AN_YEAR$AN_AGENCY_AS_STRING")).thenReturn(null)
+        `when`(accountRepositoryMock.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(null))
+        `when`(accountRepositoryMock.saveAccount(accountToBeSaved)).thenReturn(Result.success(accountToBeSaved))
+        val result = underTest.createAccount(A_RANDOM_ID, AN_AGENCY, AN_YEAR).getOrNull()!!
 
         result shouldBeEqual accountToBeSaved
 
@@ -61,10 +60,10 @@ internal class AccountServiceImplTest {
             year = AN_YEAR
         )
 
-        `when`(accountRepository.findLatestAccount("$AN_YEAR$AN_AGENCY_AS_STRING")).thenReturn(A_LATEST_ACCOUNT)
-        `when`(accountRepository.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(null))
-        `when`(accountRepository.saveAccount(accountToBeSaved)).thenReturn(Result.success(accountToBeSaved))
-        val result = accountService.createAccount(A_RANDOM_ID, AN_AGENCY, AN_YEAR).getOrNull()!!
+        `when`(accountRepositoryMock.findLatestAccount("$AN_YEAR$AN_AGENCY_AS_STRING")).thenReturn(A_LATEST_ACCOUNT)
+        `when`(accountRepositoryMock.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(null))
+        `when`(accountRepositoryMock.saveAccount(accountToBeSaved)).thenReturn(Result.success(accountToBeSaved))
+        val result = underTest.createAccount(A_RANDOM_ID, AN_AGENCY, AN_YEAR).getOrNull()!!
 
         result shouldBeEqual accountToBeSaved
     }
@@ -79,10 +78,10 @@ internal class AccountServiceImplTest {
             year = AN_YEAR
         )
 
-        `when`(accountRepository.findLatestAccount("$AN_YEAR$AN_AGENCY_AS_STRING")).thenReturn(A_LATEST_ACCOUNT)
-        `when`(accountRepository.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(accountToBeSaved))
+        `when`(accountRepositoryMock.findLatestAccount("$AN_YEAR$AN_AGENCY_AS_STRING")).thenReturn(A_LATEST_ACCOUNT)
+        `when`(accountRepositoryMock.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(accountToBeSaved))
 
-        accountService.createAccount(A_RANDOM_ID, AN_AGENCY, AN_YEAR).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
+        underTest.createAccount(A_RANDOM_ID, AN_AGENCY, AN_YEAR).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
     }
 
     @Test
@@ -95,9 +94,9 @@ internal class AccountServiceImplTest {
             year = AN_YEAR
         )
 
-        `when`(accountRepository.getAccountById(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated))
-        `when`(accountRepository.deactivateAccount(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated.deactivateAccount()))
-        val result = accountService.deactivateAccount(accountToBeDeactivated.id!!).getOrNull()!!
+        `when`(accountRepositoryMock.getAccountById(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated))
+        `when`(accountRepositoryMock.deactivateAccount(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated.deactivateAccount()))
+        val result = underTest.deactivateAccount(accountToBeDeactivated.id!!).getOrNull()!!
 
         result shouldBeEqual accountToBeDeactivated.deactivateAccount()
     }
@@ -113,8 +112,8 @@ internal class AccountServiceImplTest {
             status = DEACTIVATED
         )
 
-        `when`(accountRepository.getAccountById(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated))
-        accountService.deactivateAccount(accountToBeDeactivated.id!!).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
+        `when`(accountRepositoryMock.getAccountById(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated))
+        underTest.deactivateAccount(accountToBeDeactivated.id!!).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
     }
 
     @Test
@@ -127,8 +126,8 @@ internal class AccountServiceImplTest {
             year = AN_YEAR
         )
 
-        `when`(accountRepository.getAccountById(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated))
-        accountService.deactivateAccount(accountToBeDeactivated.id!!).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
+        `when`(accountRepositoryMock.getAccountById(accountToBeDeactivated.id!!)).thenReturn(Result.success(accountToBeDeactivated))
+        underTest.deactivateAccount(accountToBeDeactivated.id!!).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
     }
 
     @Test
@@ -142,9 +141,9 @@ internal class AccountServiceImplTest {
             status = DEACTIVATED
         )
 
-        `when`(accountRepository.getAccountById(accountToBeActivated.id!!)).thenReturn(Result.success(accountToBeActivated))
-        `when`(accountRepository.activateAccount(accountToBeActivated.id!!)).thenReturn(Result.success(accountToBeActivated.activateAccount()))
-        val result = accountService.activateAccount(accountToBeActivated.id!!).getOrNull()!!
+        `when`(accountRepositoryMock.getAccountById(accountToBeActivated.id!!)).thenReturn(Result.success(accountToBeActivated))
+        `when`(accountRepositoryMock.activateAccount(accountToBeActivated.id!!)).thenReturn(Result.success(accountToBeActivated.activateAccount()))
+        val result = underTest.activateAccount(accountToBeActivated.id!!).getOrNull()!!
 
         result shouldBeEqual accountToBeActivated.activateAccount()
     }
@@ -159,8 +158,8 @@ internal class AccountServiceImplTest {
             year = AN_YEAR
         )
 
-        `when`(accountRepository.getAccountById(accountToBeActivated.id!!)).thenReturn(Result.success(accountToBeActivated))
-        accountService.activateAccount(accountToBeActivated.id!!).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
+        `when`(accountRepositoryMock.getAccountById(accountToBeActivated.id!!)).thenReturn(Result.success(accountToBeActivated))
+        underTest.activateAccount(accountToBeActivated.id!!).exceptionOrNull()!!.shouldBeInstanceOf<BusinessRuleValidationException>()
     }
 
     @Test
@@ -173,14 +172,14 @@ internal class AccountServiceImplTest {
             year = AN_YEAR
         )
 
-        `when`(accountRepository.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(accountToBeSearched))
-        accountService.getAccountByUserId(A_RANDOM_ID).getOrNull()?.shouldBeEqual(accountToBeSearched)
+        `when`(accountRepositoryMock.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(accountToBeSearched))
+        underTest.getAccountByUserId(A_RANDOM_ID).getOrNull()?.shouldBeEqual(accountToBeSearched)
     }
 
     @Test
     fun `when an account doesn't exist for an user id`() {
-        `when`(accountRepository.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(null))
-        accountService.getAccountByUserId(A_RANDOM_ID).getOrNull().shouldBeNull()
+        `when`(accountRepositoryMock.getAccountByUserId(A_RANDOM_ID)).thenReturn(Result.success(null))
+        underTest.getAccountByUserId(A_RANDOM_ID).getOrNull().shouldBeNull()
     }
 
 }
