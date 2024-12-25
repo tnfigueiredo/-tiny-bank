@@ -1,6 +1,7 @@
 package com.tnfigueiredo.tinybank.services
 
 import com.tnfigueiredo.tinybank.exceptions.BusinessRuleValidationException
+import com.tnfigueiredo.tinybank.exceptions.DataNotFoundException
 import com.tnfigueiredo.tinybank.model.Account
 import com.tnfigueiredo.tinybank.model.ActivationStatus.DEACTIVATED
 import com.tnfigueiredo.tinybank.repositories.AccountRepository
@@ -182,4 +183,23 @@ internal class AccountServiceImplTest {
         underTest.getAccountByUserId(A_RANDOM_ID).getOrNull().shouldBeNull()
     }
 
+    @Test
+    fun `when an account id exists`() {
+        val accountToBeSearched = Account(
+            id = "${AN_YEAR}${AN_AGENCY_AS_STRING}0003",
+            agency = AN_AGENCY,
+            userId = A_RANDOM_ID,
+            balance = 0.0,
+            year = AN_YEAR
+        )
+
+        `when`(accountRepositoryMock.getAccountById(accountToBeSearched.id!!)).thenReturn(Result.success(accountToBeSearched))
+        underTest.getAccountById(accountToBeSearched.id!!).getOrNull()?.shouldBeEqual(accountToBeSearched)
+    }
+
+    @Test
+    fun `when account id doesn't exist`() {
+        `when`(accountRepositoryMock.getAccountById(A_LATEST_ACCOUNT)).thenReturn(Result.failure(DataNotFoundException("No account found")))
+        underTest.getAccountById(A_LATEST_ACCOUNT).exceptionOrNull()!!.shouldBeInstanceOf<DataNotFoundException>()
+    }
 }

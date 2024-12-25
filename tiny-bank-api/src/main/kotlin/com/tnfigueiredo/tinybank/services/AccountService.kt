@@ -11,6 +11,8 @@ interface AccountService{
 
     fun getAccountByUserId(userId: UUID): Result<Account?>
 
+    fun getAccountById(accountId: String): Result<Account>
+
     fun deactivateAccount(accountId: String): Result<Account>
 
     fun activateAccount(accountId: String): Result<Account>
@@ -37,6 +39,12 @@ class AccountServiceImpl(private val accountRepository: AccountRepository):Accou
 
     override fun getAccountByUserId(userId: UUID): Result<Account?> = kotlin.runCatching {
         accountRepository.getAccountByUserId(userId).getOrNull()
+    }
+
+    override fun getAccountById(accountId: String): Result<Account> = kotlin.runCatching {
+        accountRepository.getAccountById(accountId)
+            .onFailure { throw it }
+            .getOrNull()!!
     }
 
     override fun deactivateAccount(accountId: String): Result<Account> = kotlin.runCatching{

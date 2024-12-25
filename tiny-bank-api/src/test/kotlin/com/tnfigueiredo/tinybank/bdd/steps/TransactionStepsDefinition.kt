@@ -1,15 +1,13 @@
 package com.tnfigueiredo.tinybank.bdd.steps
 
-import com.tnfigueiredo.tinybank.model.Account
+import com.tnfigueiredo.tinybank.model.*
 import com.tnfigueiredo.tinybank.model.DocType.NATIONAL_ID
-import com.tnfigueiredo.tinybank.model.RestResponse
-import com.tnfigueiredo.tinybank.model.Transaction
 import com.tnfigueiredo.tinybank.model.TransactionType.DEPOSIT
-import com.tnfigueiredo.tinybank.model.UserDTO
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 import io.kotest.matchers.equals.shouldBeEqual
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import net.serenitybdd.core.Serenity
 import org.springframework.beans.factory.annotation.Autowired
@@ -26,7 +24,7 @@ class TransactionStepsDefinition {
         const val BASE_SERVICE_PATH = "/transactions"
         const val USERS_BASE_SERVICE_PATH = "/users"
         const val ACCOUNT_BASE_SERVICE_PATH = "/accounts"
-        lateinit var accountToBeUsed: Account
+        var accountToBeUsed: Account? = null
         lateinit var deactivatedAccountToBeUsed: Account
         lateinit var result: ResponseEntity<RestResponse>
         var A_RANDOM_USER_ID: UUID = UUID.fromString("eae467d9-deb2-49b3-aaf5-f1e146e567e1")
@@ -39,18 +37,29 @@ class TransactionStepsDefinition {
 
     @Given("the user has an active account in Tyny Bank")
     fun the_user_has_an_active_account_in_tyny_bank() {
-        val aUserResult = restTemplate.postForEntity(USERS_BASE_SERVICE_PATH,
-            UserDTO(name = "A_NAME", surname = "A_SURNAME", docType = NATIONAL_ID, document = "A_DOCUMENT", docCountry = "A_DOC_COUNTRY"),
-            RestResponse::class.java
-        )
 
-        aUserResult.statusCode shouldBeEqual HttpStatus.OK
-        A_RANDOM_USER_ID = (aUserResult.body?.data as UserDTO).id!!
+        if(accountToBeUsed == null){
+            val aUserResult = restTemplate.postForEntity(USERS_BASE_SERVICE_PATH,
+                UserDTO(name = "A_NAME", surname = "A_SURNAME", docType = NATIONAL_ID, document = "A_DOCUMENT_FOR_DEPOSIT", docCountry = "A_DOC_COUNTRY"),
+                RestResponse::class.java
+            )
 
-        val activeAccountResult = restTemplate.postForEntity("${ACCOUNT_BASE_SERVICE_PATH}/user/${A_RANDOM_USER_ID}/agency/$AGENCY", null, RestResponse::class.java)
+            aUserResult.statusCode shouldBeEqual HttpStatus.OK
+            A_RANDOM_USER_ID = UUID.fromString(((aUserResult.body!!.data as Map<*, *>)["id"] as String))
 
-        activeAccountResult.statusCode shouldBeEqual HttpStatus.OK
-        accountToBeUsed = activeAccountResult.body?.data as Account
+            val activeAccountResult = restTemplate.postForEntity("${ACCOUNT_BASE_SERVICE_PATH}/user/${A_RANDOM_USER_ID}/agency/$AGENCY", null, RestResponse::class.java)
+
+            activeAccountResult.statusCode shouldBeEqual HttpStatus.OK
+            val account = (activeAccountResult.body!!.data as Map<*, *>)
+            accountToBeUsed = Account(
+                id = account["id"] as String,
+                agency = account["agency"].toString().toShort(),
+                year = account["year"].toString().toShort(),
+                userId = UUID.fromString(account["userId"] as String),
+                balance = account["balance"] as Double,
+                status = ActivationStatus.valueOf(account["status"] as String)
+            )
+        }
 
         flowActiveUSer = true
     }
@@ -64,12 +73,13 @@ class TransactionStepsDefinition {
 
         anotherUserResult.statusCode shouldBeEqual HttpStatus.OK
 
-        val userDocType = (anotherUserResult.body?.data as UserDTO).docType
-        val document = (anotherUserResult.body?.data as UserDTO).document
-        val docCountry = (anotherUserResult.body?.data as UserDTO).docCountry
+        ANOTHER_RANDOM_USER_ID = UUID.fromString(((anotherUserResult.body!!.data as Map<*, *>)["id"] as String))
+        val userDocType = DocType.valueOf(((anotherUserResult.body!!.data as Map<*, *>)["docType"] as String))
+        val document = ((anotherUserResult.body!!.data as Map<*, *>)["document"] as String)
+        val docCountry = ((anotherUserResult.body!!.data as Map<*, *>)["docCountry"] as String)
 
         restTemplate.postForEntity(
-            "${ACCOUNT_BASE_SERVICE_PATH}/user/${A_RANDOM_USER_ID}/agency/$AGENCY",
+            "${ACCOUNT_BASE_SERVICE_PATH}/user/${ANOTHER_RANDOM_USER_ID}/agency/$AGENCY",
             null,
             RestResponse::class.java
         ).statusCode shouldBe HttpStatus.OK
@@ -84,8 +94,15 @@ class TransactionStepsDefinition {
             RestResponse::class.java
         )
 
-        ANOTHER_RANDOM_USER_ID = (deactivatedUserAndAccountResult.body?.data as UserDTO).id!!
-        deactivatedAccountToBeUsed = (deactivatedUserAndAccountResult.body?.data as UserDTO).account!!
+        val account = ((deactivatedUserAndAccountResult.body!!.data as Map<*, *>)["account"] as Map<*, *>)
+        deactivatedAccountToBeUsed = Account(
+            id = account["id"] as String,
+            agency = account["agency"].toString().toShort(),
+            year = account["year"].toString().toShort(),
+            userId = UUID.fromString(account["userId"] as String),
+            balance = account["balance"] as Double,
+            status = ActivationStatus.valueOf(account["status"] as String)
+        )
 
         flowActiveUSer = false
     }
@@ -96,7 +113,7 @@ class TransactionStepsDefinition {
             restTemplate.postForEntity(
                 BASE_SERVICE_PATH,
                 Transaction(
-                    originAccountId = accountToBeUsed.id!!,
+                    originAccountId = accountToBeUsed?.id!!,
                     amount = transactionValue.toDouble(),
                     type = DEPOSIT
                 ),
@@ -119,6 +136,8 @@ class TransactionStepsDefinition {
 
     @Then("the account balance is increased by {string}")
     fun the_account_balance_is_increased_by(string: String?) {
+        result.statusCode shouldBeEqual HttpStatus.OK
+        (result.body!!.data as Map<*, *>)["id"].shouldNotBeNull()
         Serenity.recordReportData().withTitle("Client Account Initial State").andContents(accountToBeUsed.toString())
     }
 
