@@ -154,7 +154,7 @@
             $("#requirements-tabs").tabs();
             $("#test-tabs").tabs();
 
-            var requirementsTree = [{"text":"Create User Bank Account","type":"feature","href":"d2d6ecae506a39d3f7cc30c2e432c03c3da4d5c14d7b8a92f008562bf1eebc30.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e2 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e2 test cases\u003c/span\u003e"]}];
+            var requirementsTree = [{"text":"Create User Bank Account","type":"feature","href":"d2d6ecae506a39d3f7cc30c2e432c03c3da4d5c14d7b8a92f008562bf1eebc30.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e3 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e3 test cases\u003c/span\u003e"]}];
 
             $('#tree').treeview({
                 data: requirementsTree,
@@ -229,7 +229,7 @@
             <a href="#"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 23-12-2024 23:35</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 25-12-2024 14:30</span>
     <br style="clear:left"/>
 </div>
 
@@ -253,7 +253,10 @@
                             </div>
                         </div>
                             <div class="requirementNarrativeTitle">
-                                For a client to be able to do banking transactions as a Tiny Bank client, he needs to have an account.</p>
+                                For a client to be able to do banking transactions as a Tiny Bank client, he needs to have an account. For simplification<br />
+purposes, there will be only one account per client. The account creation is done based on the client's national ID. Those<br />
+test scenarios take in consideration that based on the client's national ID the user information is recovered, and then<br />
+the account is created.</p>
 <p><strong>As a</strong> Tiny Bank client<br />
 <strong>I want to</strong> create a bank account<br />
 <strong>So that I can</strong> do bank transactions through Tiny Bank
@@ -298,7 +301,7 @@
                                                     <table class="table" id="toc-table">
                                                                 <tr>
                                                                     <td class="rule-toc-entry" colspan="2">
-                                                                        <a href="#6a08fe28-2789-4332-8216-d20ac6d38529"
+                                                                        <a href="#c97ca10a-718a-4958-bc4b-4d884de244c6"
                                                                            title="View scenario details for this rule">
                                                                             Rule: The user can create a bank account if he is already registered
                                                                     </td>
@@ -369,6 +372,46 @@
                                                                             </table>
                                                                         </td>
                                                                     </tr>
+                                                                <tr>
+                                                                    <td class="rule-toc-entry" colspan="2">
+                                                                        <a href="#2117b91c-ab29-4a57-b281-7c1bd4458c7f"
+                                                                           title="View scenario details for this rule">
+                                                                            Rule: The user that already has an account cannot create a new account
+                                                                    </td>
+                                                                </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="scenario-toc-entry">
+                                                                                    <a href="#a6f75e411c9b6af4adf6d83f7cc8cda29f42fa1a32a0b83a16f95d48fec03d68"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Fails to create an account to user that already has an account
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="1bf8255eb07a8372118590a159ab87fe4ada196da7f5dd1f2e4c0ed1dd12f203.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="1bf8255eb07a8372118590a159ab87fe4ada196da7f5dd1f2e4c0ed1dd12f203.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
                                                     </table>
                                                 </div>
                                                 <!--- END OF TOC --->
@@ -378,7 +421,7 @@
                                             <div class="col-sm-12">
                                                 <h3>Scenarios</h3>
 
-                                                    <a name="6a08fe28-2789-4332-8216-d20ac6d38529"></a>
+                                                    <a name="c97ca10a-718a-4958-bc4b-4d884de244c6"></a>
                                                         <div class="rule-title">
                                                             Rule: The user can create a bank account if he is already registered</div>
                                                     <p class="rule-tags inline-tag">
@@ -406,9 +449,8 @@
 
                                                             </div>
                                                             <div class="scenario-docs card-body">
-                                                                    <p>Given a client for account creation with document identification: document type &quot;NATIONAL_ID&quot;, document &quot;abcdefgaga&quot;, country &quot;PT&quot;</p>
-                                                                    <p>And the client requesting the account creation has its register active</p>
-                                                                    <p>And the backoffice operation is from the agency &quot;0001&quot;</p>
+                                                                    <p>Given a client for account creation with document identification: document type &quot;NATIONAL_ID&quot;, document &quot;03485203948&quot;, country &quot;PT&quot;</p>
+                                                                    <p>And the client requesting the account creation has its register active in the agency &quot;0001&quot;</p>
                                                                     <p>When the account creation is requested</p>
                                                                     <p>Then the client's account is created successfully</p>
                                                                 <div class="examples">
@@ -439,8 +481,44 @@
                                                             <div class="scenario-docs card-body">
                                                                     <p>Given a client for account creation with document identification: document type &quot;NATIONAL_ID&quot;, document &quot;03485203948&quot;, country &quot;PT&quot;</p>
                                                                     <p>And the document for the client requesting the account creation is invalid</p>
-                                                                    <p>And the backoffice operation is from the agency &quot;0001&quot;</p>
                                                                     <p>When there is no user with the document information</p>
+                                                                    <p>Then the client's account is not created</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <a name="2117b91c-ab29-4a57-b281-7c1bd4458c7f"></a>
+                                                        <div class="rule-title">
+                                                            Rule: The user that already has an account cannot create a new account</div>
+                                                    <p class="rule-tags inline-tag">
+                                                    </p>
+
+
+                                                        <div class="scenario-docs card" id="a6f75e411c9b6af4adf6d83f7cc8cda29f42fa1a32a0b83a16f95d48fec03d68">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="1bf8255eb07a8372118590a159ab87fe4ada196da7f5dd1f2e4c0ed1dd12f203.html"
+                                                                               title="View test results">Scenario: Fails to create an account to user that already has an account</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                    <p>Given a client for account creation with document identification: document type &quot;NATIONAL_ID&quot;, document &quot;03485203948&quot;, country &quot;PT&quot;</p>
+                                                                    <p>And the client requesting the account creation has its register active in the agency &quot;0001&quot;</p>
+                                                                    <p>And the client's account already exists</p>
+                                                                    <p>When the account creation is requested</p>
                                                                     <p>Then the client's account is not created</p>
                                                                 <div class="examples">
                                                                 </div>
@@ -491,22 +569,22 @@
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>2</td>
+                    <td>3</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>913ms</td>
+                    <td>931ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>2</td>
+                    <td>3</td>
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>3ms</td>
+                    <td>2ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -517,30 +595,30 @@
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>58ms</td>
+                    <td>59ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Dec 23, 2024 23:35:46</td>
+                    <td>Dec 25, 2024 14:30:06</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>30ms</td>
+                    <td>21ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Dec 23, 2024 23:35:47</td>
+                    <td>Dec 25, 2024 14:30:07</td>
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>61ms</td>
+                    <td>64ms</td>
                 </tr>
                 </tbody>
             </table>
@@ -571,9 +649,9 @@
                                                                     </td>
                                                                     <td><span style="display:none"></span>
                                                                     </td>
-                                                                    <td>5</td>
-                                                                    <td>23:35:46</td>
-                                                                    <td>058ms</td>
+                                                                    <td>4</td>
+                                                                    <td>14:30:06</td>
+                                                                    <td>059ms</td>
                                                                     <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
                                                                     </td>
                                                                 </tr>
@@ -586,9 +664,24 @@
                                                                     </td>
                                                                     <td><span style="display:none"></span>
                                                                     </td>
-                                                                    <td>5</td>
-                                                                    <td>23:35:47</td>
+                                                                    <td>4</td>
+                                                                    <td>14:30:07</td>
                                                                     <td>003ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="d2d6ecae506a39d3f7cc30c2e432c03c3da4d5c14d7b8a92f008562bf1eebc30.html">Create User Bank Account</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="1bf8255eb07a8372118590a159ab87fe4ada196da7f5dd1f2e4c0ed1dd12f203.html">Fails to create an account to user that already has an account</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>14:30:07</td>
+                                                                    <td>002ms</td>
                                                                     <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
                                                                     </td>
                                                                 </tr>
@@ -647,7 +740,7 @@
             datasets: [{
                 label: 'Test Results',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 2}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 3}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -742,7 +835,7 @@
             datasets: [{
                 label: 'Feature Coverage',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 2}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 3}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -838,7 +931,7 @@
             datasets: [
                 {
                     label: 'Automated',
-                    data: [2,0,0,0,0,0,0,0],
+                    data: [3,0,0,0,0,0,0,0],
                     backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                     borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                     borderWidth: 1
@@ -921,7 +1014,7 @@
             datasets: [{
                 label: 'Number of tests per duration',
                 fill: false,
-                data: ['2','0','0','0','0','0','0','0'],
+                data: ['3','0','0','0','0','0','0','0'],
                 backgroundColor: 'rgba(83, 146, 255,0.5)',
                 borderColor: 'rgba(83, 146, 255, 1)',
             }]
