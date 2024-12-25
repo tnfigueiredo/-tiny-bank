@@ -14,6 +14,8 @@ interface UserService{
 
     fun deactivateUser(userId: UUID): Result<User>
 
+    fun activateUser(user: User): Result<User>
+
 }
 
 class UserServiceImpl(private val userRepository: UserRepository) : UserService {
@@ -38,6 +40,16 @@ class UserServiceImpl(private val userRepository: UserRepository) : UserService 
                 if(userToBeDeactivated.isUserActive().not())
                     throw BusinessRuleValidationException("The user is already deactivated.")
                 userRepository.deactivateUser(userId).getOrNull()!!
+            }
+    }
+
+    override fun activateUser(user: User): Result<User> = kotlin.runCatching {
+        userRepository.findUserById(user.id!!)
+            .onFailure { throw it }
+            .getOrNull()!!.let {userToBeActivated ->
+                if(userToBeActivated.isUserActive())
+                    throw BusinessRuleValidationException("The user is already active.")
+                userRepository.activateUser(userToBeActivated.copy(name = user.name, surname = user.surname)).getOrNull()!!
             }
     }
 

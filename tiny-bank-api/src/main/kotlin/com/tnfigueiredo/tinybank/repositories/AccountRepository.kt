@@ -17,6 +17,8 @@ interface AccountRepository {
 
     fun deactivateAccount(id: String): Result<Account>
 
+    fun activateAccount(id: String): Result<Account>
+
     fun findLatestAccount(agencyAccountPrefix: String):String?
 
     fun deleteAll()
@@ -51,6 +53,13 @@ class AccountRepositoryImpl : AccountRepository {
     override fun deactivateAccount(id: String) = kotlin.runCatching {
         accountRepo[id]?.let { accountRecovered ->
             accountRepo[id] = accountRecovered.deactivateAccount()
+            accountRepo[id]
+        } ?: throw DataNotFoundException("The account $id does not exist.")
+    }
+
+    override fun activateAccount(id: String): Result<Account> = kotlin.runCatching {
+        accountRepo[id]?.let { accountRecovered ->
+            accountRepo[id] = accountRecovered.activateAccount()
             accountRepo[id]
         } ?: throw DataNotFoundException("The account $id does not exist.")
     }

@@ -17,6 +17,8 @@ interface UserRepository{
 
     fun deactivateUser(userId: UUID): Result<User>
 
+    fun activateUser(user: User): Result<User>
+
     fun deleteAll()
 
 }
@@ -60,6 +62,13 @@ class UserRepositoryImpl:UserRepository {
             userRepo[userId] = userToBeDeactivated.deactivateUser()
             userRepo[userId]!!
         } ?: throw DataNotFoundException("User Not Found to be deactivated.")
+    }
+
+    override fun activateUser(user: User): Result<User> = kotlin.runCatching {
+        userRepo[user.id!!]?.let { userToBeActivated ->
+            userRepo[user.id] = userToBeActivated.copy(name = user.name, surname = user.surname).activateUser()
+            userRepo[user.id]!!
+        } ?: throw DataNotFoundException("User Not Found to be activated.")
     }
 
     override fun deleteAll():Unit = userRepo.clear()

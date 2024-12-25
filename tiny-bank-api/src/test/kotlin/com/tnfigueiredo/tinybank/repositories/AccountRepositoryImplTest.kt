@@ -5,6 +5,7 @@ import com.tnfigueiredo.tinybank.exceptions.DataNotFoundException
 import com.tnfigueiredo.tinybank.exceptions.NoConsistentDataException
 import com.tnfigueiredo.tinybank.model.Account
 import com.tnfigueiredo.tinybank.model.ActivationStatus.ACTIVE
+import com.tnfigueiredo.tinybank.model.ActivationStatus.DEACTIVATED
 import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldBeNull
@@ -107,7 +108,7 @@ internal class AccountRepositoryImplTest {
     }
 
     @Test
-    fun `deactivate an existing account successfully`() {
+    fun `when deactivate an existing account successfully`() {
         val account = Account(id = A_ACCOUNT_ID, userId = A_RANDOM_ID)
         underTest.saveAccount(account)
         val result = underTest.deactivateAccount(A_ACCOUNT_ID)
@@ -117,5 +118,18 @@ internal class AccountRepositoryImplTest {
     @Test
     fun `when deactivating a non existing account`() {
         underTest.deactivateAccount(A_ACCOUNT_ID).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
+    }
+
+    @Test
+    fun `when activating an existing account successfully`() {
+        val account = Account(id = A_ACCOUNT_ID, userId = A_RANDOM_ID, status = DEACTIVATED)
+        underTest.saveAccount(account)
+        val result = underTest.activateAccount(A_ACCOUNT_ID)
+        result.getOrNull()?.isAccountActive()?.shouldBeEqual(true)
+    }
+
+    @Test
+    fun `when activating a non existing account`() {
+        underTest.activateAccount(A_ACCOUNT_ID).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
     }
 }

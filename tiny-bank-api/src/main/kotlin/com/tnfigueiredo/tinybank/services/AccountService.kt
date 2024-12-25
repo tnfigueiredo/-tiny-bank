@@ -9,7 +9,11 @@ interface AccountService{
 
     fun createAccount(userId: UUID, agency: Short, year: Short): Result<Account>
 
+    fun getAccountByUserId(userId: UUID): Result<Account?>
+
     fun deactivateAccount(accountId: String): Result<Account>
+
+    fun activateAccount(accountId: String): Result<Account>
 
 }
 
@@ -31,6 +35,10 @@ class AccountServiceImpl(private val accountRepository: AccountRepository):Accou
             .getOrNull()!!
     }
 
+    override fun getAccountByUserId(userId: UUID): Result<Account?> = kotlin.runCatching {
+        accountRepository.getAccountByUserId(userId).getOrNull()
+    }
+
     override fun deactivateAccount(accountId: String): Result<Account> = kotlin.runCatching{
         val account = accountRepository.getAccountById(accountId)
             .onFailure { throw it }
@@ -43,6 +51,19 @@ class AccountServiceImpl(private val accountRepository: AccountRepository):Accou
             throw BusinessRuleValidationException("The account $accountId has a balance greater than zero.")
 
         accountRepository.deactivateAccount(accountId)
+            .onFailure { throw it }
+            .getOrNull()!!
+    }
+
+    override fun activateAccount(accountId: String): Result<Account> = kotlin.runCatching{
+        val account = accountRepository.getAccountById(accountId)
+            .onFailure { throw it }
+            .getOrNull()!!
+
+        if(account.isAccountActive())
+            throw BusinessRuleValidationException("The account $accountId is already activated.")
+
+        accountRepository.activateAccount(accountId)
             .onFailure { throw it }
             .getOrNull()!!
     }

@@ -3,7 +3,6 @@ package com.tnfigueiredo.tinybank.bdd.steps
 import com.tnfigueiredo.tinybank.model.DocType
 import com.tnfigueiredo.tinybank.model.RestResponse
 import com.tnfigueiredo.tinybank.model.User
-import io.cucumber.java.PendingException
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then

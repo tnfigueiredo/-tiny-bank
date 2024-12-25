@@ -22,7 +22,6 @@ Feature: Create User
 
   Rule: When the person is a client with already existing national document registered in Tiny Bank, the client's account can be reactivated
 
-    @pending
     Scenario: Reactivate an account when a deactivated user tries a new register
       Given a client with name "Jhonny", surname "Doe", document type "NATIONAL_ID", document "123465", country "PT"
       And there is a client with the document type "NATIONAL_ID", document "123465", country "PT"

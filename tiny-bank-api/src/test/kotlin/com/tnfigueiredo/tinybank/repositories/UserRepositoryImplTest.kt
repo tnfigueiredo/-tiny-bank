@@ -7,6 +7,7 @@ import com.tnfigueiredo.tinybank.model.DocType.NATIONAL_ID
 import com.tnfigueiredo.tinybank.model.DocType.PASSPORT
 import com.tnfigueiredo.tinybank.model.User
 import io.kotest.matchers.booleans.shouldBeFalse
+import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -119,6 +120,28 @@ internal class UserRepositoryImplTest {
     @Test
     fun `when deactivating a non existing user`() {
         underTest.deactivateUser(A_RANDOM_ID).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
+    }
+
+    @Test
+    fun `when activating an user`() {
+        val userTobeActivated = underTest.saveOrUpdate(User(name = A_NAME, surname = A_SURNAME, docType = NATIONAL_ID, document = A_DOCUMENT, docCountry = A_DOC_COUNTRY, status = DEACTIVATED)).getOrNull()
+        userTobeActivated.shouldNotBeNull()
+
+        val activatedUser = underTest.activateUser(userTobeActivated).getOrNull()
+
+        activatedUser?.id?.shouldBeEqual(userTobeActivated.id!!)
+        activatedUser?.name?.shouldBeEqual(userTobeActivated.name)
+        activatedUser?.surname?.shouldBeEqual(userTobeActivated.surname)
+        activatedUser?.docType?.shouldBeEqual(userTobeActivated.docType)
+        activatedUser?.document?.shouldBeEqual(userTobeActivated.document)
+        activatedUser?.docCountry?.shouldBeEqual(userTobeActivated.docCountry)
+        activatedUser?.isUserActive()?.shouldBeTrue()
+    }
+
+    @Test
+    fun `when activating a non existing user`() {
+        val userToBeActivated = User(id = A_RANDOM_ID, name = A_NAME, surname = A_SURNAME, docType = NATIONAL_ID, document = A_DOCUMENT, docCountry = A_DOC_COUNTRY)
+        underTest.activateUser(userToBeActivated).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
     }
 
     @Test

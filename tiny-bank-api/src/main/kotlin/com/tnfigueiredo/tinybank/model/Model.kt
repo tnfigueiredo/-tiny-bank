@@ -9,6 +9,17 @@ data class RestResponse(
     val data: Any? = null
 )
 
+data class UserDTO(
+    val id: UUID? = null,
+    val name: String,
+    val surname: String,
+    val docType: DocType,
+    val document: String,
+    val docCountry: String,
+    val status: ActivationStatus = ACTIVE,
+    val account: Account? = null
+)
+
 data class User(
     val id: UUID? = null,
     val name: String,
@@ -39,6 +50,8 @@ data class Account(
     fun isAccountActive(): Boolean = this.status == ACTIVE
 
     fun deactivateAccount(): Account = this.copy(status = DEACTIVATED, balance = 0.0)
+
+    fun activateAccount(): Account = this.copy(status = ACTIVE, balance = 0.0)
 }
 
 enum class DocType{

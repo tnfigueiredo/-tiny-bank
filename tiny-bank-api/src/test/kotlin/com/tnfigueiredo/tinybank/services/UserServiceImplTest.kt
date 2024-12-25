@@ -7,6 +7,7 @@ import com.tnfigueiredo.tinybank.model.DocType.PASSPORT
 import com.tnfigueiredo.tinybank.model.User
 import com.tnfigueiredo.tinybank.repositories.UserRepository
 import io.kotest.matchers.booleans.shouldBeFalse
+import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -15,7 +16,7 @@ import org.mockito.Mockito.`when`
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.bean.override.mockito.MockitoBean
-import java.util.UUID
+import java.util.*
 
 @SpringBootTest
 internal class UserServiceImplTest {
@@ -84,6 +85,28 @@ internal class UserServiceImplTest {
     fun `when deactivating a non active user`() {
         `when`(userRepository.findUserById(aUser.id!!)).thenReturn(Result.success(aUser.deactivateUser()))
         userService.deactivateUser(aUser.id!!).exceptionOrNull().shouldBeInstanceOf<BusinessRuleValidationException>()
+    }
+
+    @Test
+    fun `when activating a non active user`() {
+        `when`(userRepository.findUserById(aUser.id!!)).thenReturn(Result.success(aUser.deactivateUser()))
+        `when`(userRepository.activateUser(aUser)).thenReturn(Result.success(aUser.activateUser()))
+
+        val result = userService.activateUser(aUser).getOrNull()
+
+        result?.isUserActive()?.shouldBeTrue()
+    }
+
+    @Test
+    fun `when activating a non existing user`() {
+        `when`(userRepository.findUserById(aUser.id!!)).thenReturn(Result.failure(DataNotFoundException("Data not found")))
+        userService.activateUser(aUser).exceptionOrNull().shouldBeInstanceOf<DataNotFoundException>()
+    }
+
+    @Test
+    fun `when activating a existing active user`() {
+        `when`(userRepository.findUserById(aUser.id!!)).thenReturn(Result.success(aUser))
+        userService.activateUser(aUser).exceptionOrNull().shouldBeInstanceOf<BusinessRuleValidationException>()
     }
 
     @Test
