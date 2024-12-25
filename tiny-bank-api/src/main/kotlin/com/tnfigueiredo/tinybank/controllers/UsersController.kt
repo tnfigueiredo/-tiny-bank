@@ -1,6 +1,7 @@
 package com.tnfigueiredo.tinybank.controllers
 
 import com.tnfigueiredo.tinybank.exceptions.DataNotFoundException
+import com.tnfigueiredo.tinybank.exceptions.handleServiceCallFailure
 import com.tnfigueiredo.tinybank.model.*
 import com.tnfigueiredo.tinybank.services.AccountService
 import com.tnfigueiredo.tinybank.services.UserService
@@ -152,11 +153,4 @@ class UsersController() {
             },
             onFailure = { failure -> handleServiceCallFailure(failure) }
         )
-
-    private fun handleServiceCallFailure(e: Throwable) =
-        when(e){
-            is DataNotFoundException -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(RestResponse(message = e.message))
-            is Exception -> ResponseEntity.status(HttpStatus.BAD_REQUEST).body(RestResponse(message = e.message))
-            else -> ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(RestResponse(message = e.message))
-        }
 }

@@ -2,6 +2,7 @@ package com.tnfigueiredo.tinybank.model
 
 import com.tnfigueiredo.tinybank.model.ActivationStatus.ACTIVE
 import com.tnfigueiredo.tinybank.model.ActivationStatus.DEACTIVATED
+import java.time.LocalDateTime
 import java.util.*
 
 data class RestResponse(
@@ -59,7 +60,10 @@ data class Transaction(
     val originAccountId: String,
     val destinationAccountId: String? = null,
     val amount: Double,
-    val type: TransactionType
+    val type: TransactionType,
+    val accountBalanceCurrentValue: Double = 0.0,
+    val accountDestinationBalanceCurrentValue: Double = 0.0,
+    val date: LocalDateTime = LocalDateTime.now()
 )
 
 enum class DocType{
@@ -72,5 +76,5 @@ enum class ActivationStatus{
 }
 
 enum class TransactionType {
-    DEPOSIT, WITHDRAW, TRANSFER
+    DEPOSIT, WITHDRAW, TRANSFER, TRANSFER_DEBIT
 }

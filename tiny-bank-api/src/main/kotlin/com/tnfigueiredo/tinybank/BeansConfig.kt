@@ -1,10 +1,7 @@
 package com.tnfigueiredo.tinybank
 
 import com.tnfigueiredo.tinybank.repositories.*
-import com.tnfigueiredo.tinybank.services.AccountService
-import com.tnfigueiredo.tinybank.services.AccountServiceImpl
-import com.tnfigueiredo.tinybank.services.UserService
-import com.tnfigueiredo.tinybank.services.UserServiceImpl
+import com.tnfigueiredo.tinybank.services.*
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -25,5 +22,8 @@ class BeansConfig {
 
     @Bean
     fun accountService(accountRepository: AccountRepository): AccountService = AccountServiceImpl(accountRepository)
+
+    @Bean
+    fun transactionService(transactionRepository: TransactionRepository): TransactionService = TransactionServiceImpl(transactionRepository)
 
 }

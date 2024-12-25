@@ -1,5 +1,6 @@
 package com.tnfigueiredo.tinybank.controllers
 
+import com.tnfigueiredo.tinybank.exceptions.handleServiceCallFailure
 import com.tnfigueiredo.tinybank.model.RestResponse
 import com.tnfigueiredo.tinybank.services.AccountService
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -32,6 +33,6 @@ class AccountsController {
             year = LocalDate.now().year.toShort()
         ).fold(
             onSuccess = { createdAccount -> ResponseEntity.ok(RestResponse(message = "User Account created successfully", data = createdAccount) ) },
-            onFailure = { failure -> ResponseEntity.status(HttpStatus.BAD_REQUEST).body(RestResponse(failure.message)) }
+            onFailure = { failure -> handleServiceCallFailure(failure) }
         )
 }
