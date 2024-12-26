@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Fails to create a deposit of a value less than zero</title>
+    <title>Get the balance of an existing account</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -122,10 +122,10 @@
             <a href="index.html" class="breadcrumbs">Home</a>
 
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
-            > <a href="688822ba0fd8484bce12b878f4ba7a94356e55ef060d134d3b343e3a761c8221.html">Transaction Epic</a>
+            > <a href="018031896a905329a7cc63298e000b33774e329bdc81db0cd7fb6f09a872cecb.html">Account Epic</a>
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
-            > <a href="8343af7b2c3113dfd1c88c8e4944af3d43d9cf256ecabeacf570ae643c36e371.html">Create Deposit</a>
-        > Fails to create a deposit of a value less than zero
+            > <a href="e6869042c8b30b9effe46f40051ecd3ea1da7df8549fbbd88e088df0cd4269cc.html">Get Account Balance</a>
+        > Get the balance of an existing account
         </span>
         </div>
         <div class="rightbg"></div>
@@ -149,7 +149,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-12-2024 00:32</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-12-2024 02:39</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -164,7 +164,7 @@
                                 <div>
                                     <h3 class="discreet-story-header">
                                         <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
-                                        <span class="story-header-title">Create Deposit </span>
+                                        <span class="story-header-title">Get Account Balance </span>
                                     </h3>
 
                                 </div>
@@ -192,7 +192,7 @@
                             <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
                             <span class="test-case-title">
                                 <span class="success-color">
-                                    Fails to create a deposit of a value less than zero
+                                    Get the balance of an existing account
                                         <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -243,7 +243,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Given the user has an active account in Tyny Bank
+                                                Given the user with document type "NATIONAL_ID", document "23052783", country "PT" has an active account in Tyny Bank
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -251,7 +251,7 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step"></span></td>
+                    <td width="100"><span class="top-level-step">033ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -265,7 +265,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                When the user makes a deposit of "-100.00"
+                                                When the user gets the account data and balance
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -273,7 +273,7 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">008ms</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -287,7 +287,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Then the transaction operation fails
+                                                Then the account balance has some value
                                         </span>
                             <span class="evidence">
                                         <span class="piece-of-evidence">
@@ -300,11 +300,11 @@
         }
     </script>
 
-                <a name="report-data-35fb4e60-7bec-4d34-b177-79ec070f169c"></a>
+                <a name="report-data-c470ce6c-616b-4059-9051-a764c8c0507e"></a>
                 <span>
                     <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
                             data-target="#reportData-EVIDENCE-3-0">
-                        Client Account Initial State
+                        User Account Creations Response
                     </button>
                 </span>
                 <div class="rest-query-details">
@@ -312,14 +312,14 @@
                          aria-labelledby="restModalLabel" aria-hidden="true">
                         <div class="card">
                             <h4 class="card-header" id="restModalLabel">
-                                Client Account Initial State
+                                User Account Creations Response
                             <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-3-0')">
                                 <i class="bi bi-clipboard"></i>&nbsp;Copy
                             </a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            <pre id="reportDataContent-EVIDENCE-3-0">Account(id=202401230000, agency=123, year=2024, userId=2c08315d-bdc7-421c-9c83-772fbc41b67d, balance=0.0, status=DEACTIVATED)</pre>
+                            <pre id="reportDataContent-EVIDENCE-3-0">Account(id=202400010001, agency=1, year=2024, userId=e2de4270-ae05-4618-89d8-53024695ea13, balance=0.0, status=ACTIVE)</pre>
                         </div>
                     </div>
                 </div>
@@ -329,12 +329,12 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step"></span></td>
+                    <td width="100"><span class="top-level-step">002ms</span></td>
                 </tr>
             <tr class="test-SUCCESS">
                     <td colspan="2"></td>
                 <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
-                <td width="100"><span class="top-level-step"><em>0s</em></span></td>
+                <td width="100"><span class="top-level-step"><em>0.03s</em></span></td>
             </tr>
 
         </table>

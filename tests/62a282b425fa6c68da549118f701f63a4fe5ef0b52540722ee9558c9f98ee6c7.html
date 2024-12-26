@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Fails to create an account to user with invalid document information</title>
+    <title>Fails to create a transfer of a value less than zero</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -122,10 +122,10 @@
             <a href="index.html" class="breadcrumbs">Home</a>
 
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
-            > <a href="018031896a905329a7cc63298e000b33774e329bdc81db0cd7fb6f09a872cecb.html">Account Epic</a>
+            > <a href="688822ba0fd8484bce12b878f4ba7a94356e55ef060d134d3b343e3a761c8221.html">Transaction Epic</a>
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
-            > <a href="d2d6ecae506a39d3f7cc30c2e432c03c3da4d5c14d7b8a92f008562bf1eebc30.html">Create User Bank Account</a>
-        > Fails to create an account to user with invalid document information
+            > <a href="c388646a5b519129adbfd405821b8ad52962c4ba518832d3b4a8624e8127edd9.html">Create Transfer</a>
+        > Fails to create a transfer of a value less than zero
         </span>
         </div>
         <div class="rightbg"></div>
@@ -164,7 +164,7 @@
                                 <div>
                                     <h3 class="discreet-story-header">
                                         <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
-                                        <span class="story-header-title">Create User Bank Account </span>
+                                        <span class="story-header-title">Create Transfer </span>
                                     </h3>
 
                                 </div>
@@ -192,7 +192,7 @@
                             <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
                             <span class="test-case-title">
                                 <span class="success-color">
-                                    Fails to create an account to user with invalid document information
+                                    Fails to create a transfer of a value less than zero
                                         <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -243,7 +243,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Given a client for account creation with document identification: document type "NATIONAL_ID", document "03485203948", country "PT"
+                                                Given the user has an active account in Tyny Bank
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -251,7 +251,7 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">001ms</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -265,7 +265,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                And the document for the client requesting the account creation is invalid
+                                                And the destination account "987" is chosen for transfer
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -273,7 +273,7 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">007ms</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -287,49 +287,15 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                When there is no user with the document information
+                                                When the user makes a transfer of "-100.00"
                                         </span>
                             <span class="evidence">
-                                        <span class="piece-of-evidence">
-
-    <script>
-        function copyContent(id) {
-            console.log("copy content of " + id)
-            const content = document.getElementById(id).innerText
-            navigator.clipboard.writeText(content);
-        }
-    </script>
-
-                <a name="report-data-d3c149e1-dd49-4049-a38e-136fd6d1eada"></a>
-                <span>
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
-                            data-target="#reportData-EVIDENCE-3-0">
-                        User Account Creations Document in Request
-                    </button>
-                </span>
-                <div class="rest-query-details">
-                    <div class="collapse multi-collapse" id="reportData-EVIDENCE-3-0" tabindex="-1" role="dialog"
-                         aria-labelledby="restModalLabel" aria-hidden="true">
-                        <div class="card">
-                            <h4 class="card-header" id="restModalLabel">
-                                User Account Creations Document in Request
-                            <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-3-0')">
-                                <i class="bi bi-clipboard"></i>&nbsp;Copy
-                            </a>
-                            </h4>
-                        </div>
-                        <div class="card-body">
-                            <pre id="reportDataContent-EVIDENCE-3-0">/users/docType/PASSPORT/document/A_DOCUMENT/country/A_DOC_COUNTRY</pre>
-                        </div>
-                    </div>
-                </div>
-                                            </span>
                                 </span>
                         </div>
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">001ms</span></td>
+                    <td width="100"><span class="top-level-step">006ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -343,7 +309,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Then the client's account is not created
+                                                Then the transaction operation fails
                                         </span>
                             <span class="evidence">
                                         <span class="piece-of-evidence">
@@ -356,11 +322,11 @@
         }
     </script>
 
-                <a name="report-data-4d9ab7e3-ff51-4aef-b700-a7a72cb294f8"></a>
+                <a name="report-data-8109b535-298a-4e31-9ca7-03f0c63d8755"></a>
                 <span>
                     <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
                             data-target="#reportData-EVIDENCE-4-0">
-                        User Bank Account Creations Response
+                        Client Account Initial State
                     </button>
                 </span>
                 <div class="rest-query-details">
@@ -368,14 +334,14 @@
                          aria-labelledby="restModalLabel" aria-hidden="true">
                         <div class="card">
                             <h4 class="card-header" id="restModalLabel">
-                                User Bank Account Creations Response
+                                Client Account Initial State
                             <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-4-0')">
                                 <i class="bi bi-clipboard"></i>&nbsp;Copy
                             </a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            <pre id="reportDataContent-EVIDENCE-4-0">&lt;404 NOT_FOUND Not Found,RestResponse(message=User Not Found for documents., data=null),[content-type:&quot;application/json&quot;, date:&quot;Thu, 26 Dec 2024 02:39:50 GMT&quot;, transfer-encoding:&quot;chunked&quot;]&gt;</pre>
+                            <pre id="reportDataContent-EVIDENCE-4-0">Account(id=202401230000, agency=123, year=2024, userId=3e208f93-44bb-4fef-b9e9-6894c60bf6e7, balance=0.0, status=DEACTIVATED)</pre>
                         </div>
                     </div>
                 </div>
@@ -385,7 +351,7 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">001ms</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
                 </tr>
             <tr class="test-SUCCESS">
                     <td colspan="2"></td>

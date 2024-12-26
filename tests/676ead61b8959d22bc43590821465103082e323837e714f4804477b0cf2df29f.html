@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Fails to create a deposit to an inactive account</title>
+    <title>Create a deposit of a value greater than zero</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -124,8 +124,8 @@
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
             > <a href="688822ba0fd8484bce12b878f4ba7a94356e55ef060d134d3b343e3a761c8221.html">Transaction Epic</a>
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
-            > <a href="8343af7b2c3113dfd1c88c8e4944af3d43d9cf256ecabeacf570ae643c36e371.html">Create Deposit</a>
-        > Fails to create a deposit to an inactive account
+            > <a href="c388646a5b519129adbfd405821b8ad52962c4ba518832d3b4a8624e8127edd9.html">Create Transfer</a>
+        > Create a deposit of a value greater than zero
         </span>
         </div>
         <div class="rightbg"></div>
@@ -149,7 +149,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-12-2024 00:32</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-12-2024 02:39</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -164,7 +164,7 @@
                                 <div>
                                     <h3 class="discreet-story-header">
                                         <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
-                                        <span class="story-header-title">Create Deposit </span>
+                                        <span class="story-header-title">Create Transfer </span>
                                     </h3>
 
                                 </div>
@@ -192,7 +192,7 @@
                             <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
                             <span class="test-case-title">
                                 <span class="success-color">
-                                    Fails to create a deposit to an inactive account
+                                    Create a deposit of a value greater than zero
                                         <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -243,7 +243,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Given the user has a deactivated account in Tyny Bank
+                                                Given the user has an active account in Tyny Bank
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -251,12 +251,34 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">034ms</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
                     <td width="50" class="step-icon">
                         <a name="1"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                And the destination account "987" is chosen for transfer
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="2"></a>
                             <span style="margin-left: 20px;"
                                   class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                 </span>
@@ -273,12 +295,12 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">030ms</span></td>
+                    <td width="100"><span class="top-level-step">007ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
                     <td width="50" class="step-icon">
-                        <a name="2"></a>
+                        <a name="3"></a>
                             <span style="margin-left: 20px;"
                                   class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                 </span>
@@ -287,7 +309,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Then the transaction operation fails
+                                                Then the destination account balance is increased by "100.00"
                                         </span>
                             <span class="evidence">
                                         <span class="piece-of-evidence">
@@ -300,26 +322,94 @@
         }
     </script>
 
-                <a name="report-data-9d79a2ef-94bd-41ac-9be4-f6933265a9c9"></a>
+                <a name="report-data-4bf5fded-acfd-4cd3-93a0-3ab893fb68c0"></a>
                 <span>
                     <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
-                            data-target="#reportData-EVIDENCE-3-0">
+                            data-target="#reportData-EVIDENCE-4-0">
                         Client Account Initial State
                     </button>
                 </span>
                 <div class="rest-query-details">
-                    <div class="collapse multi-collapse" id="reportData-EVIDENCE-3-0" tabindex="-1" role="dialog"
+                    <div class="collapse multi-collapse" id="reportData-EVIDENCE-4-0" tabindex="-1" role="dialog"
                          aria-labelledby="restModalLabel" aria-hidden="true">
                         <div class="card">
                             <h4 class="card-header" id="restModalLabel">
                                 Client Account Initial State
-                            <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-3-0')">
+                            <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-4-0')">
                                 <i class="bi bi-clipboard"></i>&nbsp;Copy
                             </a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            <pre id="reportDataContent-EVIDENCE-3-0">Account(id=202401230000, agency=123, year=2024, userId=2c08315d-bdc7-421c-9c83-772fbc41b67d, balance=0.0, status=DEACTIVATED)</pre>
+                            <pre id="reportDataContent-EVIDENCE-4-0">Account(id=202401230001, agency=123, year=2024, userId=d26649a4-c959-479b-8ab3-a73d48bdeb89, balance=0.0, status=ACTIVE)</pre>
+                        </div>
+                    </div>
+                </div>
+                                            </span>
+                                        <span class="piece-of-evidence">
+
+    <script>
+        function copyContent(id) {
+            console.log("copy content of " + id)
+            const content = document.getElementById(id).innerText
+            navigator.clipboard.writeText(content);
+        }
+    </script>
+
+                <a name="report-data-74544fcb-4fa5-48ff-939c-e6b1c58c5c5d"></a>
+                <span>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                            data-target="#reportData-EVIDENCE-4-1">
+                        Destination Account Initial State
+                    </button>
+                </span>
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="reportData-EVIDENCE-4-1" tabindex="-1" role="dialog"
+                         aria-labelledby="restModalLabel" aria-hidden="true">
+                        <div class="card">
+                            <h4 class="card-header" id="restModalLabel">
+                                Destination Account Initial State
+                            <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-4-1')">
+                                <i class="bi bi-clipboard"></i>&nbsp;Copy
+                            </a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <pre id="reportDataContent-EVIDENCE-4-1">Account(id=202401230002, agency=123, year=2024, userId=8dccd3cd-e1c1-4f9b-bea2-c669d59413d4, balance=0.0, status=ACTIVE)</pre>
+                        </div>
+                    </div>
+                </div>
+                                            </span>
+                                        <span class="piece-of-evidence">
+
+    <script>
+        function copyContent(id) {
+            console.log("copy content of " + id)
+            const content = document.getElementById(id).innerText
+            navigator.clipboard.writeText(content);
+        }
+    </script>
+
+                <a name="report-data-d59f322a-7c48-4c66-97fa-bae1b122cb34"></a>
+                <span>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                            data-target="#reportData-EVIDENCE-4-2">
+                        Transaction Final State
+                    </button>
+                </span>
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="reportData-EVIDENCE-4-2" tabindex="-1" role="dialog"
+                         aria-labelledby="restModalLabel" aria-hidden="true">
+                        <div class="card">
+                            <h4 class="card-header" id="restModalLabel">
+                                Transaction Final State
+                            <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-4-2')">
+                                <i class="bi bi-clipboard"></i>&nbsp;Copy
+                            </a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <pre id="reportDataContent-EVIDENCE-4-2">&lt;200 OK OK,RestResponse(message=Transaction Registered Successfully, data={id=48f379af-9719-4dc8-b6d3-9c91287e51d9, originAccountId=202401230001, destinationAccountId=null, amount=100.0, type=DEPOSIT, accountBalanceCurrentValue=100.0, accountDestinationBalanceCurrentValue=0.0, date=2024-12-26T02:39:50.968184645}),[content-type:&quot;application/json&quot;, date:&quot;Thu, 26 Dec 2024 02:39:50 GMT&quot;, transfer-encoding:&quot;chunked&quot;]&gt;</pre>
                         </div>
                     </div>
                 </div>
@@ -329,12 +419,34 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">002ms</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="4"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                And the origin account balance is decreased by "100.00"
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
                 </tr>
             <tr class="test-SUCCESS">
                     <td colspan="2"></td>
                 <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
-                <td width="100"><span class="top-level-step"><em>0.04s</em></span></td>
+                <td width="100"><span class="top-level-step"><em>0s</em></span></td>
             </tr>
 
         </table>

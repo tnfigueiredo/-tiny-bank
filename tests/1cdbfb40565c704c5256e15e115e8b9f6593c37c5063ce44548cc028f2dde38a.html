@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Fails to create a transfer to an inactive origin account</title>
+    <title>Fails to create a deposit of a value less than zero</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -124,8 +124,8 @@
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
             > <a href="688822ba0fd8484bce12b878f4ba7a94356e55ef060d134d3b343e3a761c8221.html">Transaction Epic</a>
  <!-- inflection.of(breadcrumb.displayName).asATitle()-->
-            > <a href="c388646a5b519129adbfd405821b8ad52962c4ba518832d3b4a8624e8127edd9.html">Create Transfer</a>
-        > Fails to create a transfer to an inactive origin account
+            > <a href="8343af7b2c3113dfd1c88c8e4944af3d43d9cf256ecabeacf570ae643c36e371.html">Create Deposit</a>
+        > Fails to create a deposit of a value less than zero
         </span>
         </div>
         <div class="rightbg"></div>
@@ -149,7 +149,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-12-2024 00:32</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-12-2024 02:39</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -164,7 +164,7 @@
                                 <div>
                                     <h3 class="discreet-story-header">
                                         <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
-                                        <span class="story-header-title">Create Transfer </span>
+                                        <span class="story-header-title">Create Deposit </span>
                                     </h3>
 
                                 </div>
@@ -192,7 +192,7 @@
                             <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
                             <span class="test-case-title">
                                 <span class="success-color">
-                                    Fails to create a transfer to an inactive origin account
+                                    Fails to create a deposit of a value less than zero
                                         <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -243,7 +243,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Given the user has a deactivated account in Tyny Bank
+                                                Given the user has an active account in Tyny Bank
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -265,7 +265,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                And the destination account "987" is chosen for transfer
+                                                When the user makes a deposit of "-100.00"
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -273,34 +273,12 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">017ms</span></td>
+                    <td width="100"><span class="top-level-step">007ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
                     <td width="50" class="step-icon">
                         <a name="2"></a>
-                            <span style="margin-left: 20px;"
-                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
-                                </span>
-                    </td>
-
-                    <td class="step-description-column">
-                        <div class="step-description">
-                                <span class="top-level-step">
-                                                When the user makes a transfer of "100.00"
-                                        </span>
-                            <span class="evidence">
-                                </span>
-                        </div>
-                    </td>
-
-                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">008ms</span></td>
-                </tr>
-                <tr class="test-SUCCESS">
-
-                    <td width="50" class="step-icon">
-                        <a name="3"></a>
                             <span style="margin-left: 20px;"
                                   class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                 </span>
@@ -322,26 +300,26 @@
         }
     </script>
 
-                <a name="report-data-1084ec36-c1e5-4b48-a581-5ae5501d73c4"></a>
+                <a name="report-data-73e9aacc-4098-4a8d-82ad-01dc15d60381"></a>
                 <span>
                     <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
-                            data-target="#reportData-EVIDENCE-4-0">
+                            data-target="#reportData-EVIDENCE-3-0">
                         Client Account Initial State
                     </button>
                 </span>
                 <div class="rest-query-details">
-                    <div class="collapse multi-collapse" id="reportData-EVIDENCE-4-0" tabindex="-1" role="dialog"
+                    <div class="collapse multi-collapse" id="reportData-EVIDENCE-3-0" tabindex="-1" role="dialog"
                          aria-labelledby="restModalLabel" aria-hidden="true">
                         <div class="card">
                             <h4 class="card-header" id="restModalLabel">
                                 Client Account Initial State
-                            <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-4-0')">
+                            <a role="button" class="btn btn-xs copy-button" onclick="copyContent('reportDataContent-EVIDENCE-3-0')">
                                 <i class="bi bi-clipboard"></i>&nbsp;Copy
                             </a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            <pre id="reportDataContent-EVIDENCE-4-0">Account(id=202401230000, agency=123, year=2024, userId=2c08315d-bdc7-421c-9c83-772fbc41b67d, balance=0.0, status=DEACTIVATED)</pre>
+                            <pre id="reportDataContent-EVIDENCE-3-0">Account(id=202401230000, agency=123, year=2024, userId=3e208f93-44bb-4fef-b9e9-6894c60bf6e7, balance=0.0, status=DEACTIVATED)</pre>
                         </div>
                     </div>
                 </div>
@@ -351,12 +329,12 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">001ms</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
                 </tr>
             <tr class="test-SUCCESS">
                     <td colspan="2"></td>
                 <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
-                <td width="100"><span class="top-level-step"><em>0s</em></span></td>
+                <td width="100"><span class="top-level-step"><em>0.01s</em></span></td>
             </tr>
 
         </table>
