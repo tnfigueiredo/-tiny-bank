@@ -1,4 +1,4 @@
-Feature: Create Withdraw
+Feature: Create Withdraw Transaction
 
   The withdraw transaction is a debit to the account balance that is created when a user makes a withdraw. The withdraw
   must be a transaction with value lower than zero and it only needs the origin account (in this case is the account

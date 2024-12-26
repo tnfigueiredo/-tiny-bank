@@ -1,4 +1,4 @@
-Feature: Create Transfer
+Feature: Create Transfer Transaction
 
   The transfer transaction is a credit to the account balance in the account origin and a debit in the account destination.
   The transfer must be a transaction with value greater than zero and it needs the origin account and the destination account.

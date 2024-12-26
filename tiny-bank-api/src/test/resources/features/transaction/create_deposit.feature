@@ -1,4 +1,4 @@
-Feature: Create Deposit
+Feature: Create Deposit Transaction
 
   The deposit transaction is a credit to the account balance that is created when a user makes a deposit. The deposit
   must be a transaction with value greater than zero and it only needs the origin account (in this case is the account
