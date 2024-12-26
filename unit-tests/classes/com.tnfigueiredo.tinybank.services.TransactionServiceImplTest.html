@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TransactionServiceImplTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TransactionServiceImplTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.tnfigueiredo.tinybank.services.html">com.tnfigueiredo.tinybank.services</a> &gt; TransactionServiceImplTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">13</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.062s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">when a deposit of negative value is done()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when a deposit of value zero is done()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when a deposit with positive value is done()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when making a transfer to a non existing destination account()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when transfer a value to a valid destination account having no negative balance()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when transfer a value to a valid destination account making it zero balance()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when transfer a value to a valid destination account making origin account negative()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when transfer amount is equal zero()</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when transfer amount is lower than zero()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when withdrawal has zero amount()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when withdrawal is greater than zero()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when withdrawal makes account balance negative()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when withdrawal ok()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2024-12-26T05:34:42.953Z  INFO 293197 --- [Tiny Bank API] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]: TransactionServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-12-26T05:34:42.956Z  INFO 293197 --- [Tiny Bank API] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tnfigueiredo.tinybank.TinyBankApiApplication for test class com.tnfigueiredo.tinybank.services.TransactionServiceImplTest
+2024-12-26T05:34:42.964Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:42.966Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when transfer amount is equal zero()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when transfer amount is equal zero()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:42.978Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:42.980Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when withdrawal ok()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when withdrawal ok()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:42.991Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:42.992Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when transfer a value to a valid destination account having no negative balance()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when transfer a value to a valid destination account having no negative balance()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.001Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:43.003Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when a deposit of value zero is done()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when a deposit of value zero is done()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.012Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:43.014Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when a deposit of negative value is done()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when a deposit of negative value is done()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.023Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:43.025Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when a deposit with positive value is done()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when a deposit with positive value is done()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.033Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:43.035Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when transfer amount is lower than zero()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when transfer amount is lower than zero()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.044Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:43.046Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when making a transfer to a non existing destination account()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when making a transfer to a non existing destination account()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.055Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:43.056Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when withdrawal makes account balance negative()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when withdrawal makes account balance negative()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.065Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:43.066Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when transfer a value to a valid destination account making origin account negative()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when transfer a value to a valid destination account making origin account negative()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.076Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:43.078Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when withdrawal has zero amount()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when withdrawal has zero amount()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.088Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:43.090Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when transfer a value to a valid destination account making it zero balance()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when transfer a value to a valid destination account making it zero balance()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.100Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: TransactionServiceImplTest
+2024-12-26T05:34:43.101Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when withdrawal is greater than zero()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.TransactionServiceImplTest]/[method:when withdrawal is greater than zero()])
+--------------------------------------------------------------------------------
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.11.1</a> at Dec 26, 2024, 5:34:47 AM</p>
+</div>
+</div>
+</body>
+</html>

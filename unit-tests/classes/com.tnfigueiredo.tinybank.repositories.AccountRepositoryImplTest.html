@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - AccountRepositoryImplTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>AccountRepositoryImplTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.tnfigueiredo.tinybank.repositories.html">com.tnfigueiredo.tinybank.repositories</a> &gt; AccountRepositoryImplTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">16</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.026s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">get an account number when there is an account for an agency in a year()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">get next account number when there is no account for this year in the agency()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">get next account when there is not account()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when account data is correct to be saved()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when account has null id()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when activating a non existing account()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when activating an existing account successfully()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when deactivate an existing account successfully()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when deactivating a non existing account()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when getting an account by id that doesn't exist()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when getting an account by id that exists()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when getting an account by user id for a user having account()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when getting an account by user id for a user having no account()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when the account id already exists()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when updating a non existing account balance()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when updating an existing account balance()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2024-12-26T05:34:41.350Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.355Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when deactivate an existing account successfully()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when deactivate an existing account successfully()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.369Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.372Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when account data is correct to be saved()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when account data is correct to be saved()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.382Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.385Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+get next account when there is not account()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:get next account when there is not account()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.394Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.396Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when updating an existing account balance()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when updating an existing account balance()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.404Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.408Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when updating a non existing account balance()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when updating a non existing account balance()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.417Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.420Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when deactivating a non existing account()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when deactivating a non existing account()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.427Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.430Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when account has null id()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when account has null id()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.437Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.439Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when the account id already exists()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when the account id already exists()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.448Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.450Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when activating a non existing account()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when activating a non existing account()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.459Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.461Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when getting an account by id that exists()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when getting an account by id that exists()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.468Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.470Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when getting an account by id that doesn't exist()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when getting an account by id that doesn't exist()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.475Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.477Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when getting an account by user id for a user having account()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when getting an account by user id for a user having account()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.483Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.485Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+get next account number when there is no account for this year in the agency()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:get next account number when there is no account for this year in the agency()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.492Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.494Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when activating an existing account successfully()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when activating an existing account successfully()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.501Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.503Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when getting an account by user id for a user having no account()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:when getting an account by user id for a user having no account()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:41.507Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: AccountRepositoryImplTest
+2024-12-26T05:34:41.509Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+get an account number when there is an account for an agency in a year()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.repositories.AccountRepositoryImplTest]/[method:get an account number when there is an account for an agency in a year()])
+--------------------------------------------------------------------------------
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.11.1</a> at Dec 26, 2024, 5:34:47 AM</p>
+</div>
+</div>
+</body>
+</html>

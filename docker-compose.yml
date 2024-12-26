@@ -11,13 +11,21 @@ services:
       - ${PWD}:/docs
     command: serve -a 0.0.0.0:8000
 
-  testdocs:
+  testDocs:
     image: httpd:latest
     container_name: testdocs
     ports:
       - "8081:80"
     volumes:
       - ./tests:/usr/local/apache2/htdocs
+
+  unitTestDocs:
+    image: httpd:latest
+    container_name: unit-tests
+    ports:
+      - "8082:80"
+    volumes:
+      - ./unit-tests:/usr/local/apache2/htdocs
 
   tiny-bank-api:
     build:

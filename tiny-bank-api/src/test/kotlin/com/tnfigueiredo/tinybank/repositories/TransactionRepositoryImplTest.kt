@@ -126,21 +126,21 @@ internal class TransactionRepositoryImplTest {
     @Test
     fun `when filtering transactions having a transaction out of the date range`() {
         val firstTransaction = Transaction(
-            originAccountId = "202400560001",
+            originAccountId = "202400580001",
             amount = 100.0,
             type = DEPOSIT,
             accountBalanceCurrentValue = 100.0,
             date = LocalDateTime.parse("2021-01-01T00:00:00")
         )
         val secondTransaction = Transaction(
-            originAccountId = "202400560001",
+            originAccountId = "202400580001",
             amount = 50.0,
             type = WITHDRAW,
             accountBalanceCurrentValue = 50.0,
             date = LocalDateTime.parse("2021-01-02T00:00:00")
         )
         val thirdTransaction = Transaction(
-            originAccountId = "202400560001",
+            originAccountId = "202400580001",
             amount = 25.0,
             type = WITHDRAW,
             accountBalanceCurrentValue = 25.0,
@@ -152,7 +152,7 @@ internal class TransactionRepositoryImplTest {
         underTest.saveTransaction(thirdTransaction)
 
         val result = underTest.getTransactionsByDateRange(
-            "202400560001",
+            "202400580001",
             LocalDateTime.parse("2021-01-01T00:00:00"),
             LocalDateTime.parse("2021-01-03T00:00:00")
         ).getOrNull()

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - UserServiceImplTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>UserServiceImplTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.tnfigueiredo.tinybank.services.html">com.tnfigueiredo.tinybank.services</a> &gt; UserServiceImplTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">12</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.054s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">when activating a existing active user()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when activating a non active user()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when activating a non existing user()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when deactivating a non active user()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when deactivating a non existing user()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when deactivating an active user()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when finding a user having document information()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when repository create a user successfully()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when the repository fails due to data duplication()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when the repository fails due to data not found()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when there are mandatory fields missing()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">when there is no user for document information()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2024-12-26T05:34:43.110Z  INFO 293197 --- [Tiny Bank API] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tnfigueiredo.tinybank.services.UserServiceImplTest]: UserServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-12-26T05:34:43.113Z  INFO 293197 --- [Tiny Bank API] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tnfigueiredo.tinybank.TinyBankApiApplication for test class com.tnfigueiredo.tinybank.services.UserServiceImplTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.0)
+
+2024-12-26T05:34:43.142Z  INFO 293197 --- [Tiny Bank API] [    Test worker] c.t.t.services.UserServiceImplTest       : Starting UserServiceImplTest using Java 17.0.13 with PID 293197 (started by tnfigueiredo in /opt/projetos/teya/tiny-bank/tiny-bank-api)
+2024-12-26T05:34:43.143Z  INFO 293197 --- [Tiny Bank API] [    Test worker] c.t.t.services.UserServiceImplTest       : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-12-26T05:34:43.713Z  INFO 293197 --- [Tiny Bank API] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-12-26T05:34:43.731Z  INFO 293197 --- [Tiny Bank API] [    Test worker] c.t.t.services.UserServiceImplTest       : Started UserServiceImplTest in 0.613 seconds (process running for 9.975)
+2024-12-26T05:34:43.738Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.740Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when repository create a user successfully()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when repository create a user successfully()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.751Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.753Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when the repository fails due to data duplication()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when the repository fails due to data duplication()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.763Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.765Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when finding a user having document information()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when finding a user having document information()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.775Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.776Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when activating a non active user()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when activating a non active user()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.786Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.788Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when there are mandatory fields missing()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when there are mandatory fields missing()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.797Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.799Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when the repository fails due to data not found()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when the repository fails due to data not found()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.808Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.810Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when there is no user for document information()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when there is no user for document information()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.819Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.821Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when deactivating a non existing user()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when deactivating a non existing user()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.830Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.832Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when deactivating an active user()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when deactivating an active user()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.841Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.842Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when deactivating a non active user()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when deactivating a non active user()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.851Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.853Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when activating a non existing user()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when activating a non existing user()])
+--------------------------------------------------------------------------------
+2024-12-26T05:34:43.862Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : Test Suite Started: UserServiceImplTest
+2024-12-26T05:34:43.863Z  INFO 293197 --- [Tiny Bank API] [    Test worker]                                          : 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+when activating a existing active user()([engine:junit-jupiter]/[class:com.tnfigueiredo.tinybank.services.UserServiceImplTest]/[method:when activating a existing active user()])
+--------------------------------------------------------------------------------
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.11.1</a> at Dec 26, 2024, 5:34:47 AM</p>
+</div>
+</div>
+</body>
+</html>

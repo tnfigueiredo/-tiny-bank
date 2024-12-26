@@ -154,7 +154,7 @@
             $("#requirements-tabs").tabs();
             $("#test-tabs").tabs();
 
-            var requirementsTree = [];
+            var requirementsTree = [{"text":"Get Transaction History","type":"feature","href":"a4441af204689dde0f5bdd6631a4d86728a748203f977d1f0ac3a01a019d088c.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e2 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e2 test cases\u003c/span\u003e"]}];
 
             $('#tree').treeview({
                 data: requirementsTree,
@@ -204,7 +204,7 @@
                 > <a href="688822ba0fd8484bce12b878f4ba7a94356e55ef060d134d3b343e3a761c8221.html">Transaction epic</a>
 
 
-                    > <span class="truncate-40">View trasaction history</span>
+                    > <span class="truncate-40">Get transaction history</span>
 
             </span>
         </div>
@@ -229,7 +229,7 @@
             <a href="#"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated </span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-12-2024 05:34</span>
     <br style="clear:left"/>
 </div>
 
@@ -246,14 +246,19 @@
 
                                     <div class="col-sm-12">
                                         <span>
-                                            <h2><i class="bi bi-book"></i> Feature: View trasaction history</h2>
+                                            <h2><i class="bi bi-book"></i> Feature: Get transaction history</h2>
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                             <div class="requirementNarrativeTitle">
-                                View trasaction history
+                                The transaction history is a list of all transactions made by the user in the bank. The history is a list of transactions<br />
+that can be filtered by date and account. It is a read-only operation and it is used to show the user transactions<br />
+made in the bank account for a specific time range.</p>
+<p><strong>As a</strong> Tiny Bank client<br />
+<strong>I want to</strong> get the transaction history of my bank account<br />
+<strong>So that I can</strong> see all the transactions made in my account in a time range
                             </div>
 
                     </div>
@@ -283,83 +288,209 @@
                                                 <h3>Feature Coverage By Scenario</h3>
 
                                                 <!-- REQUIREMENTS PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="requirementChart" width="300" height="300"></canvas>
+                                                    </div>
 
                                             </div>
                                             <div class="col-sm-8">
-                                                <h3>Requirements Overview</h3>
+                                                <!--- TOC --->
+                                                <div id="toc">
+                                                    <h3>Overview</h3>
+                                                    <table class="table" id="toc-table">
+                                                                <tr>
+                                                                    <td class="rule-toc-entry" colspan="2">
+                                                                        <a href="#db1a218c-7578-4ac8-8ebe-d5af7f91c15b"
+                                                                           title="View scenario details for this rule">
+                                                                            Rule: The transaction history must return the transactions made by the user in a time range
+                                                                    </td>
+                                                                </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="scenario-toc-entry">
+                                                                                    <a href="#ab62d81f3741c5e44e70ec82886496ba6531a9371a9348dce1cce130e7345001"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Get the transaction history of a user account
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
 
-                                                <div id="tree"></div>
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="cb0cf482841fc1f286b42c3fd5d1d3450cae9e95bacfaaae7491ca566fe57933.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
 
-                                                <!-- STATS -->
-    <div>
-        <h3><i class="bi bi-speedometer2"></i> Key Statistics</h3>
-        <div>
-            <table class="table table-striped table-hover">
-                <tbody>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-card-checklist"></i> Number of Scenarios
-                    </td>
-                    <td>0</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-caret-right"></i> Total Number of Test Cases
-                    </td>
-                    <td>0</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-flag-fill"></i> Tests Started
-                    </td>
-                    <td></td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-stop-circle"></i> Tests
-                        Finished
-                    </td>
-                    <td></td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-stopwatch"></i> Total
-                        Duration
-                    </td>
-                    <td>0ms</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-trophy"></i> Fastest Test
-                    </td>
-                    <td>0ms</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-skip-start"></i> Slowest
-                        Test
-                    </td>
-                    <td>0ms</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-stopwatch"></i> Average
-                        Execution Time
-                    </td>
-                    <td>0ms</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-stopwatch-fill"></i> Total
-                        Execution Time
-                    </td>
-                    <td>0ms</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-                                                <!-- END STATS -->
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="cb0cf482841fc1f286b42c3fd5d1d3450cae9e95bacfaaae7491ca566fe57933.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="scenario-toc-entry">
+                                                                                    <a href="#a28fdc377cdba0e215d86865bc1dec889db8ee9f16a94d1b0332f3aaf76cfac8"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Get the transaction history of a user account without end date
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="66acca1b99f59f41f4aa51ef1ba91fd3b62c22691cda40989bf99dfa414ec457.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="66acca1b99f59f41f4aa51ef1ba91fd3b62c22691cda40989bf99dfa414ec457.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                    </table>
+                                                </div>
+                                                <!--- END OF TOC --->
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3>Scenarios</h3>
+
+                                                    <a name="db1a218c-7578-4ac8-8ebe-d5af7f91c15b"></a>
+                                                        <div class="rule-title">
+                                                            Rule: The transaction history must return the transactions made by the user in a time range</div>
+                                                    <p class="rule-tags inline-tag">
+                                                    </p>
+
+
+                                                        <div class="scenario-docs card" id="ab62d81f3741c5e44e70ec82886496ba6531a9371a9348dce1cce130e7345001">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="cb0cf482841fc1f286b42c3fd5d1d3450cae9e95bacfaaae7491ca566fe57933.html"
+                                                                               title="View test results">Scenario: Get the transaction history of a user account</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                    <p>Given the user has an active account in Tyny Bank</p>
+                                                                    <p>And the account balance is &quot;200.00&quot;</p>
+                                                                    <p><p>And the user has made the following transactions:</p>
+<table>
+<thead>
+<tr><th>Date</th><th>Value</th><th>Type</th><th>Origin Account</th><th>Destination Account</th></tr>
+</thead>
+<tbody>
+<tr><td>2021-01-01</td><td>100.00</td><td>DEPOSIT</td><td>123</td><td> </td></tr>
+<tr><td>2021-01-02</td><td>200.00</td><td>WITHDRAW</td><td>123</td><td> </td></tr>
+<tr><td>2021-01-03</td><td>100.00</td><td>TRANSFER</td><td>123</td><td>987</td></tr>
+</tbody>
+</table>
+</p>
+                                                                    <p>When the user gets the transaction history of the account &quot;123&quot; from &quot;2021-01-01&quot; to &quot;2021-01-03&quot;</p>
+                                                                    <p><p>Then the transaction history is:</p>
+<table>
+<thead>
+<tr><th>Date</th><th>Value</th><th>Type</th><th>Origin Account</th><th>Destination Account</th><th>Balance Position</th></tr>
+</thead>
+<tbody>
+<tr><td>2021-01-01</td><td>100.00</td><td>DEPOSIT</td><td>123</td><td> </td><td>300.00</td></tr>
+<tr><td>2021-01-02</td><td>200.00</td><td>WITHDRAW</td><td>123</td><td> </td><td>100.00</td></tr>
+<tr><td>2021-01-03</td><td>100.00</td><td>TRANSFER</td><td>123</td><td>987</td><td>0.00</td></tr>
+</tbody>
+</table>
+</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="scenario-docs card" id="a28fdc377cdba0e215d86865bc1dec889db8ee9f16a94d1b0332f3aaf76cfac8">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="66acca1b99f59f41f4aa51ef1ba91fd3b62c22691cda40989bf99dfa414ec457.html"
+                                                                               title="View test results">Scenario: Get the transaction history of a user account without end date</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                    <p>Given the user has an active account in Tyny Bank</p>
+                                                                    <p>And the account balance is &quot;200.00&quot;</p>
+                                                                    <p><p>And the user has made the following transactions:</p>
+<table>
+<thead>
+<tr><th>Date</th><th>Value</th><th>Type</th><th>Origin Account</th><th>Destination Account</th></tr>
+</thead>
+<tbody>
+<tr><td>2021-01-01</td><td>100.00</td><td>DEPOSIT</td><td>123</td><td> </td></tr>
+<tr><td>2021-01-02</td><td>200.00</td><td>WITHDRAW</td><td>123</td><td> </td></tr>
+<tr><td>2021-04-03</td><td>100.00</td><td>TRANSFER</td><td>123</td><td>987</td></tr>
+</tbody>
+</table>
+</p>
+                                                                    <p>When the user gets the transaction history of the account &quot;123&quot; from &quot;2021-01-01&quot;</p>
+                                                                    <p><p>Then the transaction history is:</p>
+<table>
+<thead>
+<tr><th>Date</th><th>Value</th><th>Type</th><th>Origin Account</th><th>Destination Account</th><th>Balance Position</th></tr>
+</thead>
+<tbody>
+<tr><td>2021-01-01</td><td>100.00</td><td>DEPOSIT</td><td>123</td><td> </td><td>300.00</td></tr>
+<tr><td>2021-01-02</td><td>200.00</td><td>WITHDRAW</td><td>123</td><td> </td><td>100.00</td></tr>
+</tbody>
+</table>
+</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                             </div>
                                         </div>
                                     </div>
@@ -371,6 +502,9 @@
                                             <div class="col-sm-4">
                                                 <h3>Feature Coverage By Scenario</h3>
                                                 <!-- TEST RESULT PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="resultChart" width="300" height="300"></canvas>
+                                                    </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
@@ -402,22 +536,22 @@
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>0</td>
+                    <td>2</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>0ms</td>
+                    <td>282ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>0</td>
+                    <td>2</td>
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>0ms</td>
+                    <td>2ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -428,30 +562,30 @@
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>0ms</td>
+                    <td>2ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td></td>
+                    <td>Dec 26, 2024 05:34:46</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>0ms</td>
+                    <td>2ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td></td>
+                    <td>Dec 26, 2024 05:34:46</td>
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>0ms</td>
+                    <td>4ms</td>
                 </tr>
                 </tbody>
             </table>
@@ -460,7 +594,51 @@
 
                                                 <h3><i class="bi bi-gear"></i> Automated Tests</h3>
 
-                                                    No automated tests were executed
+                                                    <table class="scenario-result-table table" id="scenario-results">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>feature</th>
+                                                            <th class="test-name-column">Scenario</th>
+                                                            <th>Context</th>
+                                                            <th>Steps</th>
+                                                            <th>Started</th>
+                                                            <th>Total Duration</th>
+                                                            <th>Result</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="a4441af204689dde0f5bdd6631a4d86728a748203f977d1f0ac3a01a019d088c.html">Get Transaction History</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="cb0cf482841fc1f286b42c3fd5d1d3450cae9e95bacfaaae7491ca566fe57933.html">Get the transaction history of a user account</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>05:34:46</td>
+                                                                    <td>002ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="a4441af204689dde0f5bdd6631a4d86728a748203f977d1f0ac3a01a019d088c.html">Get Transaction History</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="66acca1b99f59f41f4aa51ef1ba91fd3b62c22691cda40989bf99dfa414ec457.html">Get the transaction history of a user account without end date</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>05:34:46</td>
+                                                                    <td>002ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                        </tbody>
+                                                    </table>
 
                                             </div>
                                         </div>
@@ -500,21 +678,21 @@
 
         // Options define for display value on top of bars
         const outcomeDetailsReports = [
-            { title: 'Passing Test Cases', link: "8162e42344acb0acd849cdc97650324cf86ffa1911e3775199091561cf0eedd8.html" },
-            { title: 'Pending Test Cases', link: "ad6030a998e047ac2afe40b281850e3db657ec0df6de057bac30f00ae10ca4c4.html" },
-            { title: 'Ignored Test Cases', link: "154bf4667e895d75ca8412b2201742091b39552fb1600100fc6eaacec5a33715.html" },
-            { title: 'Skipped Test Cases', link: "29a7f542939f8c8ddc63e4826a02f9fb4e9b62cf981ec80a29d252f210e2b8e0.html" },
-            { title: 'Aborted Test Cases',  link: "da6aafc59ea19ed280b869bf506d71e6cbd55a3b1385f6c462df1cd1c612604f.html"},
-            { title: 'Failed Test Cases', link: "481b4b2ee9b7c43944b4ad42da467a7863f114abb27f9642c8dfb0b6f637a7ff.html"  },
-            { title: 'Broken Test Cases', link: "098f17e8175ab148da755b4a9c8500a767463c25073f82b761dcc35fa8c8003f.html"    },
-            { title: 'Compromised Test Cases',  link: "52bd1530fe25ce1eea09f590e6bcd455e452111e2dca99a2e4b6bd0ecf45ee3a.html" },
+            { title: 'Passing Test Cases', link: "7ab4aa8f8c57f87bb42104b8729a8232d3be058e534461e4355acb57426c0c6d.html" },
+            { title: 'Pending Test Cases', link: "61d2693ce797adc779f36a2b841e5c23b00484ab4547b5a0c2a53630060b1c4d.html" },
+            { title: 'Ignored Test Cases', link: "1fcea2cbf8fffbe0445c94833d02432574ecda8ccc954216714a8f59b0613102.html" },
+            { title: 'Skipped Test Cases', link: "0e2f9c76509ee5a4a224cd3c73b254ed8a4115537e5484eb307a1645bb9e4a64.html" },
+            { title: 'Aborted Test Cases',  link: "8e2f63505a896b0273a6afcb7071040cc807c459c438cd717f2bbc7ca30ebccc.html"},
+            { title: 'Failed Test Cases', link: "98b3a691cd314004ead730d286d6303b9c75ee5385238516c03b5068dd6ac122.html"  },
+            { title: 'Broken Test Cases', link: "fa56f8a1640774e7034ffc0fc15a43b5b5fb644b04e3bb66bc0dae0314bf2394.html"    },
+            { title: 'Compromised Test Cases',  link: "2b55dbe19a14715b71b999d8f0af961be8c06812ec9aac7e619bff5530e2d48a.html" },
         ]
         const outcomeData = {
             labels: ['Passing Test Cases', 'Pending Test Cases', 'Ignored Test Cases', 'Skipped Test Cases', 'Aborted Test Cases', 'Failed Test Cases', 'Broken Test Cases', 'Compromised Test Cases','Undefined Test Cases'],
             datasets: [{
                 label: 'Test Results',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 2}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -565,7 +743,7 @@
                         ctx.font = fontSize + "em sans-serif";
                         ctx.textBaseline = "middle";
 
-                        var text = " "
+                        var text = "100%"
                         textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
                         textY = (height / 2) - 40;
 
@@ -594,14 +772,14 @@
 
         // Options define for display value on top of bars
         const requirementsOutcomeDetailsReports = [
-            { title: 'Passing Test Cases', link: "8162e42344acb0acd849cdc97650324cf86ffa1911e3775199091561cf0eedd8.html" },
-            { title: 'Pending Test Cases', link: "ad6030a998e047ac2afe40b281850e3db657ec0df6de057bac30f00ae10ca4c4.html" },
-            { title: 'Ignored Test Cases', link: "154bf4667e895d75ca8412b2201742091b39552fb1600100fc6eaacec5a33715.html" },
-            { title: 'Skipped Test Cases', link: "29a7f542939f8c8ddc63e4826a02f9fb4e9b62cf981ec80a29d252f210e2b8e0.html" },
-            { title: 'Aborted Test Cases',  link: "da6aafc59ea19ed280b869bf506d71e6cbd55a3b1385f6c462df1cd1c612604f.html"},
-            { title: 'Failed Test Cases', link: "481b4b2ee9b7c43944b4ad42da467a7863f114abb27f9642c8dfb0b6f637a7ff.html"  },
-            { title: 'Broken Test Cases', link: "098f17e8175ab148da755b4a9c8500a767463c25073f82b761dcc35fa8c8003f.html"    },
-            { title: 'Compromised Test Cases',  link: "52bd1530fe25ce1eea09f590e6bcd455e452111e2dca99a2e4b6bd0ecf45ee3a.html" },
+            { title: 'Passing Test Cases', link: "7ab4aa8f8c57f87bb42104b8729a8232d3be058e534461e4355acb57426c0c6d.html" },
+            { title: 'Pending Test Cases', link: "61d2693ce797adc779f36a2b841e5c23b00484ab4547b5a0c2a53630060b1c4d.html" },
+            { title: 'Ignored Test Cases', link: "1fcea2cbf8fffbe0445c94833d02432574ecda8ccc954216714a8f59b0613102.html" },
+            { title: 'Skipped Test Cases', link: "0e2f9c76509ee5a4a224cd3c73b254ed8a4115537e5484eb307a1645bb9e4a64.html" },
+            { title: 'Aborted Test Cases',  link: "8e2f63505a896b0273a6afcb7071040cc807c459c438cd717f2bbc7ca30ebccc.html"},
+            { title: 'Failed Test Cases', link: "98b3a691cd314004ead730d286d6303b9c75ee5385238516c03b5068dd6ac122.html"  },
+            { title: 'Broken Test Cases', link: "fa56f8a1640774e7034ffc0fc15a43b5b5fb644b04e3bb66bc0dae0314bf2394.html"    },
+            { title: 'Compromised Test Cases',  link: "2b55dbe19a14715b71b999d8f0af961be8c06812ec9aac7e619bff5530e2d48a.html" },
             { title: 'Undefined Test Cases',  link: "" },
         ]
         const requirementsOutcomeData = {
@@ -609,7 +787,7 @@
             datasets: [{
                 label: 'Feature Coverage',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 2}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -660,7 +838,7 @@
                         ctx.font = fontSize + "em sans-serif";
                         ctx.textBaseline = "middle";
 
-                        var text = " "
+                        var text = "100%"
                         textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
                         textY = (height / 2) - 40;
 
@@ -691,21 +869,21 @@
         // Options define for display value on top of bars
 
         const severityDetailsReports = [
-            { title: 'Passing Scenarios', link: "8162e42344acb0acd849cdc97650324cf86ffa1911e3775199091561cf0eedd8.html" },
-            { title: 'Pending Scenarios', link: "ad6030a998e047ac2afe40b281850e3db657ec0df6de057bac30f00ae10ca4c4.html" },
-            { title: 'Ignored Scenarios', link: "154bf4667e895d75ca8412b2201742091b39552fb1600100fc6eaacec5a33715.html" },
-            { title: 'Skipped Scenarios', link: "29a7f542939f8c8ddc63e4826a02f9fb4e9b62cf981ec80a29d252f210e2b8e0.html" },
-            { title: 'Aborted Scenarios',  link: "da6aafc59ea19ed280b869bf506d71e6cbd55a3b1385f6c462df1cd1c612604f.html"},
-            { title: 'Failed Scenarios', link: "481b4b2ee9b7c43944b4ad42da467a7863f114abb27f9642c8dfb0b6f637a7ff.html"  },
-            { title: 'Broken Scenarios', link: "098f17e8175ab148da755b4a9c8500a767463c25073f82b761dcc35fa8c8003f.html"    },
-            { title: 'Compromised Scenarios',  link: "52bd1530fe25ce1eea09f590e6bcd455e452111e2dca99a2e4b6bd0ecf45ee3a.html" },
+            { title: 'Passing Scenarios', link: "7ab4aa8f8c57f87bb42104b8729a8232d3be058e534461e4355acb57426c0c6d.html" },
+            { title: 'Pending Scenarios', link: "61d2693ce797adc779f36a2b841e5c23b00484ab4547b5a0c2a53630060b1c4d.html" },
+            { title: 'Ignored Scenarios', link: "1fcea2cbf8fffbe0445c94833d02432574ecda8ccc954216714a8f59b0613102.html" },
+            { title: 'Skipped Scenarios', link: "0e2f9c76509ee5a4a224cd3c73b254ed8a4115537e5484eb307a1645bb9e4a64.html" },
+            { title: 'Aborted Scenarios',  link: "8e2f63505a896b0273a6afcb7071040cc807c459c438cd717f2bbc7ca30ebccc.html"},
+            { title: 'Failed Scenarios', link: "98b3a691cd314004ead730d286d6303b9c75ee5385238516c03b5068dd6ac122.html"  },
+            { title: 'Broken Scenarios', link: "fa56f8a1640774e7034ffc0fc15a43b5b5fb644b04e3bb66bc0dae0314bf2394.html"    },
+            { title: 'Compromised Scenarios',  link: "2b55dbe19a14715b71b999d8f0af961be8c06812ec9aac7e619bff5530e2d48a.html" },
         ]
         const severityData = {
             labels: ['Passing', 'Pending', 'Ignored', 'Skipped', 'Aborted', 'Failed', 'Broken', 'Compromised'],
             datasets: [
                 {
                     label: 'Automated',
-                    data: [0,0,0,0,0,0,0,0],
+                    data: [2,0,0,0,0,0,0,0],
                     backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                     borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                     borderWidth: 1
@@ -769,14 +947,14 @@
 
         // Options define for display value on top of bars
         const durationDetailsReports = [
-                {title: "Under 1 second", link: "3bf87ab6fc3fbff5b65101096159cf082b8d5a2bf78c8d36236adba4bdc5a4b2.html"},
-                {title: "1 to 10 seconds", link: "9b17d55502c6dc7cbb9ef03ec44209beabf7dde69a737c7fbf68263501892af3.html"},
-                {title: "10 to 30 seconds", link: "255bb3a378ea3d1035bb1c43deaacad2056ca4dcafc41d4663a3f6b35a032be6.html"},
-                {title: "30 to 60 seconds", link: "4c72f6cf2bcde178922f836ccc34b8c8a72a898aeacc9f64024325a8ddca0061.html"},
-                {title: "1 to 2 minutes", link: "aec8d8a13c45781a8eb555547db0c142622ec0cfd6b091c99871f4c79933e7f1.html"},
-                {title: "2 to 5 minutes", link: "6790c5a97879c5036332e2418eb55b7c85bfe95e3682a2714b6cd38a42346de2.html"},
-                {title: "5 to 10 minutes", link: "7f3772f8ee8d522cf2b5e4e29b476f2861e9f20117a6403d270acc0cf008335b.html"},
-                {title: "10 minutes or over", link: "684db610e2640a41609bac3d2902184cb93d872c8d8f7caa42f347ff4637a0de.html"},
+                {title: "Under 1 second", link: "b54e7563a62da17494dffcec6ef11363c728daccb6a142403d3a03b26c686411.html"},
+                {title: "1 to 10 seconds", link: "2816124b285c09be512f81830f672791a9dbac3fa2dac8377b88830b6e98a0d7.html"},
+                {title: "10 to 30 seconds", link: "94aadeedd4fbe3d63cb5de25aab4b674d74ffdad1233d24931c09a3d4fb2e250.html"},
+                {title: "30 to 60 seconds", link: "2338d601ec706fa682b7565083a7e15156d87cf4011344364793cabd77285af8.html"},
+                {title: "1 to 2 minutes", link: "f39de97ca2c086ea717c3a3521a999f3b6a96d2860c5cd6d4a8eb66740d15326.html"},
+                {title: "2 to 5 minutes", link: "fec545a4aacbaf7b292c5b7d33083e04f3d3b3e4c910413a2f6df707c26637a6.html"},
+                {title: "5 to 10 minutes", link: "9ef489b158b27e6bd9cfaa18439eae86d2721bafbd1af7e2a0d97d7641ae3395.html"},
+                {title: "10 minutes or over", link: "f04affe338089cef9d6c040cef05f31a0465f620a9295996d666396dd32c13e7.html"},
         ]
         // The Severity bar chart
         const durationChartCtx = document.getElementById('durationChart');
@@ -788,7 +966,7 @@
             datasets: [{
                 label: 'Number of tests per duration',
                 fill: false,
-                data: ['0','0','0','0','0','0','0','0'],
+                data: ['2','0','0','0','0','0','0','0'],
                 backgroundColor: 'rgba(83, 146, 255,0.5)',
                 borderColor: 'rgba(83, 146, 255, 1)',
             }]

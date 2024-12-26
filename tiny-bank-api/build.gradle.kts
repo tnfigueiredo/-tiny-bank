@@ -120,7 +120,9 @@ tasks.register("saveTestResults") {
 	description = "Cleans the tests directory and copies serenity reports to it."
 
 	val testsDir = File(project.rootDir, "../tests")
+	val unitTestsDir = File(project.rootDir, "../unit-tests")
 	val serenityReportsDir = file("target/site/serenity")
+	val unitTestsReportsDir = file("build/reports/tests/test")
 
 	mustRunAfter("test")
 
@@ -135,13 +137,31 @@ tasks.register("saveTestResults") {
 			testsDir.mkdirs()
 		}
 
-		// Copy files from serenityReportsDir to testsDir
+		if (unitTestsDir.exists()) {
+			println("Deleting unit test files in $unitTestsDir")
+			unitTestsDir.deleteRecursively()
+			unitTestsDir.mkdirs()
+		} else {
+			println("$unitTestsDir does not exist. Creating it...")
+			unitTestsDir.mkdirs()
+		}
+
+		// Copy files from serenityReportsDir to tests dir
 		if (serenityReportsDir.exists()) {
 			println("Copying files from $serenityReportsDir to $testsDir")
 			serenityReportsDir.copyRecursively(testsDir, overwrite = true)
 			println("Files copied successfully!")
 		} else {
 			println("Source directory $serenityReportsDir does not exist!")
+		}
+
+		// Copy files from unitTestsDir to unit-test dir
+		if (unitTestsReportsDir.exists()) {
+			println("Copying files from $unitTestsReportsDir to $unitTestsDir")
+			unitTestsReportsDir.copyRecursively(unitTestsDir, overwrite = true)
+			println("Files copied successfully!")
+		} else {
+			println("Source directory $unitTestsReportsDir does not exist!")
 		}
 	}
 }
