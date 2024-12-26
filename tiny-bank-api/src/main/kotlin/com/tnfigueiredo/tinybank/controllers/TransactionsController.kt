@@ -18,10 +18,10 @@ import java.time.LocalDate
 class TransactionsController {
 
     @Autowired
-    lateinit var transactionService: TransactionService
+    private lateinit var transactionService: TransactionService
 
     @Autowired
-    lateinit var accountService: AccountService
+    private lateinit var accountService: AccountService
 
     @PostMapping
     fun createTransaction(@RequestBody transaction: Transaction): ResponseEntity<RestResponse> =

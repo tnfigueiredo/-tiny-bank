@@ -19,7 +19,7 @@ import java.util.*
 class AccountsController {
 
     @Autowired
-    lateinit var accountService: AccountService
+    private lateinit var accountService: AccountService
 
     @PostMapping("/user/{userId}/agency/{agency}")
     fun createAccount(@PathVariable  @NotBlank userId: String, @PathVariable @NotBlank agency:String): ResponseEntity<RestResponse> =

@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.*
 class UsersController() {
 
     @Autowired
-    lateinit var userService: UserService
+    private lateinit var userService: UserService
 
     @Autowired
-    lateinit var accountService: AccountService
+    private lateinit var accountService: AccountService
 
     @PostMapping
     fun createUser(@RequestBody user: UserDTO): ResponseEntity<RestResponse> =
