@@ -81,3 +81,4 @@ nav:
       - adrs/ADR08-application-layers.md
       - adrs/ADR09-exception-handling.md
       - adrs/ADR10-BDD-tests-operations-approach.md
+      - adrs/ADR10-BDD-tests-operations-approach.md
