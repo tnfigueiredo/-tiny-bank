@@ -11,3 +11,6 @@ The layer structure chosen for this application was the standard common spring a
 controller/services/repositories. In this structure the controllers handles data input and data validation, the services 
 handle business operations, and the repository handles data saving and recovering responsibilities. Some simplification was 
 applied for not using a real database.
+
+The application structure is also base on interfaces to allow being ok with the Liskov Substitution Principle and 
+Dependency inversion principle. 
