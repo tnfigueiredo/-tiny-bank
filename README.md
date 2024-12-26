@@ -22,6 +22,11 @@ understand all the assumptions taken during the project development. I'll try to
 approach for that. The idea is to keep documentation as simple as possible, and also describe the requirements trying 
 to follow a testing approach that can allow me to validate the requirements for the proposed features.
 
+Also, trying to make it clear the reasoning behind the decisions taken, there was a huge effort on tests and tests 
+documentation. The idea is to make it possible to understand the reasoning behind the tests and the requirements. In 
+order to make it easier to navigate in the tests documentation, there will be a quick session in the documentation 
+container service explaining how to navigate through the tests documentation.
+
 To allow me to bring more visibility to the approach and reasoning applied, I'll try to follow a "baby steps" commit 
 approach. This will make it possible to have an idea of the whole process related to the progress of the activity.
 
@@ -40,9 +45,9 @@ have a separate running environment for the documentation, a separate running en
 running application itself. Those are the services running in this docker-compose:
 
  - appdocs: it is a MkDocs service based on a Docker image that generate html documentation based on markdown files.
- - testdocs: it is a httpd image that makes available HTML documentation generated through the project's build test result.
- - tiny-bank-api: it is the RESTful API service related to the project requirements. This project is accessible through an 
-OpenAPI HTML interface.
+ - testDocs: it is a httpd image that makes available HTML documentation generated through the project's build test result for the BDD requirements and tests.
+ - unitTestDocs: it is a httpd image that makes available HTML documentation generated through the project's build test result for unit tests.
+ - tiny-bank-api: it is the RESTful API service related to the project requirements. This project is accessible through an OpenAPI HTML interface.
 
 ## How to run it
 
