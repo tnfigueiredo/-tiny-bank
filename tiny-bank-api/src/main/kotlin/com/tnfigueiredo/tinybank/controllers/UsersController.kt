@@ -1,6 +1,5 @@
 package com.tnfigueiredo.tinybank.controllers
 
-import com.tnfigueiredo.tinybank.exceptions.DataNotFoundException
 import com.tnfigueiredo.tinybank.exceptions.handleServiceCallFailure
 import com.tnfigueiredo.tinybank.model.*
 import com.tnfigueiredo.tinybank.services.AccountService
