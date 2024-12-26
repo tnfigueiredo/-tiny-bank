@@ -15,12 +15,13 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import java.time.LocalDate
 import java.util.*
 
 
 class TransactionStepsDefinition {
 
-    private companion object{
+    private companion object {
         const val AGENCY = 123.toShort()
         const val BASE_SERVICE_PATH = "/transactions"
         const val USERS_BASE_SERVICE_PATH = "/users"
@@ -41,16 +42,27 @@ class TransactionStepsDefinition {
     @Given("the user has an active account in Tyny Bank")
     fun the_user_has_an_active_account_in_tyny_bank() {
 
-        if(accountToBeUsed == null){
-            val aUserResult = restTemplate.postForEntity(USERS_BASE_SERVICE_PATH,
-                UserDTO(name = "A_NAME", surname = "A_SURNAME", docType = NATIONAL_ID, document = "A_DOCUMENT_FOR_DEPOSIT", docCountry = "A_DOC_COUNTRY"),
+        if (accountToBeUsed == null) {
+            val aUserResult = restTemplate.postForEntity(
+                USERS_BASE_SERVICE_PATH,
+                UserDTO(
+                    name = "A_NAME",
+                    surname = "A_SURNAME",
+                    docType = NATIONAL_ID,
+                    document = "A_DOCUMENT_FOR_DEPOSIT",
+                    docCountry = "A_DOC_COUNTRY"
+                ),
                 RestResponse::class.java
             )
 
             aUserResult.statusCode shouldBeEqual HttpStatus.OK
             A_RANDOM_USER_ID = UUID.fromString(((aUserResult.body!!.data as Map<*, *>)["id"] as String))
 
-            val activeAccountResult = restTemplate.postForEntity("${ACCOUNT_BASE_SERVICE_PATH}/user/${A_RANDOM_USER_ID}/agency/$AGENCY", null, RestResponse::class.java)
+            val activeAccountResult = restTemplate.postForEntity(
+                "${ACCOUNT_BASE_SERVICE_PATH}/user/${A_RANDOM_USER_ID}/agency/$AGENCY",
+                null,
+                RestResponse::class.java
+            )
 
             activeAccountResult.statusCode shouldBeEqual HttpStatus.OK
             val account = (activeAccountResult.body!!.data as Map<*, *>)
@@ -71,8 +83,15 @@ class TransactionStepsDefinition {
     fun the_user_has_a_deactivated_account_in_tyny_bank() {
 
         if (deactivatedAccountToBeUsed == null) {
-            val anotherUserResult = restTemplate.postForEntity(USERS_BASE_SERVICE_PATH,
-                UserDTO(name = "ANOTHER_NAME", surname = "ANOTHER_SURNAME", docType = NATIONAL_ID, document = "ANOTHER_DOCUMENT", docCountry = "ANOTHER_DOC_COUNTRY"),
+            val anotherUserResult = restTemplate.postForEntity(
+                USERS_BASE_SERVICE_PATH,
+                UserDTO(
+                    name = "ANOTHER_NAME",
+                    surname = "ANOTHER_SURNAME",
+                    docType = NATIONAL_ID,
+                    document = "ANOTHER_DOCUMENT",
+                    docCountry = "ANOTHER_DOC_COUNTRY"
+                ),
                 RestResponse::class.java
             )
 
@@ -115,7 +134,7 @@ class TransactionStepsDefinition {
 
     @And("the account balance is {string}")
     fun the_account_balance_is(depositValue: String) {
-        val accountUpdate = restTemplate.postForEntity(
+        restTemplate.postForEntity(
             BASE_SERVICE_PATH,
             Transaction(
                 originAccountId = accountToBeUsed?.id!!,
@@ -131,14 +150,22 @@ class TransactionStepsDefinition {
     @And("the destination account {string} is chosen for transfer")
     fun the_destination_account_is_chosen_for_transfer(string: String?) {
 
-        if (destinationTransferAccountToBeUsed == null){
-            val destinationAccountUserResult = restTemplate.postForEntity(USERS_BASE_SERVICE_PATH,
-                UserDTO(name = "ANOTHER_NAME", surname = "ANOTHER_SURNAME", docType = NATIONAL_ID, document = "THIRD_DOCUMENT", docCountry = "ANOTHER_DOC_COUNTRY"),
+        if (destinationTransferAccountToBeUsed == null) {
+            val destinationAccountUserResult = restTemplate.postForEntity(
+                USERS_BASE_SERVICE_PATH,
+                UserDTO(
+                    name = "ANOTHER_NAME",
+                    surname = "ANOTHER_SURNAME",
+                    docType = NATIONAL_ID,
+                    document = "THIRD_DOCUMENT",
+                    docCountry = "ANOTHER_DOC_COUNTRY"
+                ),
                 RestResponse::class.java
             )
 
             destinationAccountUserResult.statusCode shouldBeEqual HttpStatus.OK
-            THIRD_RANDOM_USER_ID = UUID.fromString(((destinationAccountUserResult.body!!.data as Map<*, *>)["id"] as String))
+            THIRD_RANDOM_USER_ID =
+                UUID.fromString(((destinationAccountUserResult.body!!.data as Map<*, *>)["id"] as String))
 
             val destinationAccountResult = restTemplate.postForEntity(
                 "${ACCOUNT_BASE_SERVICE_PATH}/user/${THIRD_RANDOM_USER_ID}/agency/$AGENCY",
@@ -161,9 +188,30 @@ class TransactionStepsDefinition {
 
     }
 
+    @And("the user has made the following transactions:")
+    fun the_user_has_made_the_following_transactions(transactions: List<Map<String, String>>) {
+        transactions
+            .map { transactionParameter ->
+                Transaction(
+                    originAccountId = transactionParameter["Origin Account"]!!,
+                    destinationAccountId = transactionParameter["Destination Account"],
+                    amount = transactionParameter["Value"]!!.toDouble(),
+                    type = TransactionType.valueOf(transactionParameter["Type"]!!),
+                    accountBalanceCurrentValue = 0.0,
+                    date = LocalDate.parse(transactionParameter["Date"]!!).atStartOfDay()
+                )
+            }.forEach { transaction ->
+                result = restTemplate.postForEntity(
+                    BASE_SERVICE_PATH,
+                    transaction,
+                    RestResponse::class.java
+                )
+            }
+    }
+
     @When("the user makes a deposit of {string}")
     fun the_user_makes_a_deposit_of(transactionValue: String) {
-        result = if(flowActiveUSer) {
+        result = if (flowActiveUSer) {
             restTemplate.postForEntity(
                 BASE_SERVICE_PATH,
                 Transaction(
@@ -190,7 +238,7 @@ class TransactionStepsDefinition {
 
     @When("the user makes a withdraw of {string}")
     fun the_user_makes_a_withdraw_of(transactionValue: String) {
-        result = if(flowActiveUSer) {
+        result = if (flowActiveUSer) {
             restTemplate.postForEntity(
                 BASE_SERVICE_PATH,
                 Transaction(
@@ -217,7 +265,7 @@ class TransactionStepsDefinition {
 
     @When("the user makes a transfer of {string}")
     fun the_user_makes_a_transfer_of(transactionValue: String) {
-        result = if(flowActiveUSer) {
+        result = if (flowActiveUSer) {
             restTemplate.postForEntity(
                 BASE_SERVICE_PATH,
                 Transaction(
@@ -241,6 +289,22 @@ class TransactionStepsDefinition {
         }
     }
 
+    @When("the user gets the transaction history of the account {string} from {string} to {string}")
+    fun the_user_gets_the_transaction_history_of_the_account_from_to(accountId: String, startDate: String, endDate: String?) {
+        result = restTemplate.getForEntity(
+            "$BASE_SERVICE_PATH/account/${accountId}/start/$startDate?endDate=$endDate",
+            RestResponse::class.java
+        )
+    }
+
+    @When("the user gets the transaction history of the account {string} from {string}")
+    fun the_user_gets_the_transaction_history_of_the_account_from(accountId: String, startDate: String) {
+        result = restTemplate.getForEntity(
+            "$BASE_SERVICE_PATH/account/${accountId}/start/$startDate",
+            RestResponse::class.java
+        )
+    }
+
     @Then("the account balance is increased by {string}")
     fun the_account_balance_is_increased_by(string: String?) {
         result.statusCode shouldBeEqual HttpStatus.OK
@@ -262,13 +326,22 @@ class TransactionStepsDefinition {
         result.statusCode shouldBeEqual HttpStatus.OK
         (result.body!!.data as Map<*, *>)["id"].shouldNotBeNull()
         Serenity.recordReportData().withTitle("Client Account Initial State").andContents(accountToBeUsed.toString())
-        Serenity.recordReportData().withTitle("Destination Account Initial State").andContents(destinationTransferAccountToBeUsed.toString())
+        Serenity.recordReportData().withTitle("Destination Account Initial State")
+            .andContents(destinationTransferAccountToBeUsed.toString())
         Serenity.recordReportData().withTitle("Transaction Final State").andContents(result.toString())
     }
 
     @Then("the transaction operation fails")
     fun the_transaction_operation_fails() {
-        Serenity.recordReportData().withTitle("Client Account Initial State").andContents(deactivatedAccountToBeUsed.toString())
+        Serenity.recordReportData().withTitle("Client Account Initial State")
+            .andContents(deactivatedAccountToBeUsed.toString())
+    }
+
+    @Then("the transaction history is:")
+    fun the_transaction_history_is(transactions: List<Map<String, String>>) {
+        result.statusCode shouldBeEqual HttpStatus.OK
+
+
     }
 
     @And("the origin account balance is decreased by {string}")

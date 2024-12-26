@@ -4,10 +4,13 @@ import com.tnfigueiredo.tinybank.exceptions.TransactionDeniedException
 import com.tnfigueiredo.tinybank.model.Transaction
 import com.tnfigueiredo.tinybank.model.TransactionType.*
 import com.tnfigueiredo.tinybank.repositories.TransactionRepository
+import java.time.LocalDateTime
 
 interface TransactionService {
 
     fun saveTransaction(transaction: Transaction): Result<Transaction>
+
+    fun getTransactionsByDateRange(accountId: String, startDate: LocalDateTime, endDate: LocalDateTime): Result<List<Transaction>>
 
 }
 
@@ -22,6 +25,9 @@ class TransactionServiceImpl(private val transactionRepository: TransactionRepos
         }
     }
 
+    override fun getTransactionsByDateRange(accountId: String, startDate: LocalDateTime, endDate: LocalDateTime): Result<List<Transaction>> = kotlin.runCatching{
+        transactionRepository.getTransactionsByDateRange(accountId, startDate, endDate).getOrNull() ?: emptyList()
+    }
 
     private fun deposit(transaction: Transaction): Transaction =
         if(transaction.amount > 0) {
