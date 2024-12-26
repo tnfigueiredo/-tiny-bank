@@ -53,7 +53,7 @@ running application itself. Those are the services running in this docker-compos
 
 to run the project locally, it is necessary to have installed only [Docker](https://docs.docker.com/engine/install/) and 
 [docker-compose](https://docs.docker.com/compose/install/). On the project root level it is just to run "docker-compose up" 
-and the 3 mentioned services are available. To access the services it is just to open the following addresses in your 
+and the 4 mentioned services are available. To access the services it is just to open the following addresses in your 
 browser:
 
  - appdocs. http://localhost:8000
