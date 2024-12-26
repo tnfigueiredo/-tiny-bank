@@ -57,7 +57,8 @@ and the 3 mentioned services are available. To access the services it is just to
 browser:
 
  - appdocs. http://localhost:8000
- - testdocs: http://localhost:8081
+ - testDocs: http://localhost:8081
+ - unitTestDocs: http://localhost:8082
  - tiny-bank-api: http://localhost:8080/tiny-bank/api/swagger-ui/index.html
 
 If it is necessary to modify, build, and run the Kotlin project locally it is necessary to [install Java 17](https://openjdk.org/projects/jdk/17/) and an IDE of your choice.
