@@ -38,11 +38,27 @@ class TransactionServiceImpl(private val transactionRepository: TransactionRepos
         }
 
     private fun transfer(transaction: Transaction): Transaction =
-        if(transaction.amount > 0) {
-            transactionRepository.saveTransaction(transaction.copy(accountBalanceCurrentValue = transaction.accountDestinationBalanceCurrentValue + transaction.amount))
-            transactionRepository.saveTransaction(transaction.copy(accountBalanceCurrentValue = transaction.accountBalanceCurrentValue - transaction.amount)).getOrNull()!!
-        } else {
-            throw TransactionDeniedException("Transfer amount must be greater than 0")
+        when{
+            transaction.destinationAccountId == null -> throw TransactionDeniedException("Transfer must have a destination account.")
+            transaction.amount < 0 -> throw TransactionDeniedException("Transfer amount must be greater than 0")
+            transaction.accountDestinationBalanceCurrentValue - transaction.amount < 0 -> throw TransactionDeniedException("Transfer can't make destination account negative.")
+            transaction.amount > 0 -> {
+                transactionRepository.saveTransaction(
+                    transaction.copy(
+                        originAccountId = transaction.destinationAccountId,
+                        destinationAccountId = transaction.originAccountId,
+                        accountBalanceCurrentValue = transaction.accountDestinationBalanceCurrentValue - transaction.amount,
+                        accountDestinationBalanceCurrentValue = transaction.accountBalanceCurrentValue + transaction.amount,
+                        type = TRANSFER_DEBIT
+                    ))
+                transactionRepository.saveTransaction(
+                    transaction.copy(
+                        accountBalanceCurrentValue = transaction.accountBalanceCurrentValue + transaction.amount,
+                        accountDestinationBalanceCurrentValue = transaction.accountDestinationBalanceCurrentValue - transaction.amount
+                    )
+                ).getOrNull()!!
+            }
+            else -> throw TransactionDeniedException("Transfer amount denied for unknown reason.")
         }
 
 }

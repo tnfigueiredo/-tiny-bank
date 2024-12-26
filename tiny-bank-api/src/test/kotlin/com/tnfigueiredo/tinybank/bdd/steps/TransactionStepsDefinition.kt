@@ -2,8 +2,7 @@ package com.tnfigueiredo.tinybank.bdd.steps
 
 import com.tnfigueiredo.tinybank.model.*
 import com.tnfigueiredo.tinybank.model.DocType.NATIONAL_ID
-import com.tnfigueiredo.tinybank.model.TransactionType.DEPOSIT
-import com.tnfigueiredo.tinybank.model.TransactionType.WITHDRAW
+import com.tnfigueiredo.tinybank.model.TransactionType.*
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
@@ -28,9 +27,11 @@ class TransactionStepsDefinition {
         const val ACCOUNT_BASE_SERVICE_PATH = "/accounts"
         var accountToBeUsed: Account? = null
         var deactivatedAccountToBeUsed: Account? = null
+        var destinationTransferAccountToBeUsed: Account? = null
         lateinit var result: ResponseEntity<RestResponse>
         var A_RANDOM_USER_ID: UUID = UUID.fromString("eae467d9-deb2-49b3-aaf5-f1e146e567e1")
         var ANOTHER_RANDOM_USER_ID: UUID = UUID.fromString("0865ef31-9e22-45e7-a8fd-0d4a815f8fe7")
+        var THIRD_RANDOM_USER_ID: UUID = UUID.fromString("0865ef31-9e22-45e7-a8fd-0d4a815f8fe7")
         var flowActiveUSer = true
     }
 
@@ -127,6 +128,39 @@ class TransactionStepsDefinition {
         accountToBeUsed = accountToBeUsed!!.copy(balance = accountToBeUsed!!.balance + depositValue.toDouble())
     }
 
+    @And("the destination account {string} is chosen for transfer")
+    fun the_destination_account_is_chosen_for_transfer(string: String?) {
+
+        if (destinationTransferAccountToBeUsed == null){
+            val destinationAccountUserResult = restTemplate.postForEntity(USERS_BASE_SERVICE_PATH,
+                UserDTO(name = "ANOTHER_NAME", surname = "ANOTHER_SURNAME", docType = NATIONAL_ID, document = "THIRD_DOCUMENT", docCountry = "ANOTHER_DOC_COUNTRY"),
+                RestResponse::class.java
+            )
+
+            destinationAccountUserResult.statusCode shouldBeEqual HttpStatus.OK
+            THIRD_RANDOM_USER_ID = UUID.fromString(((destinationAccountUserResult.body!!.data as Map<*, *>)["id"] as String))
+
+            val destinationAccountResult = restTemplate.postForEntity(
+                "${ACCOUNT_BASE_SERVICE_PATH}/user/${THIRD_RANDOM_USER_ID}/agency/$AGENCY",
+                null,
+                RestResponse::class.java
+            )
+
+            destinationAccountResult.statusCode shouldBeEqual HttpStatus.OK
+
+            destinationTransferAccountToBeUsed =
+                Account(
+                    id = (destinationAccountResult.body!!.data as Map<*, *>)["id"] as String,
+                    agency = (destinationAccountResult.body!!.data as Map<*, *>)["agency"].toString().toShort(),
+                    year = (destinationAccountResult.body!!.data as Map<*, *>)["year"].toString().toShort(),
+                    userId = UUID.fromString((destinationAccountResult.body!!.data as Map<*, *>)["userId"] as String),
+                    balance = (destinationAccountResult.body!!.data as Map<*, *>)["balance"] as Double,
+                    status = ActivationStatus.valueOf((destinationAccountResult.body!!.data as Map<*, *>)["status"] as String)
+                )
+        }
+
+    }
+
     @When("the user makes a deposit of {string}")
     fun the_user_makes_a_deposit_of(transactionValue: String) {
         result = if(flowActiveUSer) {
@@ -181,6 +215,32 @@ class TransactionStepsDefinition {
 
     }
 
+    @When("the user makes a transfer of {string}")
+    fun the_user_makes_a_transfer_of(transactionValue: String) {
+        result = if(flowActiveUSer) {
+            restTemplate.postForEntity(
+                BASE_SERVICE_PATH,
+                Transaction(
+                    originAccountId = accountToBeUsed?.id!!,
+                    amount = transactionValue.toDouble(),
+                    type = TRANSFER
+                ),
+                RestResponse::class.java
+            )
+
+        } else {
+            restTemplate.postForEntity(
+                BASE_SERVICE_PATH,
+                Transaction(
+                    originAccountId = deactivatedAccountToBeUsed?.id!!,
+                    amount = transactionValue.toDouble(),
+                    type = TRANSFER
+                ),
+                RestResponse::class.java
+            )
+        }
+    }
+
     @Then("the account balance is increased by {string}")
     fun the_account_balance_is_increased_by(string: String?) {
         result.statusCode shouldBeEqual HttpStatus.OK
@@ -197,9 +257,23 @@ class TransactionStepsDefinition {
         Serenity.recordReportData().withTitle("Transaction Final State").andContents(result.toString())
     }
 
+    @Then("the destination account balance is increased by {string}")
+    fun the_destination_account_balance_is_increased_by(string: String?) {
+        result.statusCode shouldBeEqual HttpStatus.OK
+        (result.body!!.data as Map<*, *>)["id"].shouldNotBeNull()
+        Serenity.recordReportData().withTitle("Client Account Initial State").andContents(accountToBeUsed.toString())
+        Serenity.recordReportData().withTitle("Destination Account Initial State").andContents(destinationTransferAccountToBeUsed.toString())
+        Serenity.recordReportData().withTitle("Transaction Final State").andContents(result.toString())
+    }
+
     @Then("the transaction operation fails")
     fun the_transaction_operation_fails() {
         Serenity.recordReportData().withTitle("Client Account Initial State").andContents(deactivatedAccountToBeUsed.toString())
+    }
+
+    @And("the origin account balance is decreased by {string}")
+    fun the_origin_account_balance_is_decreased_by(transactionValue: String) {
+        accountToBeUsed?.balance?.shouldBeEqual(((result.body!!.data as Map<*, *>)["accountBalanceCurrentValue"] as Double) - transactionValue.toDouble())
     }
 
 }

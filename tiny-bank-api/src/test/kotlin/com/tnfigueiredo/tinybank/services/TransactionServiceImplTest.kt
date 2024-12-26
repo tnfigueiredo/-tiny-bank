@@ -2,8 +2,7 @@ package com.tnfigueiredo.tinybank.services
 
 import com.tnfigueiredo.tinybank.exceptions.TransactionDeniedException
 import com.tnfigueiredo.tinybank.model.Transaction
-import com.tnfigueiredo.tinybank.model.TransactionType.DEPOSIT
-import com.tnfigueiredo.tinybank.model.TransactionType.WITHDRAW
+import com.tnfigueiredo.tinybank.model.TransactionType.*
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -104,6 +103,98 @@ internal class TransactionServiceImplTest {
             amount = -50.0,
             type = WITHDRAW,
             accountBalanceCurrentValue = 20.0
+        )
+
+        underTest.saveTransaction(transaction).exceptionOrNull().shouldBeInstanceOf<TransactionDeniedException>()
+    }
+
+    @Test
+    fun `when transfer a value to a valid destination account having no negative balance`() {
+        val transaction = Transaction(
+            originAccountId = "789",
+            destinationAccountId = "987",
+            amount = 50.0,
+            type = TRANSFER,
+            accountBalanceCurrentValue = 20.0,
+            accountDestinationBalanceCurrentValue = 90.0
+        )
+
+        val result = underTest.saveTransaction(transaction)
+
+        result.getOrNull()!!.accountBalanceCurrentValue shouldBe 70.0
+        result.getOrNull()!!.accountDestinationBalanceCurrentValue shouldBe 40.0
+        result.getOrNull()!!.id.shouldNotBeNull()
+    }
+
+    @Test
+    fun `when making a transfer to a non existing destination account`() {
+        val transaction = Transaction(
+            originAccountId = "789",
+            destinationAccountId = null,
+            amount = 50.0,
+            type = TRANSFER,
+            accountBalanceCurrentValue = 20.0,
+            accountDestinationBalanceCurrentValue = 90.0
+        )
+
+        underTest.saveTransaction(transaction).exceptionOrNull().shouldBeInstanceOf<TransactionDeniedException>()
+    }
+
+    @Test
+    fun `when transfer a value to a valid destination account making it zero balance`() {
+        val transaction = Transaction(
+            originAccountId = "789",
+            destinationAccountId = "987",
+            amount = 50.0,
+            type = TRANSFER,
+            accountBalanceCurrentValue = 20.0,
+            accountDestinationBalanceCurrentValue = 50.0
+        )
+
+        val result = underTest.saveTransaction(transaction)
+
+        result.getOrNull()!!.accountBalanceCurrentValue shouldBe 70.0
+        result.getOrNull()!!.accountDestinationBalanceCurrentValue shouldBe 0.0
+        result.getOrNull()!!.id.shouldNotBeNull()
+    }
+
+    @Test
+    fun `when transfer amount is lower than zero`() {
+        val transaction = Transaction(
+            originAccountId = "789",
+            destinationAccountId = "987",
+            amount = -50.0,
+            type = TRANSFER,
+            accountBalanceCurrentValue = 20.0,
+            accountDestinationBalanceCurrentValue = 90.0
+        )
+
+        underTest.saveTransaction(transaction).exceptionOrNull().shouldBeInstanceOf<TransactionDeniedException>()
+    }
+
+    @Test
+    fun `when transfer amount is equal zero`() {
+        val transaction = Transaction(
+            originAccountId = "789",
+            destinationAccountId = "987",
+            amount = 0.0,
+            type = TRANSFER,
+            accountBalanceCurrentValue = 20.0,
+            accountDestinationBalanceCurrentValue = 90.0
+        )
+
+        underTest.saveTransaction(transaction).exceptionOrNull().shouldBeInstanceOf<TransactionDeniedException>()
+    }
+
+    @Test
+    fun `when transfer a value to a valid destination account making origin account negative`() {
+        val transaction = Transaction(
+            originAccountId = "789",
+            destinationAccountId = "987",
+            amount = 50.0,
+            type = TRANSFER,
+            accountBalanceCurrentValue = 20.0,
+            accountDestinationBalanceCurrentValue = 30.0
         )
 
         underTest.saveTransaction(transaction).exceptionOrNull().shouldBeInstanceOf<TransactionDeniedException>()
