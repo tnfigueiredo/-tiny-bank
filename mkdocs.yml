@@ -67,6 +67,7 @@ markdown_extensions:
 
 nav:
   - index.md
+  - test-documentation.md
   - Architectural Decision Records:
       - adrs/ADR00-project-decisions-documentation.md
       - adrs/ADR01-use-docker-to-present-project-documentation.md
@@ -77,3 +78,6 @@ nav:
       - adrs/ADR06-no-login-implementation.md
       - adrs/ADR06-no-login-implementation.md
       - adrs/ADR07-provide-interface-to-interact-with-api.md
+      - adrs/ADR08-application-layers.md
+      - adrs/ADR09-exception-handling.md
+      - adrs/ADR10-BDD-tests-operations-approach.md
