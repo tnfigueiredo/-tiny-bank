@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Features</title>
+    <title>Capabilities</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -154,7 +154,7 @@
             $("#requirements-tabs").tabs();
             $("#test-tabs").tabs();
 
-            var requirementsTree = [];
+            var requirementsTree = [{"text":"Transaction Epic","type":"capability","href":"688822ba0fd8484bce12b878f4ba7a94356e55ef060d134d3b343e3a761c8221.html","nodes":[{"text":"Create Deposit","type":"feature","href":"8343af7b2c3113dfd1c88c8e4944af3d43d9cf256ecabeacf570ae643c36e371.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e3 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e3 test cases\u003c/span\u003e"]},{"text":"Create Transfer","type":"feature","href":"c388646a5b519129adbfd405821b8ad52962c4ba518832d3b4a8624e8127edd9.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e3 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e3 test cases\u003c/span\u003e"]},{"text":"Create Withdraw","type":"feature","href":"fc04ac37fdf8b3f765f5d51bbd1175cf833a9b891b949dcbd6a57ebf063ed1d3.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e3 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e3 test cases\u003c/span\u003e"]}],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-hourglass-top pending-icon \u0027 title\u003d\u0027PENDING\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e4 features\u003c/span\u003e "]}];
 
             $('#tree').treeview({
                 data: requirementsTree,
@@ -201,10 +201,9 @@
             <span class="breadcrumbs">
             <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
 
-                > <a href="018031896a905329a7cc63298e000b33774e329bdc81db0cd7fb6f09a872cecb.html">Account epic</a>
 
 
-                    > <span class="truncate-40">Account withdraw</span>
+                    > <span class="truncate-40">Transaction epic</span>
 
             </span>
         </div>
@@ -222,14 +221,14 @@
         <li >
             <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
         </li>
-        <li >
-            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
-        </li>
         <li class="active">
-            <a href="#"><i class="bi bi-chat-text"></i> Features</a>
+            <a href="#"><i class="bi bi-chat-text"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated </span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-12-2024 00:32</span>
     <br style="clear:left"/>
 </div>
 
@@ -246,14 +245,23 @@
 
                                     <div class="col-sm-12">
                                         <span>
-                                            <h2><i class="bi bi-book"></i> Feature: Account withdraw</h2>
+                                            <h2><i class="bi bi-book"></i> Capability: Transaction epic</h2>
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                             <div class="requirementNarrativeTitle">
-                                Account withdraw
+                                <p>On important aspect of the transactions is that they only can be created. They cannot be modified or deleted. This<br />
+immutable aspect is important to keep the transaction history consistent and reliable. The user stories related to this<br />
+epic are:</p>
+<ul>
+<li>create a deposit transaction</li>
+<li>create a withdrawal transaction</li>
+<li>create a transfer transaction</li>
+<li>present transaction history</li>
+</ul>
+
                             </div>
 
                     </div>
@@ -283,6 +291,9 @@
                                                 <h3>Feature Coverage By Scenario</h3>
 
                                                 <!-- REQUIREMENTS PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="requirementChart" width="300" height="300"></canvas>
+                                                    </div>
 
                                             </div>
                                             <div class="col-sm-8">
@@ -300,60 +311,60 @@
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>0</td>
+                    <td>9</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>0</td>
+                    <td>9</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td></td>
+                    <td>Dec 26, 2024 00:32:51</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td></td>
+                    <td>Dec 26, 2024 00:32:51</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>0ms</td>
+                    <td>368ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>0ms</td>
+                    <td>2ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>0ms</td>
+                    <td>36ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>0ms</td>
+                    <td>7ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>0ms</td>
+                    <td>67ms</td>
                 </tr>
                 </tbody>
             </table>
@@ -371,6 +382,9 @@
                                             <div class="col-sm-4">
                                                 <h3>Feature Coverage By Scenario</h3>
                                                 <!-- TEST RESULT PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="resultChart" width="300" height="300"></canvas>
+                                                    </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
@@ -402,22 +416,22 @@
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>0</td>
+                    <td>9</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>0ms</td>
+                    <td>368ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>0</td>
+                    <td>9</td>
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>0ms</td>
+                    <td>2ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -428,30 +442,30 @@
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>0ms</td>
+                    <td>36ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td></td>
+                    <td>Dec 26, 2024 00:32:51</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>0ms</td>
+                    <td>7ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td></td>
+                    <td>Dec 26, 2024 00:32:51</td>
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Total
                         Execution Time
                     </td>
-                    <td>0ms</td>
+                    <td>67ms</td>
                 </tr>
                 </tbody>
             </table>
@@ -460,7 +474,156 @@
 
                                                 <h3><i class="bi bi-gear"></i> Automated Tests</h3>
 
-                                                    No automated tests were executed
+                                                    <table class="scenario-result-table table" id="scenario-results">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>feature</th>
+                                                            <th class="test-name-column">Scenario</th>
+                                                            <th>Context</th>
+                                                            <th>Steps</th>
+                                                            <th>Started</th>
+                                                            <th>Total Duration</th>
+                                                            <th>Result</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="8343af7b2c3113dfd1c88c8e4944af3d43d9cf256ecabeacf570ae643c36e371.html">Create Deposit</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="23f7267992e50557c13cf0e5dec0894fd4460d5fc7df6e1f344df0b19eae981f.html">Fails to create a deposit to an inactive account</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>00:32:51</td>
+                                                                    <td>036ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="8343af7b2c3113dfd1c88c8e4944af3d43d9cf256ecabeacf570ae643c36e371.html">Create Deposit</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="3a45225cc26f1fb855f80fa1ec85c86c0fa1daf9ea87d550d335fc3b50178006.html">Create a deposit of a value greater than zero</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>00:32:51</td>
+                                                                    <td>016ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="8343af7b2c3113dfd1c88c8e4944af3d43d9cf256ecabeacf570ae643c36e371.html">Create Deposit</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="4d3c43d0aa40e19ac93b3162d275a9c052c6de1365206e28114428881f494361.html">Fails to create a deposit of a value less than zero</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>00:32:51</td>
+                                                                    <td>002ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="c388646a5b519129adbfd405821b8ad52962c4ba518832d3b4a8624e8127edd9.html">Create Transfer</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="7a81b777fe156659479cdd42971903c88d0958ef56858fbec1d3e84239b19796.html">Fails to create a transfer to an inactive origin account</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>00:32:51</td>
+                                                                    <td>002ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="c388646a5b519129adbfd405821b8ad52962c4ba518832d3b4a8624e8127edd9.html">Create Transfer</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="cd415dbd6e361d0d29018c9f7752533248d5a5b6868247e0ebd4e957bf95dfc5.html">Create a deposit of a value greater than zero</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>00:32:51</td>
+                                                                    <td>003ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="c388646a5b519129adbfd405821b8ad52962c4ba518832d3b4a8624e8127edd9.html">Create Transfer</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="104a13322e7b0322718e8192556248f7895166e9959ab57f00758a2e8e988dc6.html">Fails to create a transfer of a value less than zero</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>00:32:51</td>
+                                                                    <td>002ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="fc04ac37fdf8b3f765f5d51bbd1175cf833a9b891b949dcbd6a57ebf063ed1d3.html">Create Withdraw</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="357db6ddc52718d4a033c7f94c52feda50bfefc6a7d974c6766e816cf0b6b38e.html">Fails to create a withdraw to an inactive account</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>00:32:51</td>
+                                                                    <td>002ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="fc04ac37fdf8b3f765f5d51bbd1175cf833a9b891b949dcbd6a57ebf063ed1d3.html">Create Withdraw</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="560e574f6902ee893bf50f51b41bfaf92bb4a43ac31fa7f12bd798223e37097d.html">Create a withdraw of a value greater than zero</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>00:32:51</td>
+                                                                    <td>002ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="fc04ac37fdf8b3f765f5d51bbd1175cf833a9b891b949dcbd6a57ebf063ed1d3.html">Create Withdraw</a>
+                                                                    </td>
+                                                                    <td>
+                                                                                <a href="d935215bc04b55a7ead124e2ab1b86c5f461f34be62cb6d3b9b371f5e9bad84b.html">Fails to create a withdraw of a value less than zero</a>
+                                                                    </td>
+                                                                    <td><span style="display:none"></span>
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>00:32:51</td>
+                                                                    <td>002ms</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                        </tbody>
+                                                    </table>
 
                                             </div>
                                         </div>
@@ -500,21 +663,21 @@
 
         // Options define for display value on top of bars
         const outcomeDetailsReports = [
-            { title: 'Passing Test Cases', link: "0576f2b192f92ba5be40fa78483b6ae18b467219028a407f58301c14ae4435e6.html" },
-            { title: 'Pending Test Cases', link: "fd8bce889409886d6ee101f49b791a37913e5e06cb1de41134f6db8c9128f3fe.html" },
-            { title: 'Ignored Test Cases', link: "64539bed72088e7a16dae519d0feb404978f4dcf05c29026c4fcb3cb6b9d747b.html" },
-            { title: 'Skipped Test Cases', link: "0a6a105163cb0b8e3706722895973ad4561ff496ef7defa13f61a18fac71944d.html" },
-            { title: 'Aborted Test Cases',  link: "744d44ab00c30166c98d44f45520153c30db2d059c387fa41584730045f3d003.html"},
-            { title: 'Failed Test Cases', link: "96e405e366ee3a3fcb47aa738b15b69fe9ace9ef3ed28b8648fee2161bbe59c6.html"  },
-            { title: 'Broken Test Cases', link: "a20b8548d66e90fff791868b206e8645d7fc72ec142c6187fc14a9b3df806ea2.html"    },
-            { title: 'Compromised Test Cases',  link: "d419501e70d1ad912931d17d8fc861499f347ccfb27095497dc8ee31fd4b5793.html" },
+            { title: 'Passing Test Cases', link: "c31fb8c11087fbdeeeaf9996cb7ac116eb38ef6540ff427bec896a1b2384cb90.html" },
+            { title: 'Pending Test Cases', link: "74a9bf38be44596092b3f720fd043d928b732fe318d02363ae8ca33ed047763f.html" },
+            { title: 'Ignored Test Cases', link: "9eac2cce86f3017b9c41d90b5f572282f75d59d43749cd580f616481d51897a4.html" },
+            { title: 'Skipped Test Cases', link: "5b90cba42558e70a27ba4b74fee60b11a6f96f45e753e2b2e61a3b46ec401a15.html" },
+            { title: 'Aborted Test Cases',  link: "1f85f839a535081dd1bf8c967282042bfca74e8d54a572be7db17fd2181f06ac.html"},
+            { title: 'Failed Test Cases', link: "7a0d72d93cefedc2ba46359e01c35caf8bf7cd86429319c16b67f2177b174ebc.html"  },
+            { title: 'Broken Test Cases', link: "5b2ed5902f639a60f97057e5b2ea44f55e6ce228239c32a9d99c2b5d15ffd9bf.html"    },
+            { title: 'Compromised Test Cases',  link: "f1b1ea9924b467a23943c66e3aca7ba2a8745be0b6ed4cc2d437a3574cd2365c.html" },
         ]
         const outcomeData = {
             labels: ['Passing Test Cases', 'Pending Test Cases', 'Ignored Test Cases', 'Skipped Test Cases', 'Aborted Test Cases', 'Failed Test Cases', 'Broken Test Cases', 'Compromised Test Cases','Undefined Test Cases'],
             datasets: [{
                 label: 'Test Results',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 9}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -565,7 +728,7 @@
                         ctx.font = fontSize + "em sans-serif";
                         ctx.textBaseline = "middle";
 
-                        var text = " "
+                        var text = "100%"
                         textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
                         textY = (height / 2) - 40;
 
@@ -594,14 +757,14 @@
 
         // Options define for display value on top of bars
         const requirementsOutcomeDetailsReports = [
-            { title: 'Passing Test Cases', link: "0576f2b192f92ba5be40fa78483b6ae18b467219028a407f58301c14ae4435e6.html" },
-            { title: 'Pending Test Cases', link: "fd8bce889409886d6ee101f49b791a37913e5e06cb1de41134f6db8c9128f3fe.html" },
-            { title: 'Ignored Test Cases', link: "64539bed72088e7a16dae519d0feb404978f4dcf05c29026c4fcb3cb6b9d747b.html" },
-            { title: 'Skipped Test Cases', link: "0a6a105163cb0b8e3706722895973ad4561ff496ef7defa13f61a18fac71944d.html" },
-            { title: 'Aborted Test Cases',  link: "744d44ab00c30166c98d44f45520153c30db2d059c387fa41584730045f3d003.html"},
-            { title: 'Failed Test Cases', link: "96e405e366ee3a3fcb47aa738b15b69fe9ace9ef3ed28b8648fee2161bbe59c6.html"  },
-            { title: 'Broken Test Cases', link: "a20b8548d66e90fff791868b206e8645d7fc72ec142c6187fc14a9b3df806ea2.html"    },
-            { title: 'Compromised Test Cases',  link: "d419501e70d1ad912931d17d8fc861499f347ccfb27095497dc8ee31fd4b5793.html" },
+            { title: 'Passing Test Cases', link: "c31fb8c11087fbdeeeaf9996cb7ac116eb38ef6540ff427bec896a1b2384cb90.html" },
+            { title: 'Pending Test Cases', link: "74a9bf38be44596092b3f720fd043d928b732fe318d02363ae8ca33ed047763f.html" },
+            { title: 'Ignored Test Cases', link: "9eac2cce86f3017b9c41d90b5f572282f75d59d43749cd580f616481d51897a4.html" },
+            { title: 'Skipped Test Cases', link: "5b90cba42558e70a27ba4b74fee60b11a6f96f45e753e2b2e61a3b46ec401a15.html" },
+            { title: 'Aborted Test Cases',  link: "1f85f839a535081dd1bf8c967282042bfca74e8d54a572be7db17fd2181f06ac.html"},
+            { title: 'Failed Test Cases', link: "7a0d72d93cefedc2ba46359e01c35caf8bf7cd86429319c16b67f2177b174ebc.html"  },
+            { title: 'Broken Test Cases', link: "5b2ed5902f639a60f97057e5b2ea44f55e6ce228239c32a9d99c2b5d15ffd9bf.html"    },
+            { title: 'Compromised Test Cases',  link: "f1b1ea9924b467a23943c66e3aca7ba2a8745be0b6ed4cc2d437a3574cd2365c.html" },
             { title: 'Undefined Test Cases',  link: "" },
         ]
         const requirementsOutcomeData = {
@@ -609,7 +772,7 @@
             datasets: [{
                 label: 'Feature Coverage',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 9}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -660,7 +823,7 @@
                         ctx.font = fontSize + "em sans-serif";
                         ctx.textBaseline = "middle";
 
-                        var text = " "
+                        var text = "100%"
                         textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
                         textY = (height / 2) - 40;
 
@@ -691,21 +854,21 @@
         // Options define for display value on top of bars
 
         const severityDetailsReports = [
-            { title: 'Passing Scenarios', link: "0576f2b192f92ba5be40fa78483b6ae18b467219028a407f58301c14ae4435e6.html" },
-            { title: 'Pending Scenarios', link: "fd8bce889409886d6ee101f49b791a37913e5e06cb1de41134f6db8c9128f3fe.html" },
-            { title: 'Ignored Scenarios', link: "64539bed72088e7a16dae519d0feb404978f4dcf05c29026c4fcb3cb6b9d747b.html" },
-            { title: 'Skipped Scenarios', link: "0a6a105163cb0b8e3706722895973ad4561ff496ef7defa13f61a18fac71944d.html" },
-            { title: 'Aborted Scenarios',  link: "744d44ab00c30166c98d44f45520153c30db2d059c387fa41584730045f3d003.html"},
-            { title: 'Failed Scenarios', link: "96e405e366ee3a3fcb47aa738b15b69fe9ace9ef3ed28b8648fee2161bbe59c6.html"  },
-            { title: 'Broken Scenarios', link: "a20b8548d66e90fff791868b206e8645d7fc72ec142c6187fc14a9b3df806ea2.html"    },
-            { title: 'Compromised Scenarios',  link: "d419501e70d1ad912931d17d8fc861499f347ccfb27095497dc8ee31fd4b5793.html" },
+            { title: 'Passing Scenarios', link: "c31fb8c11087fbdeeeaf9996cb7ac116eb38ef6540ff427bec896a1b2384cb90.html" },
+            { title: 'Pending Scenarios', link: "74a9bf38be44596092b3f720fd043d928b732fe318d02363ae8ca33ed047763f.html" },
+            { title: 'Ignored Scenarios', link: "9eac2cce86f3017b9c41d90b5f572282f75d59d43749cd580f616481d51897a4.html" },
+            { title: 'Skipped Scenarios', link: "5b90cba42558e70a27ba4b74fee60b11a6f96f45e753e2b2e61a3b46ec401a15.html" },
+            { title: 'Aborted Scenarios',  link: "1f85f839a535081dd1bf8c967282042bfca74e8d54a572be7db17fd2181f06ac.html"},
+            { title: 'Failed Scenarios', link: "7a0d72d93cefedc2ba46359e01c35caf8bf7cd86429319c16b67f2177b174ebc.html"  },
+            { title: 'Broken Scenarios', link: "5b2ed5902f639a60f97057e5b2ea44f55e6ce228239c32a9d99c2b5d15ffd9bf.html"    },
+            { title: 'Compromised Scenarios',  link: "f1b1ea9924b467a23943c66e3aca7ba2a8745be0b6ed4cc2d437a3574cd2365c.html" },
         ]
         const severityData = {
             labels: ['Passing', 'Pending', 'Ignored', 'Skipped', 'Aborted', 'Failed', 'Broken', 'Compromised'],
             datasets: [
                 {
                     label: 'Automated',
-                    data: [0,0,0,0,0,0,0,0],
+                    data: [9,0,0,0,0,0,0,0],
                     backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                     borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                     borderWidth: 1
@@ -769,14 +932,14 @@
 
         // Options define for display value on top of bars
         const durationDetailsReports = [
-                {title: "Under 1 second", link: "d5157d9ac66f0a6d137e5727b3a71f827907ec45b76c7f914d7dfdd79ced2ab3.html"},
-                {title: "1 to 10 seconds", link: "8bbbaae46db14bad5185ffdc7141cb8ea0e3a0ab937c5521c931244c3d6bed7d.html"},
-                {title: "10 to 30 seconds", link: "ba96ef14ea2d20559a7d9490031532449695f72efb432903994de2a73ea9e127.html"},
-                {title: "30 to 60 seconds", link: "efbe9a9b802ff093587c8bd1a0b875616eef1caa22bf67e9c253006958e701a7.html"},
-                {title: "1 to 2 minutes", link: "7f5ca75038f74f58eb17ccd089901f1d091a2278f6c58ac2cfd82345e4bf6530.html"},
-                {title: "2 to 5 minutes", link: "977a7a951f74249e75419a8858d187f7c609627781a91b59fba5796b292d2426.html"},
-                {title: "5 to 10 minutes", link: "413c5a5968fd9343fbbb7b68d2c2d7f8f268c065a354975b45a0198a10c409f6.html"},
-                {title: "10 minutes or over", link: "41fddbf315163b573001b0e936ca01e715af08e032637b406ad74269b41bddd4.html"},
+                {title: "Under 1 second", link: "55766ec4c53de74cb7a1baa307c29c2e87c3ddd20fabc1228854298dd5861ac1.html"},
+                {title: "1 to 10 seconds", link: "97cda8d546782cc96b791954686ff6c0f5ecb1c04c820ad3d5d1977289092dc5.html"},
+                {title: "10 to 30 seconds", link: "7c068bc529300e681c9b42d7ad87aca18d476e0b86fd2fd7cfd13be5798bfb96.html"},
+                {title: "30 to 60 seconds", link: "419fde3a94814ea42e8377f0dfd1e477b71921772ba01b5f9e0ec82a1d10cf2e.html"},
+                {title: "1 to 2 minutes", link: "ec50f7b988ff9083a031712215ff44b79357fd25d0f8c7178c25c860a2ed7d1d.html"},
+                {title: "2 to 5 minutes", link: "9516ec0281eefac09a1c496def0d794e03343681fcbedadcd4aa3ed26f9fde09.html"},
+                {title: "5 to 10 minutes", link: "4c1f4ad36de5e039f8334011ddc6523cbdfe1e5a09080d23c5b6edd067091ff2.html"},
+                {title: "10 minutes or over", link: "c4ef6fc341c1fff931f468e402a567f15d89d75fcaee28a93012b4083f2e19c9.html"},
         ]
         // The Severity bar chart
         const durationChartCtx = document.getElementById('durationChart');
@@ -788,7 +951,7 @@
             datasets: [{
                 label: 'Number of tests per duration',
                 fill: false,
-                data: ['0','0','0','0','0','0','0','0'],
+                data: ['9','0','0','0','0','0','0','0'],
                 backgroundColor: 'rgba(83, 146, 255,0.5)',
                 borderColor: 'rgba(83, 146, 255, 1)',
             }]
